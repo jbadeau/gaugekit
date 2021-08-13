@@ -1,0 +1,33 @@
+package org.gaugekit.screenplay;
+
+public enum Pronoun {
+
+    HE("he"),
+
+    SHE("she");
+
+    private String name;
+
+    private Pronoun(String name) {
+        this.name = name;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    @Override
+    public String toString() {
+        return "Pronouns{" +
+                "name='" + name + '\'' +
+                '}';
+    }
+
+    public static boolean contains(String pronoun) {
+        if (HE.name.equals(pronoun) || SHE.name.equals(pronoun)) {
+            return true;
+        }
+        return false;
+    }
+
+}
