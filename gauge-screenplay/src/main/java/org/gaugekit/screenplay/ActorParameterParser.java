@@ -7,7 +7,7 @@ public class ActorParameterParser extends CustomParameterParser<Actor> {
 
     @Override
     protected Actor customParse(Class clazz, Spec.Parameter parameter) {
-        return Actor.named(parameter.getValue());
+        return OnStage.theActorCalled(parameter.getValue());
     }
 
     @Override
