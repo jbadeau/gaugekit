@@ -1,5 +1,6 @@
 package org.gaugekit.screenplay;
 
+
 import java.time.Duration;
 import java.time.Instant;
 import java.util.*;
@@ -19,6 +20,10 @@ public final class Actor {
 
     private final String name;
 
+    private Pronoun pronoun;
+
+    private String description;
+
     /**
      * A {@link Map} of {@link Ability}s the {@link Actor}'s posses.
      */
@@ -29,15 +34,45 @@ public final class Actor {
      */
     private final HashMap<Object, Object> memories = new HashMap<>();
 
-    /**
-     * @param name a name used for logging and reporting
-     */
     public Actor(String name) {
         this.name = requireNonNull(name);
     }
 
+    /**
+     * @param name a name used for logging and reporting
+     */
+    public Actor(String name, Pronoun pronoun) {
+        this.name = requireNonNull(name);
+        this.pronoun = requireNonNull(pronoun);
+    }
+
+    public static Actor named(String name, Pronoun pronoun) {
+        return new Actor(name, pronoun);
+    }
+
     public static Actor named(String name) {
         return new Actor(name);
+    }
+
+    public Actor describedAs(String description) {
+        this.description = description;
+        return this;
+    }
+
+    public String getName() {
+        return toString();
+    }
+
+    public String getNameOrPronoun() {
+        return (pronoun != null) ? pronoun.getName() : name;
+    }
+
+    public Pronoun getPronoun() {
+        return pronoun;
+    }
+
+    public String getDescription() {
+        return description;
     }
 
     /**
