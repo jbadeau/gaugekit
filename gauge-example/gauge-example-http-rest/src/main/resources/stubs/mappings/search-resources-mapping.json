@@ -1,0 +1,18 @@
+{
+  "request": {
+    "method": "GET",
+    "urlPath": "/api/resources",
+    "queryParameters": {
+      "query": {
+        "equalTo": "Gauge"
+      }
+    }
+  },
+  "response": {
+    "status": 200,
+    "bodyFileName": "search-resources.json",
+    "headers": {
+      "Content-Type": "application/json"
+    }
+  }
+}

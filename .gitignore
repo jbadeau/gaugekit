@@ -1,0 +1,24 @@
+#Eclipse
+.project
+.settings
+.classpath
+
+# Intellij
+*.idea
+*.iml
+*.iws
+
+#VSCode
+.vscode
+
+# Maven
+target
+.flattened-pom.xml
+
+# Gauge
+.gauge
+build
+logs
+reports
+snapshot
+tmp

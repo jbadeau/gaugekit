@@ -1,0 +1,13 @@
+{
+  "request": {
+    "method": "POST",
+    "urlPath": "/api"
+  },
+  "response": {
+    "status": 200,
+    "bodyFileName": "search-resources.json",
+    "headers": {
+      "Content-Type": "application/json"
+    }
+  }
+}
