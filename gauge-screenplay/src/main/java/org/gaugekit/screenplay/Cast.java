@@ -23,20 +23,6 @@ public class Cast {
         return actors.get(actorName);
     }
 
-    public Actor actorNamed(String actorName, Pronoun pronoun, Ability... abilities) {
-
-        if (!actors.containsKey(actorName)) {
-            Actor newActor = Actor.named(actorName, pronoun);
-
-            for (Ability doSomething : abilities) {
-                newActor.can(doSomething);
-            }
-
-            actors.put(actorName, newActor);
-        }
-        return actors.get(actorName);
-    }
-
     public List<Actor> getActors() {
         return actors.values().stream()
                 .collect(Collectors.toList());
