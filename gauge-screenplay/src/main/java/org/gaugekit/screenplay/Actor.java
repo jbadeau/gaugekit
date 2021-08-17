@@ -20,7 +20,7 @@ public final class Actor {
 
     private final String name;
 
-    private Pronoun pronoun;
+    private String pronoun;
 
     private String description;
 
@@ -34,20 +34,11 @@ public final class Actor {
      */
     private final HashMap<Object, Object> memories = new HashMap<>();
 
-    public Actor(String name) {
-        this.name = requireNonNull(name);
-    }
-
     /**
      * @param name a name used for logging and reporting
      */
-    public Actor(String name, Pronoun pronoun) {
+    public Actor(String name) {
         this.name = requireNonNull(name);
-        this.pronoun = requireNonNull(pronoun);
-    }
-
-    public static Actor named(String name, Pronoun pronoun) {
-        return new Actor(name, pronoun);
     }
 
     public static Actor named(String name) {
@@ -60,15 +51,21 @@ public final class Actor {
     }
 
     public String getName() {
-        return toString();
+        return name;
     }
 
     public String getNameOrPronoun() {
-        return (pronoun != null) ? pronoun.getName() : name;
+        return (pronoun != null) ? pronoun : name;
     }
 
-    public Pronoun getPronoun() {
-        return pronoun;
+    public Actor usingPronoun(String pronoun) {
+        this.pronoun = pronoun;
+        return this;
+    }
+
+    public Actor withNoPronoun() {
+        this.pronoun = null;
+        return this;
     }
 
     public String getDescription() {
@@ -247,3 +244,4 @@ public final class Actor {
     }
 
 }
+
