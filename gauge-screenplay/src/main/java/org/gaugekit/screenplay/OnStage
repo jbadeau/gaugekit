@@ -40,10 +40,8 @@ public class OnStage {
     }
 
     public static Actor theActorCalled(String requiredActor) {
-        if (stage().anActorIsOnStage()) {
-            if(stage().theActorInTheSpotlight().getNameOrPronoun().equals(requiredActor) || stage().theActorInTheSpotlight().getName().equals(requiredActor)) {
-                return stage().theActorInTheSpotlight();
-            }
+        if (ScreenplayProperties.getPronouns().contains(requiredActor)) {
+            return stage().theActorInTheSpotlight().usingPronoun(requiredActor);
         }
         return stage().shineSpotlightOn(requiredActor);
     }
