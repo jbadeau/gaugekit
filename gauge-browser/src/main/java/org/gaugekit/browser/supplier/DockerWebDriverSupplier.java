@@ -41,9 +41,9 @@ public class DockerWebDriverSupplier extends WebDriverSupplier {
 
     @Override
     public WebDriver get() {
-        final BrowserType browserType = getBrowserType();
-        final Capabilities capabilities = getCapabilities();
-        BrowserWebDriverContainer<? extends BrowserWebDriverContainer<?>> webDriverContainer = webDriverContainers.get(browserType);
+        final var browserType = getBrowserType();
+        final var capabilities = getCapabilities();
+        var webDriverContainer = webDriverContainers.get(browserType);
         if (webDriverContainer == null || !webDriverContainer.isRunning()) {
             webDriverContainer = new BrowserWebDriverContainer<>().withCapabilities(capabilities);
             webDriverContainer.start();
