@@ -1,7 +1,7 @@
 package org.gaugekit.screenplay;
 
 /**
- * A {@link Task} can be {@link Actor#attemptTo performed} by an {@link Actor}.
+ * A {@link Task} can be {@link Actor#attemptsTo performed} by an {@link Actor}.
  */
 public interface Task {
 

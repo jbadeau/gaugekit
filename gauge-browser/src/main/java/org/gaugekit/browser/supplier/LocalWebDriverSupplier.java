@@ -1,13 +1,8 @@
 package org.gaugekit.browser.supplier;
 
-import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.Capabilities;
 import org.openqa.selenium.WebDriver;
 
-/**
- * A {@link WebDriverSupplier} for locally installed browser instances. Uses {@link WebDriverManager} to setup the local
- * binary.
- */
 public class LocalWebDriverSupplier extends WebDriverSupplier {
 
     private WebDriver webDriver;

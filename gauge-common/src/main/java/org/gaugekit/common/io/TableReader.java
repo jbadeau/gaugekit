@@ -10,9 +10,9 @@ import org.apache.poi.ss.usermodel.Sheet;
 import org.apache.poi.ss.usermodel.Workbook;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 
-import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
+import java.nio.file.Path;
 import java.sql.ResultSet;
 import java.sql.ResultSetMetaData;
 import java.sql.SQLException;
@@ -26,42 +26,42 @@ public final class TableReader {
     private TableReader() {
     }
 
-    public static Table readExcelSheetTable(File file, String sheetName) throws IOException {
-        Workbook workbook = new XSSFWorkbook(new FileInputStream(file));
+    public static Table fromExcel(Path file, String sheetName) throws IOException {
+        Workbook workbook = new XSSFWorkbook(new FileInputStream(file.toFile()));
         Sheet sheet = workbook.getSheet(sheetName);
         if (sheet == null) {
             throw new RuntimeException(String.format("Sheet with name '%s' does not exist", sheetName));
         }
-        List<String> headers = getExcelRow(sheet.getRow(0));
+        List<String> headers = fromExcelRow(sheet.getRow(0));
         validateHeaders(headers);
         Table table = new Table(headers);
         for (int i = 1; i < sheet.getLastRowNum() + 1; i++) {
-            table.addRow(getExcelRow(sheet.getRow(i)));
+            table.addRow(fromExcelRow(sheet.getRow(i)));
         }
         return table;
     }
 
-    public static Table readExcelSheetTable(String path, String sheetName) throws IOException {
-        return readExcelSheetTable(FileReader.fileAt(path), sheetName);
+    public static Table fromExcel(String path, String sheetName) throws IOException {
+        return fromExcel(FileReader.fileAt(path), sheetName);
     }
 
-    public static Table readCsvTable(File file) throws IOException {
-        CSVParser parser = CSVParser.parse(new java.io.FileReader(file), CSVFormat.DEFAULT
+    public static Table fromCsv(Path file) throws IOException {
+        CSVParser parser = CSVParser.parse(new java.io.FileReader(file.toFile()), CSVFormat.DEFAULT
                 .withFirstRecordAsHeader());
         List<String> headers = parser.getHeaderNames();
         validateHeaders(headers);
         Table table = new Table(headers);
         for (CSVRecord record : parser.getRecords()) {
-            table.addRow(getCSVRow(record));
+            table.addRow(fromCsvRow(record));
         }
         return table;
     }
 
-    public static Table readCsvTable(String path) throws IOException {
-        return readCsvTable(FileReader.fileAt(path));
+    public static Table fromCsv(String path) throws IOException {
+        return fromCsv(FileReader.fileAt(path));
     }
 
-    public static Table readResultSetTable(ResultSet resultSet) throws SQLException {
+    public static Table fromResultSet(ResultSet resultSet) throws SQLException {
         List<String> headers = new ArrayList<String>();
         ResultSetMetaData resultSetMetaData = (ResultSetMetaData) resultSet.getMetaData();
         int counter = resultSetMetaData.getColumnCount();
@@ -82,7 +82,7 @@ public final class TableReader {
         return table;
     }
 
-    private static List<String> getExcelRow(Row row) {
+    private static List<String> fromExcelRow(Row row) {
         List<String> tableRow = new ArrayList<String>();
         for (int i = 0; i < row.getLastCellNum(); i++) {
             tableRow.add(dataFormatter.formatCellValue(row.getCell(i)));
@@ -90,7 +90,7 @@ public final class TableReader {
         return tableRow;
     }
 
-    private static List<String> getCSVRow(CSVRecord row) {
+    private static List<String> fromCsvRow(CSVRecord row) {
         List<String> tableRow = new ArrayList<String>();
         for (String cell : row) {
             tableRow.add(cell);

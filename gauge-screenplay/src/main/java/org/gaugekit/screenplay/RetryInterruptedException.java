@@ -4,8 +4,8 @@ package org.gaugekit.screenplay;
  * A {@link RetryInterruptedException} is thrown when an {@link Actor} get interrupted while retrying a
  * {@link Retryable}.
  *
- * @see Actor#attemptTo(RetryableTask)
- * @see Actor#askFor(RetryableQuestion)
+ * @see Actor#attemptsTo(RetryableTask)
+ * @see Actor#asksFor(RetryableQuestion)
  */
 public class RetryInterruptedException extends RuntimeException {
 

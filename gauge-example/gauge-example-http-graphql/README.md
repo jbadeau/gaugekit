@@ -1,1 +1,1 @@
-# examples-api-graphql
+# gauge-example-http-graphql

@@ -2,8 +2,8 @@ package org.gaugekit.template;
 
 import com.github.jknack.handlebars.Handlebars;
 import com.github.jknack.handlebars.Template;
-import org.gaugekit.common.property.CommonProperties;
 import org.gaugekit.common.io.FileReader;
+import org.gaugekit.common.property.GaugeProperties;
 import org.gaugekit.template.helper.DateTimeHelpers;
 import org.apache.commons.io.FileUtils;
 import org.apache.commons.io.FilenameUtils;
@@ -11,6 +11,7 @@ import org.apache.commons.io.FilenameUtils;
 import java.io.File;
 import java.io.IOException;
 import java.nio.charset.StandardCharsets;
+import java.nio.file.Path;
 import java.util.Map;
 
 public class TemplateRenderer {
@@ -31,13 +32,13 @@ public class TemplateRenderer {
         }
     }
 
-    public File renderToFile(String template, Map<String, Object> values) {
+    public Path renderToFile(String template, Map<String, Object> values) {
         try {
-            File templateFile = FileReader.fileAt(template);
+            Path templateFile = FileReader.fileAt(template);
             String templateContent = render(FileReader.contentOf(templateFile), values);
-            String fileName = compileInline(templateFile.getName()).apply(values);
-            File file = new File(new File(CommonProperties.getTmpDir(), FileReader.parseEnv(templateFile)), FilenameUtils.removeExtension(fileName));
-            FileUtils.writeStringToFile(file, templateContent, StandardCharsets.UTF_8);
+            String fileName = compileInline(templateFile.getFileName().toString()).apply(values);
+            Path file = templateFile.getParent().resolve(FilenameUtils.removeExtension(fileName));
+            FileUtils.writeStringToFile(file.toFile(), templateContent, StandardCharsets.UTF_8);
             return file;
         } catch (IOException e) {
             throw new RuntimeException(String.format("Failed to render template '%s' with values '%s'", template, values), e);
@@ -62,6 +63,12 @@ public class TemplateRenderer {
 
     public void registerHelpers(Class helpers) {
         handlebars.registerHelpers(helpers);
+    }
+
+    private static String parseEnv(Path file) {
+        String dataPath = GaugeProperties.gauge_data_dir().toAbsolutePath().toString();
+        String env = file.toAbsolutePath().toString().substring(dataPath.length() + 1);
+        return new File(env.substring(0, env.indexOf(File.separator))).getName();
     }
 
 }

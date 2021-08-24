@@ -19,7 +19,7 @@ class ActorTest {
     void performsTest1() {
         final Task taskMock = mock(Task.class);
 
-        actor.attemptTo(taskMock);
+        actor.attemptsTo(taskMock);
 
         verify(taskMock, times(1)).performAs(actor);
     }
@@ -31,7 +31,7 @@ class ActorTest {
         @SuppressWarnings("unchecked") final Question<String> questionMock = (Question<String>) mock(Question.class);
         when(questionMock.answerAs(actor)).thenReturn(mockedAnswer);
 
-        assertThat(actor.askFor(questionMock)).isEqualTo(mockedAnswer);
+        assertThat(actor.asksFor(questionMock)).isEqualTo(mockedAnswer);
 
         verify(questionMock, times(1)).answerAs(actor);
     }
@@ -59,7 +59,7 @@ class ActorTest {
     @DisplayName("remember makes the actor create a memory")
     void remember1() {
         final String avengers = "Avengers";
-        String memory = actor.remember("team", avengers).recall("team");
+        String memory = actor.remembers("team", avengers).recites("team");
         assertThat(memory).isEqualTo(avengers);
     }
 
@@ -69,6 +69,6 @@ class ActorTest {
         final String pepper = "Pepper";
 
         assertThatExceptionOfType(MissingMemoryException.class)
-                .isThrownBy(() -> actor.recall(pepper));
+                .isThrownBy(() -> actor.recites(pepper));
     }
 }

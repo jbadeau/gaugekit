@@ -22,8 +22,6 @@ public final class Actor {
 
     private String pronoun;
 
-    private String description;
-
     /**
      * A {@link Map} of {@link Ability}s the {@link Actor}'s posses.
      */
@@ -45,11 +43,6 @@ public final class Actor {
         return new Actor(name);
     }
 
-    public Actor describedAs(String description) {
-        this.description = description;
-        return this;
-    }
-
     public String getName() {
         return name;
     }
@@ -68,15 +61,11 @@ public final class Actor {
         return this;
     }
 
-    public String getDescription() {
-        return description;
-    }
-
     /**
      * @param task the {@link Task} to be performed by this {@link Actor}
      * @return this {@link Actor}
      */
-    public Actor attemptTo(Task task) {
+    public Actor attemptsTo(Task task) {
         task.performAs(this);
         return this;
     }
@@ -86,7 +75,7 @@ public final class Actor {
      * @return this {@link Actor}
      * @throws TimeoutException if no acceptable answer is given when the question's timeout is reached
      */
-    public Actor attemptTo(RetryableTask task) {
+    public Actor attemptsTo(RetryableTask task) {
         final Duration timeout = task.getTimeout();
         final long intervalMillis = task.getInterval().toMillis();
         final Instant end = now().plus(timeout);
@@ -122,7 +111,7 @@ public final class Actor {
      * @param <A>      the {@link Class} of the answer
      * @return the answer to the given Question
      */
-    public <A> A askFor(Question<A> question) {
+    public <A> A asksFor(Question<A> question) {
         return question.answerAs(this);
     }
 
@@ -132,7 +121,7 @@ public final class Actor {
      * @return the answer to the given Question
      * @throws TimeoutException if no acceptable answer is given when the question's timeout is reached
      */
-    public <A> A askFor(RetryableQuestion<A> question) {
+    public <A> A asksFor(RetryableQuestion<A> question) {
         final Duration timeout = question.getTimeout();
         final long intervalMillis = question.getInterval().toMillis();
         final Instant end = now().plus(timeout);
@@ -191,27 +180,27 @@ public final class Actor {
     }
 
     /**
-     * @param name   the name of memory the {@link Actor} {@link #remember}s
-     * @param memory the memory the {@link Actor} {@link #remember}s
+     * @param name   the name of memory the {@link Actor} {@link #remembers}s
+     * @param memory the memory the {@link Actor} {@link #remembers}s
      * @return this {@link Actor}
      */
-    public Actor remember(String name, Object memory) {
+    public Actor remembers(String name, Object memory) {
         memories.put(name, memory);
         return this;
     }
 
-    public Actor remember(String name, Question question) {
-        memories.put(name, askFor(question));
+    public Actor remembers(String name, Question question) {
+        memories.put(name, asksFor(question));
         return this;
     }
 
     /**
-     * @param name the name of the memory the {@link Actor} {@link #recall}s
+     * @param name the name of the memory the {@link Actor} {@link #recites}s
      * @return the {@link Memory} instance for the {@link Actor}'s {@link #memories}
      * @throws MissingMemoryException if there's no instance of the requested {@link Memory} {@link Class} in the
      *                                {@link Actor}'s {@link #memories}
      */
-    public <T> T recall(String name) {
+    public <T> T recites(String name) {
         T fact = (T) memories.get(name);
         if (fact == null) {
             throw new MissingMemoryException(this, name);

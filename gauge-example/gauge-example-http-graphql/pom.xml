@@ -5,7 +5,7 @@
     <parent>
         <groupId>org.gaugekit</groupId>
         <artifactId>gauge-example</artifactId>
-        <version>${revision}</version>
+        <version>0.1.0-SNAPSHOT</version>
         <relativePath>../pom.xml</relativePath>
     </parent>
     <artifactId>gauge-example-http-graphql</artifactId>
@@ -13,13 +13,19 @@
     <build>
         <plugins>
             <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-compiler-plugin</artifactId>
-                <configuration>
-                    <source>${version.java}</source>
-                    <target>${version.java}</target>
-                    <encoding>${project.build.sourceEncoding}</encoding>
-                </configuration>
+                <groupId>com.thoughtworks.gauge.maven</groupId>
+                <artifactId>gauge-maven-plugin</artifactId>
+                <executions>
+                    <execution>
+                        <phase>integration-test</phase>
+                        <configuration>
+                            <specsDir>specs</specsDir>
+                        </configuration>
+                        <goals>
+                            <goal>execute</goal>
+                        </goals>
+                    </execution>
+                </executions>
             </plugin>
             <plugin>
                 <groupId>com.graphql-java-generator</groupId>
@@ -27,14 +33,16 @@
                 <executions>
                     <execution>
                         <goals>
-                            <goal>graphql</goal>
+                            <goal>generateClientCode</goal>
                         </goals>
                     </execution>
                 </executions>
+                <extensions>true</extensions>
                 <configuration>
                     <packageName>org.gaugekit.examples.api.graphql.google</packageName>
                     <mode>client</mode>
                     <schemaFilePattern>/api/google.search.graphqls</schemaFilePattern>
+                    <addRelayConnections>false</addRelayConnections>
                 </configuration>
             </plugin>
             <plugin>
@@ -64,12 +72,24 @@
             <version>${project.version}</version>
         </dependency>
         <dependency>
+            <groupId>com.fasterxml.jackson.core</groupId>
+            <artifactId>jackson-core</artifactId>
+        </dependency>
+        <dependency>
             <groupId>com.graphql-java-generator</groupId>
             <artifactId>graphql-java-runtime</artifactId>
         </dependency>
         <dependency>
-            <groupId>junit</groupId>
-            <artifactId>junit</artifactId>
+            <groupId>org.testcontainers</groupId>
+            <artifactId>mockserver</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>io.netty</groupId>
+            <artifactId>netty-handler</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.mock-server</groupId>
+            <artifactId>mockserver-client-java</artifactId>
         </dependency>
     </dependencies>
 </project>

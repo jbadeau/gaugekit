@@ -1,1 +1,1 @@
-# gauge-examples-sql
+# gauge-example-sql

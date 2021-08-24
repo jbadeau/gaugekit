@@ -1,15 +1,20 @@
 package org.gaugekit.example.api.rest.google;
 
+import com.thoughtworks.gauge.*;
+import org.gaugekit.common.io.FileReader;
 import org.gaugekit.examples.ui.google.search.api.SearchApi;
 import org.gaugekit.examples.ui.google.search.client.ApiClient;
 import org.gaugekit.examples.ui.google.search.model.Resource;
-import com.thoughtworks.gauge.BeforeSpec;
-import com.thoughtworks.gauge.Step;
 import com.thoughtworks.gauge.datastore.DataStoreFactory;
 import io.restassured.builder.RequestSpecBuilder;
 import io.restassured.filter.log.ErrorLoggingFilter;
+import org.mockserver.client.MockServerClient;
+import org.testcontainers.containers.MockServerContainer;
 
 import java.util.List;
+
+import static org.mockserver.model.HttpRequest.request;
+import static org.mockserver.model.HttpResponse.response;
 
 import static org.gaugekit.examples.ui.google.search.client.JacksonObjectMapper.jackson;
 import static io.restassured.config.ObjectMapperConfig.objectMapperConfig;
@@ -21,13 +26,32 @@ public class GoogleSearchSteps {
 
     private SearchApi api;
 
-    @BeforeSpec
-    public void beforeSpec() {
+    public MockServerContainer mockServer;
+
+    @BeforeScenario
+    public void beforeScenario() {
+        mockServer = new MockServerContainer();
+        mockServer.start();
+
+        MockServerClient client = new MockServerClient(mockServer.getHost(), mockServer.getServerPort());
+
+        client
+                .when(request().withPath("/resources")
+                        .withQueryStringParameter("query", "Gauge"))
+                .respond(response()
+                        .withStatusCode(200)
+                        .withBody(FileReader.contentOf("search-resources.json")));
+
         api = ApiClient.api(ApiClient.Config.apiConfig().reqSpecSupplier(
                 () -> new RequestSpecBuilder()
                         .setConfig(config().objectMapperConfig(objectMapperConfig().defaultObjectMapper(jackson())))
                         .addFilter(new ErrorLoggingFilter())
-                        .setBaseUri(GoogleProperties.getGoogleBaseUrl()))).search();
+                        .setBaseUri(String.format("http://%s:%s", mockServer.getHost(), mockServer.getServerPort())))).search();
+    }
+
+    @AfterScenario
+    public void afterScenario() {
+        mockServer.stop();
     }
 
     @Step("goto google")

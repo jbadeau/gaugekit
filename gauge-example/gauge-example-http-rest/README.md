@@ -1,1 +1,1 @@
-# gauge-examples-api-rest
+# gauge-example-http-rest

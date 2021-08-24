@@ -2,23 +2,52 @@ package org.gaugekit.example.api.graphql.google;
 
 import com.graphql_java_generator.exception.GraphQLRequestExecutionException;
 import com.graphql_java_generator.exception.GraphQLRequestPreparationException;
-import com.thoughtworks.gauge.BeforeSpec;
+import com.thoughtworks.gauge.AfterScenario;
+import com.thoughtworks.gauge.BeforeScenario;
 import com.thoughtworks.gauge.Step;
 import com.thoughtworks.gauge.datastore.DataStoreFactory;
+import org.gaugekit.common.io.FileReader;
+import org.gaugekit.examples.api.graphql.google.QueryExecutor;
+import org.gaugekit.examples.api.graphql.google.Resource;
+import org.mockserver.client.MockServerClient;
+import org.testcontainers.containers.MockServerContainer;
 
 import java.util.List;
 
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.equalTo;
+import static org.mockserver.model.HttpRequest.request;
+import static org.mockserver.model.HttpResponse.response;
 
 
 public class GoogleSearchSteps {
 
-    private Query query;
+    private QueryExecutor query;
 
-    @BeforeSpec
-    public void beforeSpec() {
-        query = new Query(GoogleProperties.getGoogleBaseUrl());
+    public MockServerContainer mockServer;
+
+    @BeforeScenario
+    public void beforeScenario() {
+        mockServer = new MockServerContainer();
+        mockServer.start();
+
+        MockServerClient client = new MockServerClient(mockServer.getHost(), mockServer.getServerPort());
+
+        client
+                .when(request()
+                        .withPath("/")
+                        .withMethod("POST"))
+                .respond(response()
+                        .withStatusCode(200)
+                        .withHeader("Content-Type", "application/json")
+                        .withBody(FileReader.contentOf("search-resources.json")));
+
+        query = new QueryExecutor(String.format("http://%s:%s", mockServer.getHost(), mockServer.getServerPort()));
+    }
+
+    @AfterScenario
+    public void afterScenario() {
+        mockServer.stop();
     }
 
     @Step("goto google")

@@ -1,1 +1,1 @@
-# gauge-examples-ui
+# gauge-example-browser

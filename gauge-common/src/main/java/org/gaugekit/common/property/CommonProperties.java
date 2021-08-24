@@ -1,22 +1,13 @@
 package org.gaugekit.common.property;
 
-import java.io.File;
-
-public final class CommonProperties {
+public final class CommonProperties extends GaugeProperties {
 
     private CommonProperties() {
+        super();
     }
 
-    public static File getTmpDir() {
-        return new File(DefaultProperties.getProjectRoot(), System.getenv("tmp_dir"));
-    }
-
-    public static String getTestEnvironment() {
-        return System.getenv("test_environment");
-    }
-
-    public static Long getTestTimeout() {
-        return Long.parseLong(System.getenv("test_timeout"));
+    public static String common_test_environment() {
+        return getString("common_test_environment");
     }
 
 }

@@ -7,17 +7,14 @@ import java.util.stream.Collectors;
 
 public class Cast {
 
-    Map<String, Actor> actors = new HashMap();
+    private Map<String, Actor> actors = new HashMap();
 
     public Actor actorNamed(String actorName, Ability... abilities) {
-
         if (!actors.containsKey(actorName)) {
             Actor newActor = Actor.named(actorName);
-
             for (Ability doSomething : abilities) {
                 newActor.can(doSomething);
             }
-
             actors.put(actorName, newActor);
         }
         return actors.get(actorName);
@@ -29,6 +26,7 @@ public class Cast {
     }
 
     public void dismissAll() {
+        actors.forEach((s, actor) -> actor.cleanUp());
         actors.clear();
     }
 

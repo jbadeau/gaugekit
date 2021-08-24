@@ -5,12 +5,13 @@ import org.gaugekit.table.diff.TableDiff;
 import org.gaugekit.table.diff.TableDiffer;
 import org.gaugekit.table.diff.TableDiffException;
 import com.thoughtworks.gauge.Table;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
+
 
 import java.util.ArrayList;
 import java.util.List;
 
-import static org.junit.Assert.*;
+import static org.assertj.core.api.Assertions.*;
 
 public class TableDifferTest {
 
@@ -153,7 +154,7 @@ public class TableDifferTest {
 
     @Test
     public void considers_same_table_as_equal() {
-        assertTrue(new TableDiffer(table(), table()).calculateDiffs().isEmpty());
+        assertThat(new TableDiffer(table(), table()).calculateDiffs().isEmpty()).isTrue();
     }
 
     @Test
@@ -208,7 +209,7 @@ public class TableDifferTest {
     public void empty_list_should_not_diff_with_empty_table() {
         List<List<String>> emptyList = new ArrayList<>();
         Table emptyTable = new TableBuilder("name", "email", "code").build();
-        assertEquals(emptyTable.getRows(), emptyList);
+        assertThat(emptyTable.getRows()).isEqualTo(emptyList);
     }
 
     @Test
@@ -253,12 +254,12 @@ public class TableDifferTest {
 
     @Test
     public void unordered_diff_with_itself() {
-        assertTrue(new TableDiffer(table(), table()).calculateUnorderedDiffs().isEmpty());
+        assertThat(new TableDiffer(table(), table()).calculateUnorderedDiffs().isEmpty()).isTrue();
     }
 
     @Test
     public void unordered_diff_with_itself_in_different_order() {
-        assertTrue(new TableDiffer(table(), otherTableWithDifferentOrder()).calculateUnorderedDiffs().isEmpty());
+        assertThat(new TableDiffer(table(), otherTableWithDifferentOrder()).calculateUnorderedDiffs().isEmpty()).isTrue();
     }
 
     @Test
@@ -355,29 +356,24 @@ public class TableDifferTest {
     }
 
     private void assertUnorderedDiff(Table table, Table other, String expected) {
-        try {
+        assertThatThrownBy(() -> {
             TableDiffer tableDiffer = new TableDiffer(table, other);
             TableDiff dataTableDiff = tableDiffer.calculateUnorderedDiffs();
             if (!dataTableDiff.isEmpty()) {
                 throw TableDiffException.diff(dataTableDiff);
             }
-            fail("Expected exception");
-        } catch (TableDiffException e) {
-            assertEquals("tables were different:\n" + expected, e.getMessage());
-        }
+        }).isInstanceOf(TableDiffException.class).hasMessageContaining("tables were different:\n" + expected);
+
     }
 
     private void assertDiff(Table table, Table other, String expected) {
-        try {
+        assertThatThrownBy(() -> {
             TableDiffer tableDiffer = new TableDiffer(table, other);
             TableDiff dataTableDiff = tableDiffer.calculateDiffs();
             if (!dataTableDiff.isEmpty()) {
                 throw TableDiffException.diff(dataTableDiff);
             }
-            fail("Expected exception");
-        } catch (TableDiffException e) {
-            assertEquals("tables were different:\n" + expected, e.getMessage());
-        }
+        }).isInstanceOf(TableDiffException.class).hasMessageContaining("tables were different:\n" + expected);
     }
 
 }

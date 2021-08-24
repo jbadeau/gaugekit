@@ -1,7 +1,7 @@
 package org.gaugekit.screenplay;
 
 /**
- * A {@link Question} can be {@link Actor#askFor answered} by an {@link Actor}
+ * A {@link Question} can be {@link Actor#asksFor answered} by an {@link Actor}
  *
  * @param <A> the {@link Class} of the {@link Question}'s answer
  */

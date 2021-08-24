@@ -1,21 +1,19 @@
 package org.gaugekit.screenplay;
 
-import java.util.Arrays;
+import org.gaugekit.common.property.GaugeProperties;
+
 import java.util.List;
 
-public class ScreenplayProperties {
+public final class ScreenplayProperties extends GaugeProperties {
+
+    private static final String screenplay_pronouns = "screenplay_pronouns";
 
     private ScreenplayProperties() {
+        super();
     }
 
-    public static List<String> getPronouns() {
-        String pronouns = System.getenv("screenplay_pronouns");
-
-        if (pronouns == null) {
-            return Arrays.asList("he", "she", "it", "they");
-        }
-
-        return Arrays.asList(pronouns.split(","));
+    public static List<String> screenplay_pronouns() {
+        return getStringList(screenplay_pronouns, ",");
     }
 
 }

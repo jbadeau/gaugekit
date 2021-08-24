@@ -5,7 +5,7 @@
     <parent>
         <groupId>org.gaugekit</groupId>
         <artifactId>gauge-example</artifactId>
-        <version>${revision}</version>
+        <version>0.1.0-SNAPSHOT</version>
         <relativePath>../pom.xml</relativePath>
     </parent>
     <artifactId>gauge-example-sql</artifactId>
@@ -13,20 +13,27 @@
     <build>
         <plugins>
             <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-compiler-plugin</artifactId>
-                <configuration>
-                    <source>${version.java}</source>
-                    <target>${version.java}</target>
-                    <encoding>${project.build.sourceEncoding}</encoding>
-                </configuration>
+                <groupId>com.thoughtworks.gauge.maven</groupId>
+                <artifactId>gauge-maven-plugin</artifactId>
+                <executions>
+                    <execution>
+                        <phase>integration-test</phase>
+                        <configuration>
+                            <specsDir>specs</specsDir>
+                        </configuration>
+                        <goals>
+                            <goal>execute</goal>
+                        </goals>
+                    </execution>
+                </executions>
             </plugin>
         </plugins>
     </build>
     <dependencies>
         <dependency>
-            <groupId>org.apache.derby</groupId>
-            <artifactId>derbyclient</artifactId>
+            <groupId>org.gaugekit</groupId>
+            <artifactId>gauge-sql</artifactId>
+            <version>${project.version}</version>
         </dependency>
         <dependency>
             <groupId>org.gaugekit</groupId>
@@ -35,12 +42,17 @@
         </dependency>
         <dependency>
             <groupId>org.gaugekit</groupId>
-            <artifactId>gauge-sql</artifactId>
+            <artifactId>gauge-screenplay</artifactId>
             <version>${project.version}</version>
         </dependency>
         <dependency>
-            <groupId>junit</groupId>
-            <artifactId>junit</artifactId>
+            <groupId>org.testcontainers</groupId>
+            <artifactId>mysql</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>mysql</groupId>
+            <artifactId>mysql-connector-java</artifactId>
+            <version>8.0.25</version>
         </dependency>
     </dependencies>
 </project>

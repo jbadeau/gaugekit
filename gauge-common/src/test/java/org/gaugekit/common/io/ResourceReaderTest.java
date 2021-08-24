@@ -1,75 +1,44 @@
 package org.gaugekit.common.io;
 
-import org.gaugekit.common.property.DefaultProperties;
-import org.gaugekit.common.property.CommonProperties;
-import org.junit.Test;
-import org.junit.runner.RunWith;
-import org.powermock.core.classloader.annotations.PrepareForTest;
-import org.powermock.modules.junit4.PowerMockRunner;
+import org.gaugekit.common.property.GaugeProperties;
+import org.junit.jupiter.api.Test;
+import org.mockito.MockedStatic;
+import org.mockito.Mockito;
 
-import java.io.File;
+import java.net.URISyntaxException;
 import java.nio.file.Paths;
-import java.util.*;
+import java.util.Arrays;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertTrue;
-import static org.mockito.Mockito.when;
-import static org.powermock.api.mockito.PowerMockito.mockStatic;
+import static org.assertj.core.api.Assertions.assertThat;
 
-@RunWith(PowerMockRunner.class)
-@PrepareForTest({FileReader.class, DefaultProperties.class, CommonProperties.class})
 public class ResourceReaderTest {
 
     @Test
-    public void getEnvironment() {
-        mockStatic(System.class);
-
-        when(System.getenv("GAUGE_ENVIRONMENT")).thenReturn("int");
-        List<String> environments = DefaultProperties.getEnvironments();
-
-        assertEquals("int", environments.get(0));
+    public void getFileFromDefaultEnvTest() throws URISyntaxException {
+        try (MockedStatic mocked = Mockito.mockStatic(GaugeProperties.class)) {
+            mocked.when(GaugeProperties::GAUGE_ENVIRONMENT).thenReturn(Arrays.asList("default"));
+            mocked.when(GaugeProperties::gauge_data_dir).thenReturn(Paths.get(Thread.currentThread().getContextClassLoader().getResource(".").toURI()));
+            assertThat(FileReader.fileAt("employees.csv").endsWith(Paths.get("default", "employees.csv").toString())).isTrue();
+        }
     }
 
     @Test
-    public void getFileFromDefaultEnvTest() {
-        mockStatic(DefaultProperties.class);
-        mockStatic(CommonProperties.class);
+    public void getFileFromDefaultEnvFallback() throws URISyntaxException {
+        try (MockedStatic mocked = Mockito.mockStatic(GaugeProperties.class)) {
+            mocked.when(GaugeProperties::GAUGE_ENVIRONMENT).thenReturn(Arrays.asList("test", "default"));
+            mocked.when(GaugeProperties::gauge_data_dir).thenReturn(Paths.get(Thread.currentThread().getContextClassLoader().getResource(".").toURI()));
 
-        when(DefaultProperties.getEnvironments())
-                .thenReturn(new ArrayList<>(Collections.singletonList("default")));
-
-        when(DefaultProperties.getDataDir())
-                .thenReturn(new File(getClass().getResource("/").getFile()));
-
-        assertTrue(FileReader.fileAt("employees.csv").getPath().endsWith(Paths.get("default", "employees.csv").toString()));
+            assertThat(FileReader.fileAt("employees.csv").endsWith(Paths.get("default", "employees.csv").toString())).isTrue();
+        }
     }
 
     @Test
-    public void getFileByDefaultEnvFallback() {
-        mockStatic(DefaultProperties.class);
-        mockStatic(CommonProperties.class);
-
-        when(DefaultProperties.getEnvironments())
-                .thenReturn(new ArrayList<>(Arrays.asList("default", "test")));
-
-        when(DefaultProperties.getDataDir())
-                .thenReturn(new File(getClass().getResource("/").getFile()));
-
-        assertTrue(FileReader.fileAt("employees.csv").getPath().endsWith(Paths.get("default", "employees.csv").toString()));
-    }
-
-    @Test
-    public void getFileFromCustomEnv() {
-        mockStatic(DefaultProperties.class);
-        mockStatic(CommonProperties.class);
-
-        when(DefaultProperties.getEnvironments())
-                .thenReturn(new ArrayList<>(Arrays.asList("default", "test")));
-
-        when(DefaultProperties.getDataDir())
-                .thenReturn(new File(getClass().getResource("/").getFile()));
-
-        assertTrue(FileReader.fileAt("people.csv").getPath().endsWith(Paths.get("test", "people.csv").toString()));
+    public void getFileFromCustomEnv() throws URISyntaxException {
+        try (MockedStatic mocked = Mockito.mockStatic(GaugeProperties.class)) {
+            mocked.when(GaugeProperties::GAUGE_ENVIRONMENT).thenReturn(Arrays.asList("test", "default"));
+            mocked.when(GaugeProperties::gauge_data_dir).thenReturn(Paths.get(Thread.currentThread().getContextClassLoader().getResource(".").toURI()));
+            assertThat(FileReader.fileAt("people.csv").endsWith(Paths.get("test", "people.csv").toString())).isTrue();
+        }
     }
 
 }

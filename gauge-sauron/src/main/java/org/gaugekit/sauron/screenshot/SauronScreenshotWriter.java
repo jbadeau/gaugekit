@@ -15,7 +15,7 @@ public class SauronScreenshotWriter implements CustomScreenshotWriter {
     @Override
     public String takeScreenshot() {
         File targetFile = new File(Paths.get(System.getenv("gauge_screenshots_dir"), UUID.randomUUID().toString()).toString() + ".png");
-        File sourceFile = getTheNewestFile(SauronProperties.getDiffDir());
+        File sourceFile = getTheNewestFile(SauronProperties.sauron_diff_dir().toFile());
         if (sourceFile == null) {
             return null;
         }

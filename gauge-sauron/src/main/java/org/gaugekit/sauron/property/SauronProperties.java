@@ -1,40 +1,43 @@
 package org.gaugekit.sauron.property;
 
-import org.gaugekit.common.io.FileReader;
+import org.gaugekit.common.property.GaugeProperties;
 
-import java.io.File;
+import java.nio.file.Path;
 
-public final class SauronProperties {
+public final class SauronProperties extends GaugeProperties {
+
+    private static final String sauron_screenshots_enabled = "sauron_screenshots_enabled";
+
+    private static final String sauron_dir = "sauron_dir";
+
+    private static final String sauron_baseline_dir = "sauron_baseline_dir";
+
+    private static final String sauron_screenshot_dir = "sauron_screenshot_dir";
+
+    private static final String sauron_diff_dir = "sauron_diff_dir";
 
     private SauronProperties() {
+        super();
     }
 
-    public static Boolean isEnabled() {
-        return Boolean.getBoolean(System.getenv("sauron_screenshots_enabled"));
+    public static Boolean sauron_screenshots_enabled() {
+        return getBoolean(sauron_screenshots_enabled);
     }
 
-    public static File getScreenshotDir() {
-        return FileReader.fileAt(System.getenv("sauron_screenshots_dir"));
+    public static Path sauron_dir() {
+        return getProjectRelativePath(sauron_dir);
     }
 
-    public static String getProject() {
-        return System.getenv("sauron_screenshots_project");
+    public static Path sauron_baseline_dir() {
+        return getProjectRelativePath(sauron_baseline_dir);
     }
 
-    public static File getProjectDir() {
-        return new File(getScreenshotDir(), getProject());
+    public static Path sauron_screenshot_dir() {
+        return getProjectRelativePath(sauron_screenshot_dir);
     }
 
-    public static File getBaselineDir() {
-        return new File(getProjectDir(), System.getenv("sauron_creenshots_baseline_dir"));
-    }
-
-    public static File getSnapshotDir() {
-        return new File(getProjectDir(), System.getenv("sauron_screenshots_snapshot_dir"));
-    }
-
-    public static File getDiffDir() {
-        return new File(getProjectDir(), System.getenv("sauron_screenshots_diff_dir"));
+    public static Path sauron_diff_dir() {
+        return getProjectRelativePath(sauron_diff_dir);
     }
 
 }
