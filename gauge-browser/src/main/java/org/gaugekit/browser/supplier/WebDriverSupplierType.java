@@ -9,8 +9,6 @@ public enum WebDriverSupplierType {
 
     DOCKER("docker", new DockerWebDriverSupplier(BrowserProperties.browser())),
 
-    REMOTE("remote", new RemoteWebDriverSupplier(BrowserProperties.browser())),
-
     LOCAL("local", new LocalWebDriverSupplier(BrowserProperties.browser()));
 
     private final String supplierType;
