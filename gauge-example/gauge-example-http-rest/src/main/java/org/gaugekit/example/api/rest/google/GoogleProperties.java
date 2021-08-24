@@ -1,13 +1,15 @@
 package org.gaugekit.example.api.rest.google;
 
 
-public final class GoogleProperties {
+import org.gaugekit.common.property.GaugeProperties;
+
+public final class GoogleProperties extends GaugeProperties {
 
     private GoogleProperties() {
     }
 
-    public static String getGoogleBaseUrl() {
-        return System.getenv("google_base_url");
+    public static String google_base_url() {
+        return getString("google_base_url");
     }
 
 }

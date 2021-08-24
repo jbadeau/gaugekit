@@ -13,7 +13,7 @@ public class WikipediaSearchSteps {
 
     @Step("And <actor> opens <app>")
     public void openGoogle(Actor actor, String app) {
-        actor.attemptsTo(BrowserTasks.open(WikipediaProperties.getWikipediaBaseUrl()));
+        actor.attemptsTo(BrowserTasks.open(WikipediaProperties.wikipedia_base_url()));
     }
 
     @Step("When <actor> searches for <query>")
