@@ -26,60 +26,72 @@ public final class TableReader {
     private TableReader() {
     }
 
-    public static Table fromExcel(Path file, String sheetName) throws IOException {
-        Workbook workbook = new XSSFWorkbook(new FileInputStream(file.toFile()));
-        Sheet sheet = workbook.getSheet(sheetName);
-        if (sheet == null) {
-            throw new RuntimeException(String.format("Sheet with name '%s' does not exist", sheetName));
+    public static Table fromExcel(Path file, String sheetName) {
+        try {
+            Workbook workbook = new XSSFWorkbook(new FileInputStream(file.toFile()));
+            Sheet sheet = workbook.getSheet(sheetName);
+            if (sheet == null) {
+                throw new RuntimeException(String.format("Sheet with name '%s' does not exist", sheetName));
+            }
+            List<String> headers = fromExcelRow(sheet.getRow(0));
+            validateHeaders(headers);
+            Table table = new Table(headers);
+            for (int i = 1; i < sheet.getLastRowNum() + 1; i++) {
+                table.addRow(fromExcelRow(sheet.getRow(i)));
+            }
+            return table;
+        } catch (IOException e) {
+            throw new RuntimeException(e);
         }
-        List<String> headers = fromExcelRow(sheet.getRow(0));
-        validateHeaders(headers);
-        Table table = new Table(headers);
-        for (int i = 1; i < sheet.getLastRowNum() + 1; i++) {
-            table.addRow(fromExcelRow(sheet.getRow(i)));
-        }
-        return table;
     }
 
-    public static Table fromExcel(String path, String sheetName) throws IOException {
+    public static Table fromExcel(String path, String sheetName) {
         return fromExcel(FileReader.fileAt(path), sheetName);
     }
 
-    public static Table fromCsv(Path file) throws IOException {
-        CSVParser parser = CSVParser.parse(new java.io.FileReader(file.toFile()), CSVFormat.DEFAULT
-                .withFirstRecordAsHeader());
-        List<String> headers = parser.getHeaderNames();
-        validateHeaders(headers);
-        Table table = new Table(headers);
-        for (CSVRecord record : parser.getRecords()) {
-            table.addRow(fromCsvRow(record));
+    public static Table fromCsv(Path file) {
+        try {
+            CSVParser parser = CSVParser.parse(new java.io.FileReader(file.toFile()), CSVFormat.DEFAULT
+                    .withFirstRecordAsHeader());
+            List<String> headers = parser.getHeaderNames();
+            validateHeaders(headers);
+            Table table = new Table(headers);
+            for (CSVRecord record : parser.getRecords()) {
+                table.addRow(fromCsvRow(record));
+            }
+            return table;
+        } catch (IOException e) {
+            throw new RuntimeException(e);
         }
-        return table;
     }
 
-    public static Table fromCsv(String path) throws IOException {
+    public static Table fromCsv(String path) {
         return fromCsv(FileReader.fileAt(path));
     }
 
-    public static Table fromResultSet(ResultSet resultSet) throws SQLException {
-        List<String> headers = new ArrayList<String>();
-        ResultSetMetaData resultSetMetaData = (ResultSetMetaData) resultSet.getMetaData();
-        int counter = resultSetMetaData.getColumnCount();
-        for (int i = 1; i <= counter; i++) {
-            headers.add(resultSetMetaData.getColumnLabel(i));
-        }
-        validateHeaders(headers);
-        Table table = new Table(headers);
-        List<String> row;
-        while (resultSet.next()) {
-            row = new ArrayList<String>();
-            for (String header : headers) {
-                Object value = resultSet.getString(header);
-                row.add(value == null ? "" : value.toString());
+    public static Table fromResultSet(ResultSet resultSet) {
+        try {
+            List<String> headers = new ArrayList<String>();
+            ResultSetMetaData resultSetMetaData = (ResultSetMetaData) resultSet.getMetaData();
+            int counter = resultSetMetaData.getColumnCount();
+            for (int i = 1; i <= counter; i++) {
+                headers.add(resultSetMetaData.getColumnLabel(i));
             }
-            table.addRow(row);
+            validateHeaders(headers);
+            Table table = new Table(headers);
+            List<String> row;
+            while (resultSet.next()) {
+                row = new ArrayList<String>();
+                for (String header : headers) {
+                    Object value = resultSet.getString(header);
+                    row.add(value == null ? "" : value.toString());
+                }
+                table.addRow(row);
+            }
+            return table;
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
         }
-        return table;
     }
 
     private static List<String> fromExcelRow(Row row) {

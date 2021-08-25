@@ -39,7 +39,7 @@
                 </executions>
                 <extensions>true</extensions>
                 <configuration>
-                    <packageName>org.gaugekit.examples.api.graphql.google</packageName>
+                    <packageName>org.gaugekit.example.http.graphql.google</packageName>
                     <mode>client</mode>
                     <schemaFilePattern>/api/google.search.graphqls</schemaFilePattern>
                     <addRelayConnections>false</addRelayConnections>
@@ -69,6 +69,11 @@
         <dependency>
             <groupId>org.gaugekit</groupId>
             <artifactId>gauge-http</artifactId>
+            <version>${project.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.gaugekit</groupId>
+            <artifactId>gauge-screenplay</artifactId>
             <version>${project.version}</version>
         </dependency>
         <dependency>

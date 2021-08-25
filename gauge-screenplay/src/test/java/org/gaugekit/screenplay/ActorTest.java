@@ -59,7 +59,7 @@ class ActorTest {
     @DisplayName("remember makes the actor create a memory")
     void remember1() {
         final String avengers = "Avengers";
-        String memory = actor.remembers("team", avengers).recites("team");
+        String memory = actor.memorizes("team", avengers).recites("team");
         assertThat(memory).isEqualTo(avengers);
     }
 

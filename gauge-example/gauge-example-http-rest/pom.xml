@@ -39,9 +39,9 @@
                         <configuration>
                             <inputSpec>${project.basedir}/src/main/resources/api/google.search.yaml</inputSpec>
                             <generatorName>java</generatorName>
-                            <invokerPackage>org.gaugekit.examples.ui.google.search.client</invokerPackage>
-                            <modelPackage>org.gaugekit.examples.ui.google.search.model</modelPackage>
-                            <apiPackage>org.gaugekit.examples.ui.google.search.api</apiPackage>
+                            <invokerPackage>org.gaugekit.example.http.rest.google.search.client</invokerPackage>
+                            <modelPackage>org.gaugekit.example.http.rest.google.search.model</modelPackage>
+                            <apiPackage>org.gaugekit.example.http.rest.google.search.api</apiPackage>
                             <generateApiTests>false</generateApiTests>
                             <generateModelTests>false</generateModelTests>
                             <generateApiDocumentation>false</generateApiDocumentation>
@@ -92,6 +92,11 @@
         <dependency>
             <groupId>org.gaugekit</groupId>
             <artifactId>gauge-http</artifactId>
+            <version>${project.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.gaugekit</groupId>
+            <artifactId>gauge-screenplay</artifactId>
             <version>${project.version}</version>
         </dependency>
         <dependency>

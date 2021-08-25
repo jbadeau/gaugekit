@@ -1,6 +1,6 @@
 package org.gaugekit.example.beam.common.task;
 
-import org.gaugekit.example.beam.common.ability.RenderTemplates;
+import org.gaugekit.example.beam.common.ability.RenderTemplatesAbility;
 import org.gaugekit.screenplay.Actor;
 import org.gaugekit.screenplay.Task;
 
@@ -16,7 +16,7 @@ public class RenderTasks {
         return new Task() {
             @Override
             public void performAs(Actor actor) {
-                RenderTemplates ability = actor.uses(RenderTemplates.class);
+                RenderTemplatesAbility ability = actor.uses(RenderTemplatesAbility.class);
                 Path file = ability.getRenderer().renderToFile(template, values);
                 ability.setLastRenderedFile(file);
             }

@@ -7,7 +7,6 @@ import org.apache.commons.io.FilenameUtils;
 import org.gaugekit.common.io.TableReader;
 import org.gaugekit.example.beam.common.question.TemplateQuestions;
 import org.gaugekit.example.beam.common.task.RenderTasks;
-import org.gaugekit.example.beam.simple.task.SimpleTasks;
 import org.gaugekit.screenplay.Actor;
 
 import java.io.IOException;
@@ -22,14 +21,14 @@ public class SimpleSteps implements SimpleMemories {
     @Step("When <actor> provides templated input <template>")
     public void source(Actor actor, String template) {
         actor.attemptsTo(RenderTasks.renderTemplateToFile(template, Collections.EMPTY_MAP));
-        actor.remembers(INPUT, TemplateQuestions.getLastRenderedFile());
+        actor.memorizes(INPUT, TemplateQuestions.getLastRenderedFile());
     }
 
     @Step("And <he> runs <pipeline> pipeline")
     public void run(Actor actor, String pipeline) {
         Path source = actor.recites(INPUT);
         Path output = source.getParent().resolve(FilenameUtils.removeExtension(source.getFileName().toString()) + ".output.csv");
-        actor.remembers(OUTPUT, output);
+        actor.memorizes(OUTPUT, output);
 
         PipelineOptionsFactory.register(SimplePipelineOptions.class);
         String[] args = new String[2];

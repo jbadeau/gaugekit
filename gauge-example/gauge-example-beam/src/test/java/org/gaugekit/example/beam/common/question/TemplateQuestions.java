@@ -1,6 +1,6 @@
 package org.gaugekit.example.beam.common.question;
 
-import org.gaugekit.example.beam.common.ability.RenderTemplates;
+import org.gaugekit.example.beam.common.ability.RenderTemplatesAbility;
 import org.gaugekit.screenplay.Actor;
 import org.gaugekit.screenplay.Question;
 
@@ -15,7 +15,7 @@ public class TemplateQuestions {
         return new Question<Path>() {
             @Override
             public Path answerAs(Actor actor) {
-                RenderTemplates ability = actor.uses(RenderTemplates.class);
+                RenderTemplatesAbility ability = actor.uses(RenderTemplatesAbility.class);
                 return ability.getLastRenderedFile();
             }
         };

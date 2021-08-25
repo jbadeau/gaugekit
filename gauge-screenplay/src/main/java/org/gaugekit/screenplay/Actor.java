@@ -180,16 +180,16 @@ public final class Actor {
     }
 
     /**
-     * @param name   the name of memory the {@link Actor} {@link #remembers}s
-     * @param memory the memory the {@link Actor} {@link #remembers}s
+     * @param name   the name of memory the {@link Actor} {@link #memorizes}s
+     * @param memory the memory the {@link Actor} {@link #memorizes}s
      * @return this {@link Actor}
      */
-    public Actor remembers(String name, Object memory) {
+    public Actor memorizes(String name, Object memory) {
         memories.put(name, memory);
         return this;
     }
 
-    public Actor remembers(String name, Question question) {
+    public Actor memorizes(String name, Question question) {
         memories.put(name, asksFor(question));
         return this;
     }

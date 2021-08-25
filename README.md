@@ -1,8 +1,9 @@
 # gaugekit
 
-Gaugekit is a collection of Java modules to make writing acceptance tests with gauge easier.
+Gaugekit is a collection of modules to make writing acceptance tests with gauge easier.
 
-The following modules are currently provided:
+## Modules
+The following modules are currently provided
 
 - [gauge-beam](./gauge-beam)
 - [gauge-browser](./gauge-browser)
@@ -15,17 +16,14 @@ The following modules are currently provided:
 - [gauge-table](./gauge-table)
 - [gauge-template](./gauge-template)
 
-## Install Gauge
-
 ## Examples
+The following examples can be used to bootstrap a new Gauge project or as a blueprint to add Gauge to an existing project.
 
-The following examples can be used to bootstrap a new gauge project or as a blueprint to add Gauge to an existing project.
-
-### [example-beam](./gauge-example/example-beam)
-### [example-browser](./gauge-example/example-browser)
-### [example-http-graphql](./gauge-example/example-http-graphql)
-### [example-http-rest](./gauge-example/example-http-rest)
-### [example-sql](./gauge-example/example-sql)
+- [example-beam](./gauge-example/example-beam)
+- [example-browser](./gauge-example/example-browser)
+- [example-http-graphql](./gauge-example/example-http-graphql)
+- [example-http-rest](./gauge-example/example-http-rest)
+- [example-sql](./gauge-example/example-sql)
 
 ## Contributing
 
