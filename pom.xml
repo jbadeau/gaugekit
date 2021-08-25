@@ -52,7 +52,6 @@
         <version.maven-assembly-plugin>3.2.0</version.maven-assembly-plugin>
         <version.maven-jar-plugin>3.2.0</version.maven-jar-plugin>
         <version.build-helper-maven-plugin>3.0.0</version.build-helper-maven-plugin>
-        <version.gatling-maven-plugin>3.0.5</version.gatling-maven-plugin>
         <version.gauge-maven-plugin>1.4.3</version.gauge-maven-plugin>
         <version.openapi-generator-maven-plugin>5.2.0</version.openapi-generator-maven-plugin>
     </properties>
@@ -81,19 +80,9 @@
                     <version>${version.build-helper-maven-plugin}</version>
                 </plugin>
                 <plugin>
-                    <groupId>io.gatling</groupId>
-                    <artifactId>gatling-maven-plugin</artifactId>
-                    <version>${version.gatling-maven-plugin}</version>
-                </plugin>
-                <plugin>
                     <groupId>com.thoughtworks.gauge.maven</groupId>
                     <artifactId>gauge-maven-plugin</artifactId>
                     <version>${version.gauge-maven-plugin}</version>
-                </plugin>
-                <plugin>
-                    <groupId>com.btmatthews.maven.plugins.inmemdb</groupId>
-                    <artifactId>inmemdb-maven-plugin</artifactId>
-                    <version>${version.inmemdb-maven-plugin}</version>
                 </plugin>
                 <plugin>
                     <groupId>org.apache.maven.plugins</groupId>
