@@ -7,7 +7,6 @@ The following modules are currently provided
 
 - [gauge-beam](./gauge-beam)
 - [gauge-browser](./gauge-browser)
-- [gauge-common](./gauge-common)
 - [gauge-compare](./gauge-compare)
 - [gauge-http](./gauge-http)
 - [gauge-sauron](./gauge-sauron)

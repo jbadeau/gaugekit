@@ -4,7 +4,7 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>org.gaugekit</groupId>
-    <artifactId>gauge</artifactId>
+    <artifactId>gaugekit</artifactId>
     <version>0.1.0-SNAPSHOT</version>
     <packaging>pom</packaging>
     <name>Gauge</name>
@@ -61,17 +61,17 @@
     </properties>
 
     <modules>
-        <module>gauge-common</module>
-        <module>gauge-table</module>
-        <module>gauge-template</module>
-        <module>gauge-compare</module>
-        <module>gauge-screenplay</module>
-        <module>gauge-http</module>
-        <module>gauge-sql</module>
-        <module>gauge-browser</module>
-        <module>gauge-sauron</module>
-        <module>gauge-beam</module>
-        <module>gauge-example</module>
+        <module>core</module>
+        <module>table</module>
+        <module>template</module>
+        <module>compare</module>
+        <module>screenplay</module>
+        <module>http</module>
+        <module>sql</module>
+        <module>browser</module>
+        <module>sauron</module>
+        <module>beam</module>
+        <module>example</module>
     </modules>
 
     <build>
