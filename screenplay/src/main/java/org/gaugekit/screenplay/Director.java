@@ -1,27 +1,29 @@
 package org.gaugekit.screenplay;
 
-public class OnStage {
+import org.gaugekit.screenplay.property.ScreenplayProperties;
+
+public class Director {
 
     private static final ThreadLocal<Stage> STAGE = new ThreadLocal<>();
 
-    public static Stage setTheStage(Cast cast) {
+    public static Stage setStage(Cast cast) {
         STAGE.set(new Stage(cast));
         return stage();
     }
 
-    public static Stage setTheStage(Stage stage) {
+    public static Stage setStage(Stage stage) {
         STAGE.set(stage);
         return stage();
     }
 
-    public static Actor theActorCalled(String requiredActor) {
+    public static Actor actorCalled(String requiredActor) {
         if (ScreenplayProperties.screenplay_pronouns().contains(requiredActor)) {
             return stage().actorInSpotlight().usingPronoun(requiredActor);
         }
         return stage().shineSpotlightOn(requiredActor);
     }
 
-    private static boolean anActorIsOnStage() {
+    private static boolean isActorOnStage() {
         return stage().isActorOnStage();
     }
 

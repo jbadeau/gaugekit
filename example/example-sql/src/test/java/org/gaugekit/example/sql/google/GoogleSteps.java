@@ -9,8 +9,7 @@ import org.gaugekit.screenplay.Actor;
 
 import java.nio.file.Path;
 
-import static org.gaugekit.table.matcher.TableHasTheSameRowsAs.hasTheSameRowsAs;
-import static org.hamcrest.MatcherAssert.assertThat;
+import static org.gaugekit.table.diff.TableAssert.*;
 
 public class GoogleSteps implements GoogleMemories {
 
@@ -28,7 +27,7 @@ public class GoogleSteps implements GoogleMemories {
     public void verify(Actor actor, Path file) {
         Table sourceTable = actor.recites(SOURCE_TABLE);
         Table targetTable = actor.asksFor(IoQuestions.fromCsv(file));
-        assertThat(sourceTable, hasTheSameRowsAs(targetTable).inOrder());
+        assertThat(sourceTable).hasTheSameRowsAs(targetTable);
     }
 
 }

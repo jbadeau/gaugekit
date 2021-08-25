@@ -11,16 +11,12 @@
         <relativePath>../pom.xml</relativePath>
     </parent>
 
-    <artifactId>gaugekit-example</artifactId>
-    <name>Gaugekit Example</name>
+    <artifactId>gaugekit-plugin</artifactId>
+    <name>Gaugekit Plugin</name>
     <packaging>pom</packaging>
 
     <modules>
-        <module>example-sql</module>
-        <module>example-http-rest</module>
-        <module>example-http-graphql</module>
-        <module>example-browser</module>
-        <module>example-beam</module>
+        <module>xray-report</module>
     </modules>
 
 </project>

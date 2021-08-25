@@ -1,9 +1,5 @@
-package org.gaugekit.table.matcher;
+package org.gaugekit.table.diff;
 
-import org.gaugekit.table.diff.TableBuilder;
-import org.gaugekit.table.diff.TableDiff;
-import org.gaugekit.table.diff.TableDiffer;
-import org.gaugekit.table.diff.TableDiffException;
 import com.thoughtworks.gauge.Table;
 import org.junit.jupiter.api.Test;
 

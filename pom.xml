@@ -17,7 +17,6 @@
         <!-- dependencies -->
         <version.commons-csv>1.7</version.commons-csv>
         <version.diffutils>1.3.0</version.diffutils>
-        <version.hamcrest>2.2</version.hamcrest>
         <version.handlebars>4.1.2</version.handlebars>
         <version.gauge-java>0.7.15</version.gauge-java>
         <version.graphql>1.17</version.graphql>
@@ -48,16 +47,16 @@
         <version.netty>4.1.63.Final</version.netty>
         <!-- plugins -->
         <version.maven-compiler-plugin>3.8.1</version.maven-compiler-plugin>
-        <version.build-helper-maven-plugin>3.0.0</version.build-helper-maven-plugin>
-        <version.gatling-maven-plugin>3.0.5</version.gatling-maven-plugin>
-        <version.gauge-maven-plugin>1.4.3</version.gauge-maven-plugin>
-        <version.inmemdb-maven-plugin>1.4.3</version.inmemdb-maven-plugin>
         <version.maven-dependency-plugin>3.1.1</version.maven-dependency-plugin>
         <version.maven-release-plugin>2.5.3</version.maven-release-plugin>
         <version.maven-source-plugin>3.2.1</version.maven-source-plugin>
         <version.maven-surefire-plugin>2.22.2</version.maven-surefire-plugin>
+        <version.maven-assembly-plugin>3.2.0</version.maven-assembly-plugin>
+        <version.maven-jar-plugin>3.2.0</version.maven-jar-plugin>
+        <version.build-helper-maven-plugin>3.0.0</version.build-helper-maven-plugin>
+        <version.gatling-maven-plugin>3.0.5</version.gatling-maven-plugin>
+        <version.gauge-maven-plugin>1.4.3</version.gauge-maven-plugin>
         <version.openapi-generator-maven-plugin>5.2.0</version.openapi-generator-maven-plugin>
-
     </properties>
 
     <modules>
@@ -71,6 +70,7 @@
         <module>browser</module>
         <module>sauron</module>
         <module>beam</module>
+        <module>plugin</module>
         <module>example</module>
     </modules>
 
@@ -118,6 +118,16 @@
                     <version>${version.maven-surefire-plugin}</version>
                 </plugin>
                 <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-jar-plugin</artifactId>
+                    <version>${version.maven-jar-plugin}</version>
+                </plugin>
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-assembly-plugin</artifactId>
+                    <version>${version.maven-assembly-plugin}</version>
+                </plugin>
+                <plugin>
                     <groupId>org.openapitools</groupId>
                     <artifactId>openapi-generator-maven-plugin</artifactId>
                     <version>${version.openapi-generator-maven-plugin}</version>
@@ -147,11 +157,6 @@
                 <groupId>com.thoughtworks.gauge</groupId>
                 <artifactId>gauge-java</artifactId>
                 <version>${version.gauge-java}</version>
-            </dependency>
-            <dependency>
-                <groupId>org.hamcrest</groupId>
-                <artifactId>hamcrest</artifactId>
-                <version>${version.hamcrest}</version>
             </dependency>
             <dependency>
                 <groupId>com.github.jknack</groupId>

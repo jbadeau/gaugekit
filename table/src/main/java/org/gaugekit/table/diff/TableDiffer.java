@@ -15,6 +15,7 @@ import java.util.Map;
 public class TableDiffer {
 
     private final Table from;
+
     private final Table to;
 
     public TableDiffer(Table fromTable, Table toTable) {

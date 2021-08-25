@@ -1,4 +1,4 @@
-package org.gaugekit.screenplay;
+package org.gaugekit.screenplay.property;
 
 import org.gaugekit.common.property.GaugeProperties;
 

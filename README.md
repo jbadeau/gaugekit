@@ -3,7 +3,7 @@
 Gaugekit is a collection of modules to make writing acceptance tests with gauge easier.
 
 ## Modules
-The following modules are currently provided
+The following domain modules are currently provided
 
 - [beam](./beam)
 - [browser](./browser)
@@ -15,8 +15,13 @@ The following modules are currently provided
 - [table](./table)
 - [template](./template)
 
+## Plugins
+The following plugin modules are currently provided
+
+- [plugin-xray-report](./plugin/xray-report)
+
 ## Examples
-The following examples can be used to bootstrap a new Gauge project or as a blueprint to add Gauge to an existing project.
+The following example modules can be used to bootstrap a new Gauge project or as a blueprint to add Gauge to an existing project.
 
 - [example-beam](./example/example-beam)
 - [example-browser](./example/example-browser)

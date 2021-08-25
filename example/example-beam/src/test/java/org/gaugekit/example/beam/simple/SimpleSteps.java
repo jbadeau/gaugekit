@@ -13,8 +13,7 @@ import java.io.IOException;
 import java.nio.file.Path;
 import java.util.Collections;
 
-import static org.gaugekit.table.matcher.TableHasTheSameRowsAs.hasTheSameRowsAs;
-import static org.hamcrest.MatcherAssert.assertThat;
+import static org.gaugekit.table.diff.TableAssert.*;
 
 public class SimpleSteps implements SimpleMemories {
 
@@ -41,11 +40,11 @@ public class SimpleSteps implements SimpleMemories {
     }
 
     @Step("Then <actor> ensures output matches snapshot <snapshot>")
-    public void verify(Actor actor, Path      snapshot) throws IOException {
+    public void verify(Actor actor, Path snapshot) throws IOException {
         Path output = actor.recites(OUTPUT);
         Table sourceTable = TableReader.fromCsv(snapshot);
         Table outputTable = TableReader.fromCsv(output);
-        assertThat(sourceTable, hasTheSameRowsAs(outputTable));
+        assertThat(sourceTable).hasTheSameRowsAs(outputTable);
     }
 
 }

@@ -1,4 +1,4 @@
-package org.gaugekit.common.error;
+package org.gaugekit.common;
 
 public class StepNotImplementedException extends RuntimeException {
 

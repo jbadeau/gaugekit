@@ -4,12 +4,11 @@ package org.gaugekit.example.sql;
 import com.thoughtworks.gauge.AfterScenario;
 import com.thoughtworks.gauge.BeforeScenario;
 import com.thoughtworks.gauge.datastore.ScenarioDataStore;
-import org.gaugekit.common.io.FileReader;
 import org.gaugekit.example.sql.common.ability.IoAbility;
 import org.gaugekit.example.sql.common.ability.SqlAbility;
 import org.gaugekit.example.sql.common.memory.CommonMemories;
 import org.gaugekit.screenplay.Cast;
-import org.gaugekit.screenplay.OnStage;
+import org.gaugekit.screenplay.Director;
 import org.testcontainers.containers.JdbcDatabaseContainer;
 import org.testcontainers.containers.MySQLContainer;
 
@@ -26,7 +25,7 @@ public class Hooks implements CommonMemories {
 
         Cast cast = new Cast();
         cast.actorNamed("John", SqlAbility.sql(container, "?"), IoAbility.io());
-        OnStage.setTheStage(cast);
+        Director.setStage(cast);
     }
 
     @AfterScenario

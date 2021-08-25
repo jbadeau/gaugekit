@@ -7,7 +7,7 @@ import org.gaugekit.common.io.FileReader;
 import org.gaugekit.example.http.rest.common.ability.SearchApiAbility;
 import org.gaugekit.example.http.rest.common.memory.CommonMemories;
 import org.gaugekit.screenplay.Cast;
-import org.gaugekit.screenplay.OnStage;
+import org.gaugekit.screenplay.Director;
 import org.mockserver.client.MockServerClient;
 import org.testcontainers.containers.MockServerContainer;
 
@@ -32,7 +32,7 @@ public class Hooks implements CommonMemories {
 
         Cast cast = new Cast();
         cast.actorNamed("John", SearchApiAbility.searchApi(String.format("http://%s:%s", mockServer.getHost(), mockServer.getServerPort())));
-        OnStage.setTheStage(cast);
+        Director.setStage(cast);
     }
 
     @AfterScenario
