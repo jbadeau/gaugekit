@@ -5,24 +5,24 @@ Gaugekit is a collection of modules to make writing acceptance tests with gauge 
 ## Modules
 The following modules are currently provided
 
-- [gauge-beam](./gauge-beam)
-- [gauge-browser](./gauge-browser)
-- [gauge-compare](./gauge-compare)
-- [gauge-http](./gauge-http)
-- [gauge-sauron](./gauge-sauron)
-- [gauge-screenplay](./gauge-screenplay)
-- [gauge-sql](./gauge-sql)
-- [gauge-table](./gauge-table)
-- [gauge-template](./gauge-template)
+- [beam](./beam)
+- [browser](./browser)
+- [compare](./compare)
+- [http](./http)
+- [sauron](./sauron)
+- [screenplay](./screenplay)
+- [sql](./sql)
+- [table](./table)
+- [template](./template)
 
 ## Examples
 The following examples can be used to bootstrap a new Gauge project or as a blueprint to add Gauge to an existing project.
 
-- [example-beam](./gauge-example/example-beam)
-- [example-browser](./gauge-example/example-browser)
-- [example-http-graphql](./gauge-example/example-http-graphql)
-- [example-http-rest](./gauge-example/example-http-rest)
-- [example-sql](./gauge-example/example-sql)
+- [example-beam](./example/example-beam)
+- [example-browser](./example/example-browser)
+- [example-http-graphql](./example/example-http-graphql)
+- [example-http-rest](./example/example-http-rest)
+- [example-sql](./example/example-sql)
 
 ## Contributing
 
