@@ -26,7 +26,6 @@
         <version.rest-assured>4.3.0</version.rest-assured>
         <version.selenium>4.0.0-beta-4</version.selenium>
         <version.swagger-annotations>1.6.0</version.swagger-annotations>
-        <version.wiremock>2.25.1</version.wiremock>
         <junit-jupiter.version>5.7.2</junit-jupiter.version>
         <version.mockafka>0.1.2</version.mockafka>
         <version.beam>2.31.0</version.beam>
@@ -37,14 +36,13 @@
         <version.gson>2.8.7</version.gson>
         <version.assertj>3.20.1</version.assertj>
         <version.mockito>3.11.2</version.mockito>
-        <version.testcontainers>1.15.3</version.testcontainers>
         <version.ashot>1.5.4</version.ashot>
-        <version.selenide>5.23.3</version.selenide>
         <version.logback>1.2.3</version.logback>
         <version.slf4j>1.7.32</version.slf4j>
-        <version.mysql>8.0.25</version.mysql>
         <version.mockserver>5.5.4</version.mockserver>
         <version.netty>4.1.63.Final</version.netty>
+        <version.testcontainers>1.15.3</version.testcontainers>
+        <version.webdrivermanager>4.4.3</version.webdrivermanager>
         <!-- plugins -->
         <version.maven-compiler-plugin>3.8.1</version.maven-compiler-plugin>
         <version.maven-dependency-plugin>3.1.1</version.maven-dependency-plugin>
@@ -229,6 +227,11 @@
                 <version>${version.testcontainers}</version>
             </dependency>
             <dependency>
+                <groupId>io.github.bonigarcia</groupId>
+                <artifactId>webdrivermanager</artifactId>
+                <version>${version.webdrivermanager}</version>
+            </dependency>
+            <dependency>
                 <groupId>org.mock-server</groupId>
                 <artifactId>mockserver-client-java</artifactId>
                 <version>${version.mockserver}</version>
@@ -242,11 +245,6 @@
                 <groupId>org.seleniumhq.selenium</groupId>
                 <artifactId>selenium-remote-driver</artifactId>
                 <version>${version.selenium}</version>
-            </dependency>
-            <dependency>
-                <groupId>com.codeborne</groupId>
-                <artifactId>selenide</artifactId>
-                <version>${version.selenide}</version>
             </dependency>
             <dependency>
                 <groupId>org.apache.beam</groupId>
@@ -277,11 +275,6 @@
                 <groupId>io.swagger</groupId>
                 <artifactId>swagger-annotations</artifactId>
                 <version>${version.swagger-annotations}</version>
-            </dependency>
-            <dependency>
-                <groupId>com.github.tomakehurst</groupId>
-                <artifactId>wiremock</artifactId>
-                <version>${version.wiremock}</version>
             </dependency>
             <dependency>
                 <groupId>org.assertj</groupId>

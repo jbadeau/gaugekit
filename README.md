@@ -1,5 +1,4 @@
 # gaugekit
-
 Gaugekit is a collection of modules to make writing acceptance tests with gauge easier.
 
 ## Modules
@@ -30,14 +29,12 @@ The following example modules can be used to bootstrap a new Gauge project or as
 - [example-sql](./example/example-sql)
 
 ## Contributing
-
 Contributions are welcome and appreciated. Coding is definitely not the only way you can contribute. 
 There are many valuable ways to contribute and to help the growing GaugeKit community.
 
 Please read this document to understand the process for contributing.
 
 ### Different ways to contribute
-
 * You can report an issue you found
 * Help us test Gaugekit by adding to our existing automated tests
 * Help someone get started with Gauge on our discussion forum

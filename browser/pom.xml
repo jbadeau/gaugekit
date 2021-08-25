@@ -16,7 +16,10 @@
             <artifactId>gaugekit-core</artifactId>
             <version>${project.version}</version>
         </dependency>
-        <!-- test -->
+        <dependency>
+            <groupId>org.seleniumhq.selenium</groupId>
+            <artifactId>selenium-java</artifactId>
+        </dependency>
         <dependency>
             <groupId>org.seleniumhq.selenium</groupId>
             <artifactId>selenium-remote-driver</artifactId>
@@ -26,8 +29,8 @@
             <artifactId>selenium</artifactId>
         </dependency>
         <dependency>
-            <groupId>com.codeborne</groupId>
-            <artifactId>selenide</artifactId>
+            <groupId>io.github.bonigarcia</groupId>
+            <artifactId>webdrivermanager</artifactId>
         </dependency>
         <!-- test -->
         <dependency>
