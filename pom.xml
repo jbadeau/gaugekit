@@ -7,7 +7,7 @@
     <artifactId>gaugekit</artifactId>
     <version>0.1.0-SNAPSHOT</version>
     <packaging>pom</packaging>
-    <name>Gauge</name>
+    <name>Gaugekit</name>
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
