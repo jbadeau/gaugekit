@@ -9,7 +9,7 @@ import org.gaugekit.screenplay.Actor;
 
 import java.nio.file.Path;
 
-import static org.gaugekit.table.diff.TableAssert.*;
+import static org.gaugekit.table.assertj.TableAssert.*;
 
 public class GoogleSteps implements GoogleMemories {
 

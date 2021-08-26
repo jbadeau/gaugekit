@@ -13,7 +13,7 @@ import java.io.IOException;
 import java.nio.file.Path;
 import java.util.Collections;
 
-import static org.gaugekit.table.diff.TableAssert.*;
+import static org.gaugekit.table.assertj.TableAssert.*;
 
 public class SimpleSteps implements SimpleMemories {
 

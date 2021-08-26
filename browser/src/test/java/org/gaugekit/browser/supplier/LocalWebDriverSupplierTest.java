@@ -1,5 +1,7 @@
 package org.gaugekit.browser.supplier;
 
+import org.gaugekit.browser.BrowserType;
+import org.gaugekit.browser.LocalWebDriverSupplier;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
@@ -14,8 +16,8 @@ import java.util.Map;
 
 import static org.assertj.core.api.Assertions.*;
 import static org.assertj.core.api.Assumptions.assumeThat;
-import static org.gaugekit.browser.supplier.BrowserType.CHROME;
-import static org.gaugekit.browser.supplier.BrowserType.FIREFOX;
+import static org.gaugekit.browser.BrowserType.CHROME;
+import static org.gaugekit.browser.BrowserType.FIREFOX;
 
 
 class LocalWebDriverSupplierTest {

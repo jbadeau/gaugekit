@@ -1,4 +1,4 @@
-package org.gaugekit.browser.supplier;
+package org.gaugekit.browser;
 
 public class UnsupportedWebDriverSupplierTypeException extends RuntimeException {
 

@@ -64,7 +64,6 @@ public class TableDiffer {
     }
 
 
-    @SuppressWarnings("unchecked")
     private Map<Integer, Delta> createDeltasByLine() {
         Patch patch = DiffUtils.diff(getDiffableRows(from), getDiffableRows(to));
         List<Delta> deltas = patch.getDeltas();
@@ -79,6 +78,7 @@ public class TableDiffer {
     private TableDiff createTableDiff(Map<Integer, Delta> deltasByLine) {
         List<SimpleEntry<List<String>, DiffType>> diffTableRows = new ArrayList<>();
         List<TableRow> rows = from.getTableRows();
+        TableRow headerRow = new TableRow();
         for (int i = 0; i < rows.size(); i++) {
             Delta delta = deltasByLine.get(i);
             if (delta == null) {

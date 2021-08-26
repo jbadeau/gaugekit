@@ -1,4 +1,4 @@
-package org.gaugekit.browser.supplier;
+package org.gaugekit.browser;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.Capabilities;

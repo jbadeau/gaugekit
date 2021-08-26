@@ -1,7 +1,9 @@
-package org.gaugekit.table.diff;
+package org.gaugekit.table.assertj;
 
 import com.thoughtworks.gauge.Table;
 import org.assertj.core.api.AbstractAssert;
+import org.gaugekit.table.diff.TableDiff;
+import org.gaugekit.table.diff.TableDiffer;
 
 public class TableAssert extends AbstractAssert<TableAssert, Table> {
 
@@ -27,7 +29,7 @@ public class TableAssert extends AbstractAssert<TableAssert, Table> {
     public TableAssert hasTheSameRowsAndOrderAs(Table expected) {
         isNotNull();
         TableDiffer tableDiffer = new TableDiffer(actual, expected);
-        TableDiff diff = tableDiffer.calculateUnorderedDiffs();
+        TableDiff diff = tableDiffer.calculateDiffs();
         if (!diff.isEmpty()) {
             failWithMessage("Expected tables to have the same rows but were %s", diff);
         }

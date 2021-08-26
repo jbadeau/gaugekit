@@ -1,4 +1,4 @@
-package org.gaugekit.browser.supplier;
+package org.gaugekit.browser;
 
 /**
  * {@link RuntimeException} to be thrown when the given string did not match any {@link BrowserType}.

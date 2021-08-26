@@ -1,5 +1,7 @@
 package org.gaugekit.browser.supplier;
 
+import org.gaugekit.browser.BrowserType;
+import org.gaugekit.browser.UnsupportedBrowserTypeException;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.ValueSource;
 

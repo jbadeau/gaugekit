@@ -54,6 +54,7 @@
         <version.build-helper-maven-plugin>3.0.0</version.build-helper-maven-plugin>
         <version.gauge-maven-plugin>1.4.3</version.gauge-maven-plugin>
         <version.openapi-generator-maven-plugin>5.2.0</version.openapi-generator-maven-plugin>
+        <version.markdowngenerator>1.3.1.1</version.markdowngenerator>
     </properties>
 
     <modules>
@@ -274,6 +275,11 @@
                 <groupId>org.javers</groupId>
                 <artifactId>javers-core</artifactId>
                 <version>${version.javers}</version>
+            </dependency>
+            <dependency>
+                <groupId>net.steppschuh.markdowngenerator</groupId>
+                <artifactId>markdowngenerator</artifactId>
+                <version>${version.markdowngenerator}</version>
             </dependency>
             <dependency>
                 <groupId>net.javacrumbs.json-unit</groupId>
