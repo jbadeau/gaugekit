@@ -13,7 +13,7 @@
     <dependencies>
         <dependency>
             <groupId>org.gaugekit</groupId>
-            <artifactId>gaugekit-core</artifactId>
+            <artifactId>gaugekit-screenplay</artifactId>
             <version>${project.version}</version>
         </dependency>
         <dependency>

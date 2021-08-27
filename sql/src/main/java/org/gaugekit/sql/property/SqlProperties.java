@@ -1,6 +1,6 @@
 package org.gaugekit.sql.property;
 
-import org.gaugekit.common.property.GaugeProperties;
+import org.gaugekit.core.property.GaugeProperties;
 
 public final class SqlProperties extends GaugeProperties {
 

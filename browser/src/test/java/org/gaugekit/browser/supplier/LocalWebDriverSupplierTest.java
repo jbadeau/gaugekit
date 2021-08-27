@@ -1,7 +1,7 @@
 package org.gaugekit.browser.supplier;
 
 import org.gaugekit.browser.BrowserType;
-import org.gaugekit.browser.LocalWebDriverSupplier;
+import org.gaugekit.browser.webdriver.LocalWebDriverSupplier;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;

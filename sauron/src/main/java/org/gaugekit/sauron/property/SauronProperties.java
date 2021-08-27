@@ -1,6 +1,6 @@
 package org.gaugekit.sauron.property;
 
-import org.gaugekit.common.property.GaugeProperties;
+import org.gaugekit.core.property.GaugeProperties;
 
 import java.nio.file.Path;
 

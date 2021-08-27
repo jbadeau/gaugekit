@@ -3,7 +3,7 @@ package org.gaugekit.example.http.rest;
 import com.thoughtworks.gauge.AfterScenario;
 import com.thoughtworks.gauge.BeforeScenario;
 import com.thoughtworks.gauge.datastore.ScenarioDataStore;
-import org.gaugekit.common.io.FileReader;
+import org.gaugekit.core.util.DataUtils;
 import org.gaugekit.example.http.rest.common.ability.SearchApiAbility;
 import org.gaugekit.example.http.rest.common.memory.CommonMemories;
 import org.gaugekit.screenplay.Cast;
@@ -28,7 +28,7 @@ public class Hooks implements CommonMemories {
                         .withQueryStringParameter("query", "Shakespeare"))
                 .respond(response()
                         .withStatusCode(200)
-                        .withBody(FileReader.contentOf("resources.json")));
+                        .withBody(DataUtils.contentOf("resources.json")));
 
         Cast cast = new Cast();
         cast.actorNamed("John", SearchApiAbility.searchApi(String.format("http://%s:%s", mockServer.getHost(), mockServer.getServerPort())));

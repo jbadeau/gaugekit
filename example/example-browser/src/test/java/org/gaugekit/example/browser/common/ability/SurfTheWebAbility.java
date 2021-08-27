@@ -1,6 +1,6 @@
 package org.gaugekit.example.browser.common.ability;
 
-import org.gaugekit.browser.WebDriverSupplier;
+import org.gaugekit.browser.webdriver.WebDriverSupplier;
 import org.gaugekit.screenplay.Ability;
 import org.openqa.selenium.WebDriver;
 

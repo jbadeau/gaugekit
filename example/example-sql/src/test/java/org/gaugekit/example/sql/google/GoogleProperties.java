@@ -1,7 +1,7 @@
 package org.gaugekit.example.sql.google;
 
 
-import org.gaugekit.common.property.GaugeProperties;
+import org.gaugekit.core.property.GaugeProperties;
 
 public final class GoogleProperties extends GaugeProperties {
 

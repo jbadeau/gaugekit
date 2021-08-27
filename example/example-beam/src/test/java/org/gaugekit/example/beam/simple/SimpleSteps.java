@@ -4,7 +4,7 @@ import com.thoughtworks.gauge.Step;
 import com.thoughtworks.gauge.Table;
 import org.apache.beam.sdk.options.PipelineOptionsFactory;
 import org.apache.commons.io.FilenameUtils;
-import org.gaugekit.common.io.TableReader;
+import org.gaugekit.table.util.TableReader;
 import org.gaugekit.example.beam.common.question.TemplateQuestions;
 import org.gaugekit.example.beam.common.task.RenderTasks;
 import org.gaugekit.screenplay.Actor;
@@ -13,7 +13,7 @@ import java.io.IOException;
 import java.nio.file.Path;
 import java.util.Collections;
 
-import static org.gaugekit.table.assertj.TableAssert.*;
+import static org.gaugekit.table.assertion.TableAssert.*;
 
 public class SimpleSteps implements SimpleMemories {
 
@@ -42,8 +42,8 @@ public class SimpleSteps implements SimpleMemories {
     @Step("Then <actor> ensures output matches snapshot <snapshot>")
     public void verify(Actor actor, Path snapshot) throws IOException {
         Path output = actor.recites(OUTPUT);
-        Table sourceTable = TableReader.fromCsv(snapshot);
-        Table outputTable = TableReader.fromCsv(output);
+        Table sourceTable = TableReader.readFromCsv(snapshot);
+        Table outputTable = TableReader.readFromCsv(output);
         assertThat(sourceTable).hasTheSameRowsAs(outputTable);
     }
 

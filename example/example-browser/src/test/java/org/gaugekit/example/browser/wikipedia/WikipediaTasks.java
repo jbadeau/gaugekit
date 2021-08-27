@@ -13,7 +13,7 @@ public class WikipediaTasks {
     private WikipediaTasks() {
     }
 
-    public static Task search(String query) {
+    public static Task searchFor(String query) {
         return new Task() {
             @Override
             public void performAs(Actor actor) {

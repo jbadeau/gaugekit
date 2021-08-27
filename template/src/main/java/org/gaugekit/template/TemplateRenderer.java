@@ -2,12 +2,13 @@ package org.gaugekit.template;
 
 import com.github.jknack.handlebars.Handlebars;
 import com.github.jknack.handlebars.Template;
-import org.gaugekit.common.io.FileReader;
-import org.gaugekit.common.property.GaugeProperties;
+import org.gaugekit.core.property.GaugeProperties;
+import org.gaugekit.core.util.DataUtils;
 import org.gaugekit.template.helper.DateTimeHelpers;
 import org.apache.commons.io.FileUtils;
 import org.apache.commons.io.FilenameUtils;
 
+import javax.xml.crypto.Data;
 import java.io.File;
 import java.io.IOException;
 import java.nio.charset.StandardCharsets;
@@ -34,8 +35,8 @@ public class TemplateRenderer {
 
     public Path renderToFile(String template, Map<String, Object> values) {
         try {
-            Path templateFile = FileReader.fileAt(template);
-            String templateContent = render(FileReader.contentOf(templateFile), values);
+            Path templateFile = DataUtils.fileAt(template);
+            String templateContent = render(DataUtils.contentOf(templateFile), values);
             String fileName = compileInline(templateFile.getFileName().toString()).apply(values);
             Path file = templateFile.getParent().resolve(FilenameUtils.removeExtension(fileName));
             FileUtils.writeStringToFile(file.toFile(), templateContent, StandardCharsets.UTF_8);
@@ -47,7 +48,7 @@ public class TemplateRenderer {
 
     public Template compile(File template) {
         try {
-            return handlebars.compile(FileReader.contentOf(template));
+            return handlebars.compile(DataUtils.contentOf(template));
         } catch (IOException e) {
             throw new RuntimeException(String.format("Failed to compile file template '%s'", template), e);
         }

@@ -1,7 +1,7 @@
 package org.gaugekit.browser.supplier;
 
 import org.gaugekit.browser.BrowserType;
-import org.gaugekit.browser.DockerWebDriverSupplier;
+import org.gaugekit.browser.webdriver.DockerWebDriverSupplier;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.EnumSource;
 import org.openqa.selenium.remote.RemoteWebDriver;

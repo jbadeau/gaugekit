@@ -1,7 +1,7 @@
 package org.gaugekit.example.sql.common.question;
 
 import com.thoughtworks.gauge.Table;
-import org.gaugekit.common.io.TableReader;
+import org.gaugekit.table.util.TableReader;
 import org.gaugekit.example.sql.common.ability.IoAbility;
 import org.gaugekit.screenplay.Actor;
 import org.gaugekit.screenplay.Question;
@@ -18,7 +18,7 @@ public class IoQuestions {
             @Override
             public Table answerAs(Actor actor) {
                 IoAbility ability = actor.uses(IoAbility.class);
-                return TableReader.fromCsv(file);
+                return TableReader.readFromCsv(file);
             }
         };
     }

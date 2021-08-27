@@ -9,7 +9,7 @@ public class BrowserTasks {
     private BrowserTasks() {
     }
 
-    public static Task open(String url) {
+    public static Task openApp(String url) {
         return new Task() {
             @Override
             public void performAs(Actor actor) {

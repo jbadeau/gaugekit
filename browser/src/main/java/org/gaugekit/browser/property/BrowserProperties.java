@@ -1,10 +1,9 @@
 package org.gaugekit.browser.property;
 
 import org.gaugekit.browser.BrowserType;
-import org.gaugekit.browser.WebDriverSupplier;
-import org.gaugekit.browser.WebDriverSupplierType;
-import org.gaugekit.common.property.GaugeProperties;
-import org.openqa.selenium.chrome.ChromeOptions;
+import org.gaugekit.browser.webdriver.WebDriverSupplier;
+import org.gaugekit.browser.webdriver.WebDriverSupplierType;
+import org.gaugekit.core.property.GaugeProperties;
 
 public final class BrowserProperties extends GaugeProperties {
 

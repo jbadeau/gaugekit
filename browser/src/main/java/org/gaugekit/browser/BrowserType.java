@@ -1,5 +1,6 @@
 package org.gaugekit.browser;
 
+import org.gaugekit.browser.webdriver.WebDriverSupplier;
 import org.openqa.selenium.Capabilities;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeOptions;

@@ -189,6 +189,12 @@ public final class Actor {
         return this;
     }
 
+    /**
+     *
+     * @param name the name of memory the {@link Actor} {@link #memorizes}s
+     * @param question the {@Question} the {@link Actor} {@link #memorizes}s
+     * @return this {@link Actor}
+     */
     public Actor memorizes(String name, Question question) {
         memories.put(name, asksFor(question));
         return this;
@@ -196,16 +202,16 @@ public final class Actor {
 
     /**
      * @param name the name of the memory the {@link Actor} {@link #recites}s
-     * @return the {@link Memory} instance for the {@link Actor}'s {@link #memories}
-     * @throws MissingMemoryException if there's no instance of the requested {@link Memory} {@link Class} in the
+     * @return the memory for the {@link Actor}'s {@link #memories}
+     * @throws MissingMemoryException if there's no memory {@link Class} in the
      *                                {@link Actor}'s {@link #memories}
      */
     public <T> T recites(String name) {
-        T fact = (T) memories.get(name);
-        if (fact == null) {
+        T memory = (T) memories.get(name);
+        if (memory == null) {
             throw new MissingMemoryException(this, name);
         }
-        return fact;
+        return memory;
     }
 
     public void cleanUp() {
@@ -233,4 +239,3 @@ public final class Actor {
     }
 
 }
-
