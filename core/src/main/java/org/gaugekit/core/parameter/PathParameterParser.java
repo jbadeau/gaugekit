@@ -2,15 +2,15 @@ package org.gaugekit.core.parameter;
 
 import com.thoughtworks.gauge.execution.parameters.parsers.base.CustomParameterParser;
 import gauge.messages.Spec;
-import org.gaugekit.core.util.DataUtils;
+import org.gaugekit.core.io.FileReader;
 
 import java.nio.file.Path;
 
 public class PathParameterParser extends CustomParameterParser<Path> {
 
-    private DataUtils dataUtils;
+    private FileReader dataUtils;
 
-    public PathParameterParser(DataUtils dataUtils) {
+    public PathParameterParser(FileReader dataUtils) {
         this.dataUtils = dataUtils;
     }
 

@@ -12,7 +12,7 @@ public final class SauronProperties extends GaugeProperties {
 
     private static final String sauron_baseline_dir = "sauron_baseline_dir";
 
-    private static final String sauron_screenshot_dir = "sauron_screenshot_dir";
+    private static final String sauron_snapshot_dir = "sauron_snapshot_dir";
 
     private static final String sauron_diff_dir = "sauron_diff_dir";
 
@@ -20,23 +20,23 @@ public final class SauronProperties extends GaugeProperties {
         super();
     }
 
-    public static Boolean sauron_screenshots_enabled() {
+    public static Boolean screenshotsEnabled() {
         return getBoolean(sauron_screenshots_enabled);
     }
 
-    public static Path sauron_dir() {
+    public static Path sauronDir() {
         return getProjectRelativePath(sauron_dir);
     }
 
-    public static Path sauron_baseline_dir() {
+    public static Path baselineDir() {
         return getProjectRelativePath(sauron_baseline_dir);
     }
 
-    public static Path sauron_screenshot_dir() {
-        return getProjectRelativePath(sauron_screenshot_dir);
+    public static Path snapshotDir() {
+        return getProjectRelativePath(sauron_snapshot_dir);
     }
 
-    public static Path sauron_diff_dir() {
+    public static Path diffDir() {
         return getProjectRelativePath(sauron_diff_dir);
     }
 

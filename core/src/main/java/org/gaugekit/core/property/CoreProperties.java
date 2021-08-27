@@ -7,7 +7,7 @@ public final class CoreProperties extends GaugeProperties {
         super();
     }
 
-    public static String common_test_environment() {
+    public static String testEnvironment() {
         return getString("common_test_environment");
     }
 

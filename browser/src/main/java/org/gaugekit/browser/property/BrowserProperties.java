@@ -18,7 +18,7 @@ public final class BrowserProperties extends GaugeProperties {
         return BrowserType.forName(getString(browser));
     }
 
-    public static WebDriverSupplier browser_webdriver_supplier() {
+    public static WebDriverSupplier webdriverSupplier() {
         return WebDriverSupplierType.forName(getString(browser_webdriver_supplier)).getWebDriverSupplier();
     }
 

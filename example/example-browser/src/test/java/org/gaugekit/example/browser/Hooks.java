@@ -12,7 +12,7 @@ public class Hooks {
     @BeforeScenario
     public void BeforeScenario() {
         Cast cast = new Cast();
-        cast.actorNamed("John", SurfTheWebAbility.surfTheWeb(BrowserProperties.browser_webdriver_supplier()));
+        cast.actorNamed("John", SurfTheWebAbility.surfTheWeb(BrowserProperties.webdriverSupplier()));
         Director.setStage(cast);
     }
 

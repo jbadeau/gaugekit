@@ -34,54 +34,54 @@ public abstract class GaugeProperties {
     protected GaugeProperties() {
     }
 
-    public static Path GAUGE_PROJECT_ROOT() {
-        return getPath(GAUGE_PROJECT_ROOT);
-    }
-
-    public static List<String> GAUGE_ENVIRONMENT() {
-        return getStringList(GAUGE_ENVIRONMENT, ",");
-    }
-
-    public static Path gauge_data_dir() {
-        return getProjectRelativePath(gauge_data_dir);
-    }
-
-    public static Path gauge_reports_dir() {
-        return getProjectRelativePath(gauge_reports_dir);
-    }
-
-    public static Path logs_directory() {
-        return getProjectRelativePath(logs_directory);
-    }
-
-    public static Path gauge_specs_dir() {
-        return getProjectRelativePath(gauge_specs_dir);
-    }
-
-    public static Boolean overwrite_reports() {
-        return getBoolean(overwrite_reports);
-    }
-
-    public static Boolean screenshot_on_failure() {
-        return getBoolean(screenshot_on_failure);
-    }
-
-    public static Boolean enable_multithreading() {
-        return getBoolean(enable_multithreading);
-    }
-
-    public static String csv_delimiter() {
+    public static String csvDelimiter() {
         return getString(csv_delimiter);
     }
 
-    public static Boolean allow_multiline_step() {
+    public static List<String> gaugeEnvs() {
+        return getStringList(GAUGE_ENVIRONMENT, ",");
+    }
+
+    public static Path projectDir() {
+        return getPath(GAUGE_PROJECT_ROOT);
+    }
+
+    public static Path dataDir() {
+        return getProjectRelativePath(gauge_data_dir);
+    }
+
+    public static Path reportsDir() {
+        return getProjectRelativePath(gauge_reports_dir);
+    }
+
+    public static Path logsDir() {
+        return getProjectRelativePath(logs_directory);
+    }
+
+    public static Path specsDir() {
+        return getProjectRelativePath(gauge_specs_dir);
+    }
+
+    public static Boolean overwriteReports() {
+        return getBoolean(overwrite_reports);
+    }
+
+    public static Boolean screenshotOnFailure() {
+        return getBoolean(screenshot_on_failure);
+    }
+
+    public static Boolean enableMultithreading() {
+        return getBoolean(enable_multithreading);
+    }
+
+    public static Boolean allowMultilineStep() {
         return getBoolean(allow_multiline_step);
     }
 
     protected static Path getProjectRelativePath(String property) {
         return getProperty(property)
                 .stream()
-                .map(value -> GAUGE_PROJECT_ROOT().resolve(value))
+                .map(value -> projectDir().resolve(value))
                 .findFirst()
                 .get();
     }

@@ -64,7 +64,6 @@
         <module>core</module>
         <module>table</module>
         <module>template</module>
-        <module>compare</module>
         <module>screenplay</module>
         <module>http</module>
         <module>sql</module>

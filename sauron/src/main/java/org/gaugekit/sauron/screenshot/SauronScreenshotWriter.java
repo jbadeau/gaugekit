@@ -13,8 +13,8 @@ public class SauronScreenshotWriter implements CustomScreenshotWriter {
 
     @Override
     public String takeScreenshot() {
-        File targetFile = SauronProperties.sauron_screenshot_dir().resolve(UUID.randomUUID().toString()).resolve(".png").toFile();
-        File sourceFile = getTheNewestFile(SauronProperties.sauron_diff_dir().toFile());
+        File targetFile = SauronProperties.snapshotDir().resolve(UUID.randomUUID().toString()).resolve(".png").toFile();
+        File sourceFile = getTheNewestFile(SauronProperties.diffDir().toFile());
         if (sourceFile == null) {
             return null;
         }

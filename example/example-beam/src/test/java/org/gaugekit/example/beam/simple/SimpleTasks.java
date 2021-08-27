@@ -1,6 +1,6 @@
 package org.gaugekit.example.beam.simple;
 
-import org.gaugekit.beam.screenplay.OrchestrateBeamPipelines;
+import org.gaugekit.beam.screenplay.OrchestrateBeamPipelineAbility;
 import org.gaugekit.screenplay.Actor;
 import org.gaugekit.screenplay.Task;
 
@@ -13,7 +13,7 @@ public class SimpleTasks {
         return new Task() {
             @Override
             public void performAs(Actor actor) {
-                OrchestrateBeamPipelines ability = actor.uses(OrchestrateBeamPipelines.class);
+                OrchestrateBeamPipelineAbility ability = actor.uses(OrchestrateBeamPipelineAbility.class);
                 SimplePipeline.runSimplePipeline(options);
             }
         };

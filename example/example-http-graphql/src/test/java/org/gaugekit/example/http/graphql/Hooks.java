@@ -3,7 +3,7 @@ package org.gaugekit.example.http.graphql;
 import com.thoughtworks.gauge.AfterScenario;
 import com.thoughtworks.gauge.BeforeScenario;
 import com.thoughtworks.gauge.datastore.ScenarioDataStore;
-import org.gaugekit.core.util.DataUtils;
+import org.gaugekit.core.io.FileReader;
 import org.gaugekit.example.http.graphql.common.ability.SearchApiAbility;
 import org.gaugekit.example.http.graphql.common.memory.CommonMemories;
 import org.gaugekit.screenplay.Cast;
@@ -16,9 +16,9 @@ import static org.mockserver.model.HttpResponse.response;
 
 public class Hooks implements CommonMemories {
 
-    private DataUtils dataUtils;
+    private FileReader dataUtils;
 
-    public Hooks(DataUtils dataUtils) {
+    public Hooks(FileReader dataUtils) {
         this.dataUtils = dataUtils;
     }
 
@@ -37,7 +37,7 @@ public class Hooks implements CommonMemories {
                 .respond(response()
                         .withStatusCode(200)
                         .withHeader("Content-Type", "application/json")
-                        .withBody(dataUtils.contentOf("resources.json")));
+                        .withBody(dataUtils.contentsOf("resources.json")));
 
         Cast cast = new Cast();
         cast.actorNamed("John", SearchApiAbility.searchApi(String.format("http://%s:%s", mockServer.getHost(), mockServer.getServerPort())));

@@ -16,19 +16,19 @@ public final class SqlProperties extends GaugeProperties {
         super();
     }
 
-    public static String sql_database_url() {
+    public static String databaseUrl() {
         return getString(sql_database_url);
     }
 
-    public static String sql_database_driver() {
+    public static String databaseDriver() {
         return getString(sql_database_driver);
     }
 
-    public static String sql_database_user() {
+    public static String databaseUser() {
         return getString(sql_database_user);
     }
 
-    public static String sql_database_password() {
+    public static String databasePassword() {
         return getString(sql_database_password);
     }
 

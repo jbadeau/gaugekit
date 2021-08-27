@@ -108,20 +108,20 @@ public class Sauron {
     }
 
     private void saveDiff(String name, ImageDiff diff) throws IOException {
-        Path diffFile = config.sauron_diff_dir().resolve(name + PNG_EXTENSION);
+        Path diffFile = config.diffDir().resolve(name + PNG_EXTENSION);
         FileUtils.forceMkdirParent(diffFile.toFile());
         ImageIO.write(diff.getMarkedImage(), PNG, diffFile.toFile());
     }
 
     private void deleteDiff(String name, ImageDiff diff) throws IOException {
-        Path diffFile = config.sauron_diff_dir().resolve(name + PNG_EXTENSION);
+        Path diffFile = config.diffDir().resolve(name + PNG_EXTENSION);
         if (Files.exists(diffFile)) {
             Files.delete(diffFile);
         }
     }
 
     private void saveSnapshot(String name, Screenshot snapshot) {
-        Path  snapshotFile = config.sauron_screenshot_dir().resolve(name + PNG_EXTENSION);
+        Path  snapshotFile = config.snapshotDir().resolve(name + PNG_EXTENSION);
         try {
             FileUtils.forceMkdirParent(snapshotFile.toFile());
             ImageIO.write(snapshot.getImage(), PNG, snapshotFile.toFile());
@@ -131,7 +131,7 @@ public class Sauron {
     }
 
     private Screenshot getBaseline(String name, Screenshot snapshot) throws IOException {
-        Path baselineFile = config.sauron_baseline_dir().resolve(name + PNG_EXTENSION);
+        Path baselineFile = config.baselineDir().resolve(name + PNG_EXTENSION);
         if (!Files.exists(baselineFile)) {
             FileUtils.forceMkdirParent(baselineFile.toFile());
             ImageIO.write(snapshot.getImage(), PNG, baselineFile.toFile());
