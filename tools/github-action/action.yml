@@ -1,14 +1,15 @@
 name: Gaugekit Maven
-description: "Gaugekit action to run Gauge tests with Maven
+author: Jose Badeau
+description: Gaugekit action to run Gauge tests with Maven
 inputs:
   env:
     description: Gauge environments to run against
     required: false
-    default: 'default'
+    default: default
   specsDir:
     description: Gauge specs directory path. Required for executing specs. Takes a comma separated list of specification files/directories
     required: false
-    default: 'specs'
+    default: specs
   tags:
     description: Filter specs by specified tags expression
     required: false
@@ -30,4 +31,4 @@ runs:
     - ${{ inputs.tags }}
     - ${{ inputs.inParallel }}
     - ${{ inputs.nodes }}
-  entrypoint: '/entrypoint.sh'
+  entrypoint: /entrypoint.sh
