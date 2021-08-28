@@ -15,6 +15,11 @@
     <name>Gaugekit Examples</name>
     <packaging>pom</packaging>
 
+    <properties>
+        <specs>specs</specs>
+        <env>default</env>
+    </properties>
+
     <modules>
         <module>beam</module>
         <module>browser</module>
