@@ -1,3 +1,6 @@
+# This workflow will build a Java project with Maven
+# For more information see: https://help.github.com/actions/language-and-framework-guides/building-and-testing-java-with-maven
+
 name: Maven Build
 
 on:
@@ -8,10 +11,13 @@ on:
 
 jobs:
   build:
-    runs-on: ubuntu-18.04
+
+    runs-on: ubuntu-latest
+
     steps:
-    - name: Checkout
+    - name: Clone repo
       uses: actions/checkout@v2
-    - name: Build
-      uses: jbadeau/guagekit
+    - name: Set up Gaugekit
+      uses: jbadeau/gaugekit
+    - name: Build with Maven
       run: mvn -B verify --file pom.xml
