@@ -23,6 +23,6 @@ jobs:
         java-version: '11'
         distribution: 'adopt'
     - name: Set up Gaugekit
-      uses: jbadeau/gaugekit
+      uses: jbadeau/gaugekit@latest
     - name: Build with Maven
       run: mvn -B verify --file pom.xml
