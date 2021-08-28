@@ -10,4 +10,4 @@ runs:
   image: Dockerfile
   args:
     - ${{ inputs.env }}
-  entrypoint: "entrypoint.sh"
+  entrypoint: "/entrypoint.sh"
