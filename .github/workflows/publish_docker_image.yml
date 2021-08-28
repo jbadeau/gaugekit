@@ -40,4 +40,5 @@ jobs:
           password: ${{ secrets.DOCKER_ACCESS_TOKEN }}
           repository: ${{ secrets.DOCKER_REPO }}
           tag_with_ref: true
+
           add_git_labels: true
