@@ -24,6 +24,5 @@ jobs:
         distribution: 'adopt'
     - name: Set up Gaugekit
       uses: jbadeau/gaugekit@vlatest
-      with:
     - name: Build with Maven
       run: mvn -B verify --file pom.xml
