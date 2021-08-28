@@ -48,4 +48,3 @@ Please read this document to understand the process for contributing.
 * [Cucumber](https://github.com/cucumber)
 * [serenity](https://github.com/serenity-bdd)
 * [shakespeare](https://github.com/mkutz/shakespeare)
-
