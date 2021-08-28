@@ -1,3 +1,3 @@
-#! /bin/sh -eu
+#!/bin/sh
 
 mvn clean verify -Denv=$1
