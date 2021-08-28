@@ -23,7 +23,7 @@ inputs:
     default:
 runs:
   using: docker
-  image: Dockerfile
+  image: jbadeau/gaugekit:0.1.0-SNAPSHOT
   args:
     - ${{ inputs.env }}
     - ${{ inputs.specsDir }}
