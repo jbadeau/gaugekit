@@ -1,38 +1,13 @@
 name: Gaugekit
 description: Gaugekit
 inputs:
-  specsDir:
-    description: Gauge specs directory path. Required for executing specs. Takes a comma separated list of specification files/directories
-    required: false
-    default: specs
-  tags:
-    description: Filter specs by specified tags expression
-    required: false
-    default:
-  inParallel:
-    description: Execute specs in parallel
-    required: false
-    default: false
-  nodes:
-    description: Number of parallel execution streams. Use with parallel
-    required: false
-    default:
   env:
     description: Gauge environments to run against
     required: false
-    default: default
-  flags:
-    description: Add additional gauge flags to execution
-    required: false
-    default:
+    default: 'default'
 runs:
   using: docker
   image: Dockerfile
   args:
-    - ${{ specsDir }}
-    - ${{ tags }}
-    - ${{ inParallel }}
-    - ${{ nodes }}
-    - ${{ env }}
-    - ${{ flags }}
+    - ${{ inputs.envs }}
   entrypoint: entrypoint.sh

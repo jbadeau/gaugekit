@@ -1,3 +1,3 @@
 #!/bin/sh -l
 
-mvn clean verify -Denv=$5
+mvn clean verify -Denv=$1
