@@ -1,11 +1,10 @@
 name: Publish Docker Image
 on:
   push:
-    branches:
-      - 'master'
-      - 'dev-*'
-    tags:
-      - 'v*'
+    branches: [ master ]
+  pull_request:
+    branches: [ master ]
+
 jobs:
   push:
     name: 'Build and Push'
@@ -36,6 +35,7 @@ jobs:
         if: steps.setup.outputs.target == 'Docker Hub'
         uses: docker/build-push-action@v1
         with:
+          file: tools/github-action/Dockerfile
           username: ${{ secrets.DOCKER_USERNAME }}
           password: ${{ secrets.DOCKER_ACCESS_TOKEN }}
           repository: ${{ secrets.DOCKER_REPO }}
