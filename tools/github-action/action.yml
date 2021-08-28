@@ -11,6 +11,6 @@ outputs:
     description: 'The time we greeted you'
 runs:
   using: 'docker'
-  image: 'Dockerfile'
+  image: jbadeau/gaugekit:0.1.0-SNAPSHOT
   args:
     - ${{ inputs.who-to-greet }}
