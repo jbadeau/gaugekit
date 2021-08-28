@@ -1,4 +1,3 @@
 #!/bin/sh
 
-mvn test-compile
-mvn gauge:execute -Denv=$1 -Dspecs=$2
+mvn verify -Denv=$1 -Dspecs=$2
