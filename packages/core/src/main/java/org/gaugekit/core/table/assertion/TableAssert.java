@@ -21,7 +21,7 @@ public class TableAssert extends AbstractAssert<TableAssert, Table> {
         TableDiffer tableDiffer = new TableDiffer(actual, expected);
         TableDiff diff = tableDiffer.calculateUnorderedDiffs();
         if (!diff.isEmpty()) {
-            failWithMessage("Expected tables to have the same rows but were %s", diff);
+            failWithMessage("Expected tables to have the same rows but was %s", diff);
         }
         return this;
     }
@@ -31,7 +31,7 @@ public class TableAssert extends AbstractAssert<TableAssert, Table> {
         TableDiffer tableDiffer = new TableDiffer(actual, expected);
         TableDiff diff = tableDiffer.calculateDiffs();
         if (!diff.isEmpty()) {
-            failWithMessage("Expected tables to have the same rows but were %s", diff);
+            failWithMessage("Expected tables to have the same rows but was %s", diff);
         }
         return this;
     }
