@@ -39,7 +39,7 @@ public abstract class GaugeProperties {
     }
 
     public static List<String> gaugeEnvs() {
-        return getStringList(GAUGE_ENVIRONMENT, ",");
+        return getStringList(GAUGE_ENVIRONMENT.toLowerCase(), ",");
     }
 
     public static Path projectDir() {
