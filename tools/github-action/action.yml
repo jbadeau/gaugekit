@@ -2,6 +2,10 @@ name: Gaugekit Maven
 author: Jose Badeau
 description: Gaugekit action to run Gauge tests with Maven
 inputs:
+  phase:
+    description: Maven lifecycle phase to run
+    required: false
+    default: verify
   env:
     description: Gauge environments to run against
     required: false

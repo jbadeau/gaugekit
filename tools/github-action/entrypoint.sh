@@ -1,3 +1,3 @@
 #!/bin/sh
 
-mvn verify -Denv=$1 -DspecsDir=$2 -Dtags=$3 -DinParallel=$4 -Dnodes=$5
+mvn $1 -Denv=$2 -DspecsDir=$3 -Dtags=$4 -DinParallel=$5 -Dnodes=$6
