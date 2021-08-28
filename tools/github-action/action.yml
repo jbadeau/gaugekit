@@ -1,16 +1,6 @@
 # action.yml
 name: 'Gaugekit'
 description: 'Gaugekit'
-inputs:
-  who-to-greet:  # id of input
-    description: 'Who to greet'
-    required: true
-    default: 'World'
-outputs:
-  time: # id of output
-    description: 'The time we greeted you'
 runs:
   using: 'docker'
-  image: jbadeau/gaugekit:0.1.0-SNAPSHOT
-  args:
-    - ${{ inputs.who-to-greet }}
+  image: 'Dockerfile'
