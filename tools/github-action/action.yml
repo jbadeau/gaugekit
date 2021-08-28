@@ -21,7 +21,7 @@ inputs:
   nodes:
     description: Number of parallel execution streams. Use with parallel
     required: false
-    default:
+    default: 0
 runs:
   using: docker
   image: jbadeau/gaugekit:0.1.0-SNAPSHOT
