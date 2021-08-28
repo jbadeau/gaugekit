@@ -1,7 +1,7 @@
 package org.gaugekit.browser.supplier;
 
 import org.gaugekit.browser.BrowserType;
-import org.gaugekit.browser.webdriver.LocalWebDriverSupplier;
+import org.gaugekit.browser.webdriver.LocalWebDriverProvider;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
@@ -36,7 +36,7 @@ class LocalWebDriverSupplierTest {
         assumeThat(COMMANDS).containsKey(browserType);
         assumeThat(new ProcessBuilder("which", COMMANDS.get(browserType)).start().waitFor()).isEqualTo(0);
 
-        final var localWebDriverSupplier = new LocalWebDriverSupplier(browserType, HEADLESS.get(browserType));
+        final var localWebDriverSupplier = new LocalWebDriverProvider(browserType, HEADLESS.get(browserType));
 
         assertThat(localWebDriverSupplier.get())
                 .isNotNull()
@@ -51,7 +51,7 @@ class LocalWebDriverSupplierTest {
         assumeThat(COMMANDS).containsKey(FIREFOX);
         assumeThat(new ProcessBuilder("which", COMMANDS.get(FIREFOX)).start().waitFor()).isEqualTo(0);
 
-        final var localWebDriverSupplier = new LocalWebDriverSupplier(FIREFOX, HEADLESS.get(FIREFOX));
+        final var localWebDriverSupplier = new LocalWebDriverProvider(FIREFOX, HEADLESS.get(FIREFOX));
 
         final var webDriver = localWebDriverSupplier.get();
         assertThat(webDriver).isSameAs(localWebDriverSupplier.get());
@@ -65,7 +65,7 @@ class LocalWebDriverSupplierTest {
         assumeThat(COMMANDS).containsKey(FIREFOX);
         assumeThat(new ProcessBuilder("which", COMMANDS.get(FIREFOX)).start().waitFor()).isEqualTo(0);
 
-        final var localWebDriverSupplier = new LocalWebDriverSupplier(FIREFOX, HEADLESS.get(FIREFOX));
+        final var localWebDriverSupplier = new LocalWebDriverProvider(FIREFOX, HEADLESS.get(FIREFOX));
 
         final var webDriver = localWebDriverSupplier.get();
 

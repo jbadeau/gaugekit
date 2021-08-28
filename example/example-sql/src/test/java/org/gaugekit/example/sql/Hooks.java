@@ -4,10 +4,10 @@ import com.thoughtworks.gauge.AfterScenario;
 import com.thoughtworks.gauge.BeforeScenario;
 import com.thoughtworks.gauge.datastore.ScenarioDataStore;
 import org.gaugekit.example.sql.common.CommonMemories;
-import org.gaugekit.screenplay.Cast;
-import org.gaugekit.screenplay.Director;
+import org.gaugekit.core.screenplay.Cast;
+import org.gaugekit.core.screenplay.Director;
 import org.gaugekit.sql.screenplay.SqlAbility;
-import org.gaugekit.table.screenplay.TableAbility;
+import org.gaugekit.core.table.TableAbility;
 import org.testcontainers.containers.JdbcDatabaseContainer;
 import org.testcontainers.containers.MySQLContainer;
 

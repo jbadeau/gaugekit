@@ -5,8 +5,8 @@ import com.graphql_java_generator.exception.GraphQLRequestPreparationException;
 import org.gaugekit.example.http.graphql.common.ability.SearchApiAbility;
 import org.gaugekit.example.http.graphql.google.QueryExecutor;
 import org.gaugekit.example.http.graphql.google.Resource;
-import org.gaugekit.screenplay.Actor;
-import org.gaugekit.screenplay.Task;
+import org.gaugekit.core.screenplay.Actor;
+import org.gaugekit.core.screenplay.Task;
 
 import java.util.List;
 

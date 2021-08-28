@@ -1,9 +1,9 @@
 package org.gaugekit.sql.screenplay;
 
 import com.thoughtworks.gauge.Table;
-import org.gaugekit.screenplay.Actor;
-import org.gaugekit.screenplay.Question;
-import org.gaugekit.table.io.TableReader;
+import org.gaugekit.core.screenplay.Actor;
+import org.gaugekit.core.screenplay.Question;
+import org.gaugekit.core.table.TableReader;
 
 
 public interface SqlQuestions {

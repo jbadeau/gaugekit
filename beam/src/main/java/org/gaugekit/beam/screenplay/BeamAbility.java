@@ -1,6 +1,6 @@
 package org.gaugekit.beam.screenplay;
 
-import org.gaugekit.screenplay.Ability;
+import org.gaugekit.core.screenplay.Ability;
 
 
 public class BeamAbility implements Ability {

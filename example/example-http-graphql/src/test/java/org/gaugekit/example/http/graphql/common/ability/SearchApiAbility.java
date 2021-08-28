@@ -2,7 +2,7 @@ package org.gaugekit.example.http.graphql.common.ability;
 
 import org.gaugekit.example.http.graphql.google.QueryExecutor;
 import org.gaugekit.example.http.graphql.google.Resource;
-import org.gaugekit.screenplay.Ability;
+import org.gaugekit.core.screenplay.Ability;
 
 import java.util.List;
 

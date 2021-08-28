@@ -1,7 +1,7 @@
 package org.gaugekit.browser.supplier;
 
 import org.gaugekit.browser.BrowserType;
-import org.gaugekit.browser.webdriver.DockerWebDriverSupplier;
+import org.gaugekit.browser.webdriver.DockerWebDriverProvider;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.EnumSource;
 import org.openqa.selenium.remote.RemoteWebDriver;
@@ -18,7 +18,7 @@ class DockerWebDriverSupplierTest {
     void getTest1(BrowserType browserType) throws IOException, InterruptedException {
         assumeThat(new ProcessBuilder("which", "docker").start().waitFor()).isEqualTo(0);
 
-        final var dockerWebDriverSupplier = new DockerWebDriverSupplier(browserType);
+        final var dockerWebDriverSupplier = new DockerWebDriverProvider(browserType);
 
         assertThat(dockerWebDriverSupplier.get())
                 .isNotNull()

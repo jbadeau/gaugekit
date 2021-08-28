@@ -1,8 +1,8 @@
 package org.gaugekit.example.browser.wikipedia;
 
 import org.gaugekit.browser.screenplay.BrowserAbility;
-import org.gaugekit.screenplay.Actor;
-import org.gaugekit.screenplay.Task;
+import org.gaugekit.core.screenplay.Actor;
+import org.gaugekit.core.screenplay.Task;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;

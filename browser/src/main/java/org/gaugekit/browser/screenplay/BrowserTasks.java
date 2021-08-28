@@ -1,7 +1,7 @@
 package org.gaugekit.browser.screenplay;
 
-import org.gaugekit.screenplay.Actor;
-import org.gaugekit.screenplay.Task;
+import org.gaugekit.core.screenplay.Actor;
+import org.gaugekit.core.screenplay.Task;
 import org.openqa.selenium.WebDriver;
 
 public interface BrowserTasks {

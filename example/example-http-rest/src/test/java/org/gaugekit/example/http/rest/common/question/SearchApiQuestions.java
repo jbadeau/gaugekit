@@ -2,8 +2,8 @@ package org.gaugekit.example.http.rest.common.question;
 
 import org.gaugekit.example.http.rest.common.ability.SearchApiAbility;
 import org.gaugekit.example.http.rest.google.search.model.Resource;
-import org.gaugekit.screenplay.Actor;
-import org.gaugekit.screenplay.Question;
+import org.gaugekit.core.screenplay.Actor;
+import org.gaugekit.core.screenplay.Question;
 
 import java.util.List;
 

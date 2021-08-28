@@ -3,7 +3,7 @@ package org.gaugekit.example.browser.wikipedia;
 import com.thoughtworks.gauge.Step;
 import org.gaugekit.browser.screenplay.BrowserQuestions;
 import org.gaugekit.browser.screenplay.BrowserTasks;
-import org.gaugekit.screenplay.Actor;
+import org.gaugekit.core.screenplay.Actor;
 
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.gaugekit.example.browser.wikipedia.WikipediaProperties.baseUrl;

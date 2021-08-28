@@ -72,11 +72,6 @@
             <version>${project.version}</version>
         </dependency>
         <dependency>
-            <groupId>org.gaugekit</groupId>
-            <artifactId>gaugekit-screenplay</artifactId>
-            <version>${project.version}</version>
-        </dependency>
-        <dependency>
             <groupId>com.fasterxml.jackson.core</groupId>
             <artifactId>jackson-core</artifactId>
         </dependency>

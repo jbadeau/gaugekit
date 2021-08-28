@@ -5,7 +5,7 @@ import io.restassured.filter.log.ErrorLoggingFilter;
 import org.gaugekit.example.http.rest.google.search.api.SearchApi;
 import org.gaugekit.example.http.rest.google.search.client.ApiClient;
 import org.gaugekit.example.http.rest.google.search.model.Resource;
-import org.gaugekit.screenplay.Ability;
+import org.gaugekit.core.screenplay.Ability;
 
 import java.util.List;
 

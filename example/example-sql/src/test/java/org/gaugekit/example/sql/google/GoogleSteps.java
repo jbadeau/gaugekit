@@ -2,14 +2,14 @@ package org.gaugekit.example.sql.google;
 
 import com.thoughtworks.gauge.Step;
 import com.thoughtworks.gauge.Table;
-import org.gaugekit.screenplay.Actor;
+import org.gaugekit.core.screenplay.Actor;
 import org.gaugekit.sql.screenplay.SqlQuestions;
 import org.gaugekit.sql.screenplay.SqlTasks;
-import org.gaugekit.table.screenplay.TableQuestions;
+import org.gaugekit.core.table.TableQuestions;
 
 import java.nio.file.Path;
 
-import static org.gaugekit.table.assertion.TableAssert.assertThat;
+import static org.gaugekit.core.table.assertion.TableAssert.assertThat;
 
 public class GoogleSteps implements SqlTasks, SqlQuestions, TableQuestions, GoogleMemories {
 

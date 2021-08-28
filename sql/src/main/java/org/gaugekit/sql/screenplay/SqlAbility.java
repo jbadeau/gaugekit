@@ -1,6 +1,6 @@
 package org.gaugekit.sql.screenplay;
 
-import org.gaugekit.screenplay.Ability;
+import org.gaugekit.core.screenplay.Ability;
 
 import java.sql.Connection;
 import java.sql.ResultSet;

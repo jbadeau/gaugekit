@@ -1,7 +1,6 @@
 package org.gaugekit.sauron;
 
 import org.apache.commons.io.FileUtils;
-import org.gaugekit.sauron.property.SauronProperties;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;

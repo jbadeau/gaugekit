@@ -1,8 +1,8 @@
 package org.gaugekit.example.beam.simple;
 
 import org.gaugekit.beam.screenplay.BeamAbility;
-import org.gaugekit.screenplay.Actor;
-import org.gaugekit.screenplay.Task;
+import org.gaugekit.core.screenplay.Actor;
+import org.gaugekit.core.screenplay.Task;
 
 public class
 SimpleTasks {

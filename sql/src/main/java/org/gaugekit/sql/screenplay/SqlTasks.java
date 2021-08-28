@@ -1,7 +1,7 @@
 package org.gaugekit.sql.screenplay;
 
-import org.gaugekit.screenplay.Actor;
-import org.gaugekit.screenplay.Task;
+import org.gaugekit.core.screenplay.Actor;
+import org.gaugekit.core.screenplay.Task;
 
 import java.sql.Connection;
 import java.sql.ResultSet;

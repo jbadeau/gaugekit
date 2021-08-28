@@ -1,18 +1,18 @@
 package org.gaugekit.browser.screenplay;
 
-import org.gaugekit.browser.webdriver.WebDriverSupplier;
-import org.gaugekit.screenplay.Ability;
+import org.gaugekit.browser.webdriver.WebDriverProvider;
+import org.gaugekit.core.screenplay.Ability;
 import org.openqa.selenium.WebDriver;
 
 public class BrowserAbility implements Ability {
 
-    private WebDriverSupplier webDriverSupplier;
+    private WebDriverProvider webDriverSupplier;
 
-    public BrowserAbility(WebDriverSupplier webDriverSupplier) {
+    public BrowserAbility(WebDriverProvider webDriverSupplier) {
         this.webDriverSupplier = webDriverSupplier;
     }
 
-    public static BrowserAbility browser(WebDriverSupplier webDriverSupplier) {
+    public static BrowserAbility browser(WebDriverProvider webDriverSupplier) {
         return new BrowserAbility(webDriverSupplier);
     }
 

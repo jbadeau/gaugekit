@@ -37,16 +37,6 @@
         </dependency>
         <dependency>
             <groupId>org.gaugekit</groupId>
-            <artifactId>gaugekit-screenplay</artifactId>
-            <version>${project.version}</version>
-        </dependency>
-        <dependency>
-            <groupId>org.gaugekit</groupId>
-            <artifactId>gaugekit-table</artifactId>
-            <version>${project.version}</version>
-        </dependency>
-        <dependency>
-            <groupId>org.gaugekit</groupId>
             <artifactId>gaugekit-template</artifactId>
             <version>${project.version}</version>
         </dependency>

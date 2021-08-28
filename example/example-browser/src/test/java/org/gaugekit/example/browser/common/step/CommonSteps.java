@@ -1,7 +1,7 @@
 package org.gaugekit.example.browser.common.step;
 
 import com.thoughtworks.gauge.Step;
-import org.gaugekit.screenplay.Actor;
+import org.gaugekit.core.screenplay.Actor;
 
 
 public class CommonSteps {

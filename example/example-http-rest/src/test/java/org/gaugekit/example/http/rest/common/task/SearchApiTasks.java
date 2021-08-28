@@ -3,8 +3,8 @@ package org.gaugekit.example.http.rest.common.task;
 import org.gaugekit.example.http.rest.common.ability.SearchApiAbility;
 import org.gaugekit.example.http.rest.google.search.api.SearchApi;
 import org.gaugekit.example.http.rest.google.search.model.Resource;
-import org.gaugekit.screenplay.Actor;
-import org.gaugekit.screenplay.Task;
+import org.gaugekit.core.screenplay.Actor;
+import org.gaugekit.core.screenplay.Task;
 
 import java.util.List;
 

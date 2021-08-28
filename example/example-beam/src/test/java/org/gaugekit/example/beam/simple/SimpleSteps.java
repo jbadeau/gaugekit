@@ -4,8 +4,8 @@ import com.thoughtworks.gauge.Step;
 import com.thoughtworks.gauge.Table;
 import org.apache.beam.sdk.options.PipelineOptionsFactory;
 import org.apache.commons.io.FilenameUtils;
-import org.gaugekit.screenplay.Actor;
-import org.gaugekit.table.io.TableReader;
+import org.gaugekit.core.screenplay.Actor;
+import org.gaugekit.core.table.TableReader;
 import org.gaugekit.template.screenplay.TemplateQuestions;
 import org.gaugekit.template.screenplay.TemplateTasks;
 
@@ -13,7 +13,7 @@ import java.io.IOException;
 import java.nio.file.Path;
 import java.util.Collections;
 
-import static org.gaugekit.table.assertion.TableAssert.assertThat;
+import static org.gaugekit.core.table.assertion.TableAssert.assertThat;
 
 public class SimpleSteps implements TemplateTasks, TemplateQuestions, SimpleMemories {
 

@@ -4,7 +4,7 @@ import com.thoughtworks.gauge.Step;
 import org.gaugekit.example.http.rest.common.question.SearchApiQuestions;
 import org.gaugekit.example.http.rest.common.task.SearchApiTasks;
 import org.gaugekit.example.http.rest.google.search.model.Resource;
-import org.gaugekit.screenplay.Actor;
+import org.gaugekit.core.screenplay.Actor;
 
 import java.nio.file.Path;
 import java.util.List;

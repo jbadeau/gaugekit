@@ -1,7 +1,7 @@
 package org.gaugekit.template.screenplay;
 
-import org.gaugekit.screenplay.Actor;
-import org.gaugekit.screenplay.Question;
+import org.gaugekit.core.screenplay.Actor;
+import org.gaugekit.core.screenplay.Question;
 
 import java.nio.file.Path;
 

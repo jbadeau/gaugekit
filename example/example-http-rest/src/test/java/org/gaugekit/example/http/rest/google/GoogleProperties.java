@@ -1,7 +1,7 @@
 package org.gaugekit.example.http.rest.google;
 
 
-import org.gaugekit.core.property.GaugeProperties;
+import org.gaugekit.core.GaugeProperties;
 
 public final class GoogleProperties extends GaugeProperties {
 
