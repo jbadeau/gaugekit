@@ -24,6 +24,10 @@
                         <goals>
                             <goal>execute</goal>
                         </goals>
+                        <configuration>
+                            <specsDir>${specs}</specsDir>
+                            <env>${env}</env>
+                        </configuration>
                     </execution>
                 </executions>
             </plugin>
