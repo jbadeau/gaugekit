@@ -9,5 +9,5 @@ runs:
   using: docker
   image: Dockerfile
   args:
-    - ${{ inputs.envs }}
+    - ${{ inputs.env }}
   entrypoint: entrypoint.sh
