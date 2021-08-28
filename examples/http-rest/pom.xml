@@ -22,8 +22,9 @@
                             <goal>execute</goal>
                         </goals>
                         <configuration>
-                            <specsDir>${specs}</specsDir>
                             <env>${env}</env>
+                            <specsDir>${specsDir}</specsDir>
+                            <tags>${tags}</tags>
                         </configuration>
                     </execution>
                 </executions>

@@ -16,8 +16,9 @@
     <packaging>pom</packaging>
 
     <properties>
-        <specs>specs</specs>
         <env>default</env>
+        <specsDir>specs</specsDir>
+        <tags></tags>
     </properties>
 
     <modules>
