@@ -5,8 +5,8 @@ ARG VCS_REF
 ARG VERSION
 LABEL maintainer="Jose Badeau <jose.badeau@gmail.com>" \
       build-date=$BUILD_DATE \
-      name="Gaugekit" \
-      description="An alpine based maven image with Gaugekit installed for running BDD style gauge-java test suites." \
+      name="Gaugekit Maven" \
+      description="Gaugekit action to run Gauge tests with Maven" \
       vcs-ref=$VCS_REF \
       vcs-url="https://github.com/jbadeau/gaugekit.git" \
       version=$VERSION \

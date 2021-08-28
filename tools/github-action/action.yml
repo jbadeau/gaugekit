@@ -1,5 +1,5 @@
-name: Gaugekit
-description: Gaugekit
+name: Gaugekit Maven
+description: "Gaugekit action to run Gauge tests with Maven
 inputs:
   env:
     description: Gauge environments to run against
