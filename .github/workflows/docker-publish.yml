@@ -33,7 +33,7 @@ jobs:
           add_git_labels: true
       - name: 'Build and push to Docker Hub'
         if: steps.setup.outputs.target == 'Docker Hub'
-        uses: docker/build-push-action@v1
+        uses: docker/build-push-action@v2
         with:
           path: tools/github-action
           dockerfile: tools/github-action/Dockerfile
