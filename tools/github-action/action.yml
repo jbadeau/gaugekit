@@ -5,9 +5,29 @@ inputs:
     description: Gauge environments to run against
     required: false
     default: 'default'
+  specsDir:
+    description: Gauge specs directory path. Required for executing specs. Takes a comma separated list of specification files/directories
+    required: false
+    default: 'specs'
+  tags:
+    description: Filter specs by specified tags expression
+    required: false
+    default:
+  inParallel:
+    description: Execute specs in parallel
+    required: false
+    default: false
+  nodes:
+    description: Number of parallel execution streams. Use with parallel
+    required: false
+    default:
 runs:
   using: docker
   image: Dockerfile
   args:
     - ${{ inputs.env }}
-  entrypoint: "/entrypoint.sh"
+    - ${{ inputs.specsDir }}
+    - ${{ inputs.tags }}
+    - ${{ inputs.inParallel }}
+    - ${{ inputs.nodes }}
+  entrypoint: '/entrypoint.sh'
