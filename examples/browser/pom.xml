@@ -21,10 +21,6 @@
                 <executions>
                     <execution>
                         <phase>integration-test</phase>
-                        <configuration>
-                            <specsDir>specs</specsDir>
-                            <env>default</env>
-                        </configuration>
                         <goals>
                             <goal>execute</goal>
                         </goals>
