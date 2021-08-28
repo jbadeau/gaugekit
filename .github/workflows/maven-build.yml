@@ -19,3 +19,5 @@ jobs:
         uses: skjolber/maven-cache-github-action@v1
         with:
           step: save
+      - name: Verify with maven
+        uses: ./tools/github-action
