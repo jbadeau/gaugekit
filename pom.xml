@@ -61,15 +61,10 @@
     </properties>
 
     <modules>
-        <module>core</module>
-        <module>template</module>
-        <module>http</module>
-        <module>sql</module>
-        <module>browser</module>
-        <module>sauron</module>
-        <module>beam</module>
-        <module>plugin</module>
-        <module>example</module>
+        <module>tools</module>
+        <module>packages</module>
+        <module>plugins</module>
+        <module>examples</module>
     </modules>
 
     <build>
