@@ -19,7 +19,7 @@ public class GoogleSteps implements SqlTasks, SqlQuestions, TableQuestions, Goog
 
     @Step("When <actor> searches for <term>")
     public void search(Actor actor, String term) {
-        actor.attemptsTo(query(String.format("SELECT * FROM RESOURCE")));
+        actor.attemptsTo(query("SELECT * FROM RESOURCE"));
         actor.memorizes(SOURCE_TABLE, tableFromResultSet());
     }
 

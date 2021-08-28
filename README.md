@@ -43,3 +43,8 @@ Please read this document to understand the process for contributing.
 * Help us improve our documentation
 * Contribute code to Gaugekit!
 * Pick up any pending feature or bug, big or small, then send us a pull request. Even fixing broken links is helpful.
+
+## Credits 
+* [Cucumber](https://github.com/cucumber)
+* [serenity](https://github.com/serenity-bdd)
+* [shakespeare](https://github.com/mkutz/shakespeare)

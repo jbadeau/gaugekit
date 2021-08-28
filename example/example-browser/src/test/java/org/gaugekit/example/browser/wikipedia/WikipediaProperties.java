@@ -8,7 +8,7 @@ public final class WikipediaProperties extends GaugeProperties {
     private WikipediaProperties() {
     }
 
-    public static String wikipedia_base_url() {
+    public static String baseUrl() {
         return getString("wikipedia_base_url");
     }
 

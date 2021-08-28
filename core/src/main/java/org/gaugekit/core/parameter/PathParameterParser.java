@@ -8,15 +8,9 @@ import java.nio.file.Path;
 
 public class PathParameterParser extends CustomParameterParser<Path> {
 
-    private FileReader dataUtils;
-
-    public PathParameterParser(FileReader dataUtils) {
-        this.dataUtils = dataUtils;
-    }
-
     @Override
     protected Path customParse(Class clazz, Spec.Parameter parameter) {
-        return dataUtils.fileAt(parameter.getValue());
+        return FileReader.fileAt(parameter.getValue());
     }
 
     @Override

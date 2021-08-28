@@ -16,12 +16,6 @@ import static org.mockserver.model.HttpResponse.response;
 
 public class Hooks implements CommonMemories {
 
-    private FileReader dataUtils;
-
-    public Hooks(FileReader dataUtils) {
-        this.dataUtils = dataUtils;
-    }
-
     @BeforeScenario
     public void beforeScenario() {
         MockServerContainer mockServer = new MockServerContainer();
@@ -37,7 +31,7 @@ public class Hooks implements CommonMemories {
                 .respond(response()
                         .withStatusCode(200)
                         .withHeader("Content-Type", "application/json")
-                        .withBody(dataUtils.contentsOf("resources.json")));
+                        .withBody(FileReader.contentsOf("resources.json")));
 
         Cast cast = new Cast();
         cast.actorNamed("John", SearchApiAbility.searchApi(String.format("http://%s:%s", mockServer.getHost(), mockServer.getServerPort())));

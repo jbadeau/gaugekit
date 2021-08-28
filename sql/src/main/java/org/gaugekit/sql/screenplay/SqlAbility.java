@@ -13,7 +13,7 @@ public class SqlAbility implements Ability {
     private ResultSet lastResultSet;
 
     public SqlAbility(Connection connection) {
-            connection = connection;
+            this.connection = connection;
     }
 
     public static Ability sql(Connection connection) {

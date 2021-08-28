@@ -1,6 +1,6 @@
 package org.gaugekit.example.browser.wikipedia;
 
-import org.gaugekit.example.browser.common.ability.SurfTheWebAbility;
+import org.gaugekit.browser.screenplay.BrowserAbility;
 import org.gaugekit.screenplay.Actor;
 import org.gaugekit.screenplay.Task;
 import org.openqa.selenium.By;
@@ -17,7 +17,7 @@ public class WikipediaTasks {
         return new Task() {
             @Override
             public void performAs(Actor actor) {
-                SurfTheWebAbility ability = actor.uses(SurfTheWebAbility.class);
+                BrowserAbility ability = actor.uses(BrowserAbility.class);
                 WebDriver driver = ability.getWebDriver();
                 WebElement element = driver.findElement(By.name("search"));
                 element.sendKeys(query);

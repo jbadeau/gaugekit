@@ -1,19 +1,19 @@
 package org.gaugekit.example.browser.wikipedia;
 
 import com.thoughtworks.gauge.Step;
-import org.gaugekit.example.browser.common.question.BrowserQuestions;
+import org.gaugekit.browser.screenplay.BrowserQuestions;
+import org.gaugekit.browser.screenplay.BrowserTasks;
 import org.gaugekit.screenplay.Actor;
 
-import static org.gaugekit.example.browser.wikipedia.WikipediaProperties.*;
-import static org.gaugekit.example.browser.wikipedia.WikipediaTasks.*;
-import static org.gaugekit.example.browser.common.task.BrowserTasks.*;
 import static org.assertj.core.api.Assertions.assertThat;
+import static org.gaugekit.example.browser.wikipedia.WikipediaProperties.baseUrl;
+import static org.gaugekit.example.browser.wikipedia.WikipediaTasks.searchFor;
 
-public class WikipediaSteps {
+public class WikipediaSteps implements BrowserTasks, BrowserQuestions {
 
     @Step("And <actor> opens <app>")
     public void open(Actor actor, String app) {
-        actor.attemptsTo(openApp(wikipedia_base_url()));
+        actor.attemptsTo(open(baseUrl()));
     }
 
     @Step("When <actor> searches for <term>")
@@ -23,7 +23,7 @@ public class WikipediaSteps {
 
     @Step("Then <actor> verifies that <result> is returned")
     public void verify(Actor actor, String result) {
-        String title = actor.asksFor(BrowserQuestions.title());
+        String title = actor.asksFor(title());
         assertThat(title).contains(result);
     }
 

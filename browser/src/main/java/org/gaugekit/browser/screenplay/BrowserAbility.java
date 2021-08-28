@@ -12,7 +12,7 @@ public class BrowserAbility implements Ability {
         this.webDriverSupplier = webDriverSupplier;
     }
 
-    public static BrowserAbility driveBrowser(WebDriverSupplier webDriverSupplier) {
+    public static BrowserAbility browser(WebDriverSupplier webDriverSupplier) {
         return new BrowserAbility(webDriverSupplier);
     }
 
