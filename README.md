@@ -1,5 +1,5 @@
 # gaugekit
-Gaugekit is a collection of modules to make writing acceptance tests with gauge easier.
+Gaugekit is a collection of packages to make writing acceptance tests with gauge easier.
 
 ## Modules
 The following domain modules are currently provided

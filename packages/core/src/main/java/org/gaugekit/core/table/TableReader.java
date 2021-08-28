@@ -9,7 +9,7 @@ import org.apache.poi.ss.usermodel.Row;
 import org.apache.poi.ss.usermodel.Sheet;
 import org.apache.poi.ss.usermodel.Workbook;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
-import org.gaugekit.core.path.FileReader;
+import org.gaugekit.core.file.FileReader;
 
 import java.io.FileInputStream;
 import java.io.IOException;

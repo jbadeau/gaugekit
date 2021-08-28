@@ -1,4 +1,4 @@
-package org.gaugekit.core.path;
+package org.gaugekit.core.file;
 
 import org.gaugekit.core.screenplay.Actor;
 import org.gaugekit.core.screenplay.Question;

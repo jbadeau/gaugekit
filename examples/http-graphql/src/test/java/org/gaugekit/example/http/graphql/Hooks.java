@@ -3,7 +3,7 @@ package org.gaugekit.example.http.graphql;
 import com.thoughtworks.gauge.AfterScenario;
 import com.thoughtworks.gauge.BeforeScenario;
 import com.thoughtworks.gauge.datastore.ScenarioDataStore;
-import org.gaugekit.core.path.FileReader;
+import org.gaugekit.core.file.FileReader;
 import org.gaugekit.example.http.graphql.common.ability.SearchApiAbility;
 import org.gaugekit.example.http.graphql.common.memory.CommonMemories;
 import org.gaugekit.core.screenplay.Cast;

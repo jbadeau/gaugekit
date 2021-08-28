@@ -3,7 +3,7 @@ package org.gaugekit.template;
 import com.github.jknack.handlebars.Handlebars;
 import com.github.jknack.handlebars.Template;
 import org.gaugekit.core.GaugeProperties;
-import org.gaugekit.core.path.FileReader;
+import org.gaugekit.core.file.FileReader;
 import org.gaugekit.template.helper.DateTimeHelpers;
 import org.apache.commons.io.FileUtils;
 import org.apache.commons.io.FilenameUtils;

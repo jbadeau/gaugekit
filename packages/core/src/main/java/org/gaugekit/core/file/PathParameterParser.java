@@ -1,4 +1,4 @@
-package org.gaugekit.core.path;
+package org.gaugekit.core.file;
 
 import com.thoughtworks.gauge.execution.parameters.parsers.base.CustomParameterParser;
 import gauge.messages.Spec;

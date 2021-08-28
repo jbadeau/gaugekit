@@ -1,4 +1,4 @@
-package org.gaugekit.core.path;
+package org.gaugekit.core.file;
 
 import org.gaugekit.core.GaugeProperties;
 import org.junit.jupiter.api.Test;

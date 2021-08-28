@@ -2,7 +2,7 @@ package org.gaugekit.core.json;
 
 import com.google.gson.Gson;
 import com.google.gson.JsonElement;
-import org.gaugekit.core.path.FileReader;
+import org.gaugekit.core.file.FileReader;
 
 import java.io.FileNotFoundException;
 import java.nio.file.Path;
