@@ -1,49 +1,19 @@
-FROM alpine:latest
+FROM maven:3.8.2-openjdk-11
 
-# Build-time metadata as defined at http://label-schema.org
 ARG BUILD_DATE
 ARG VCS_REF
 ARG VERSION
-LABEL maintainer="Haroon Sheikh <haroon@sitture.com>" \
+LABEL maintainer="Jose Badeau <jose.badeau@gmail.com>" \
       build-date=$BUILD_DATE \
-      name="Docker Gauge Java" \
-      description="An alpine based maven image with Gauge installed for running BDD style gauge-java test suites." \
+      name="Gaugekit" \
+      description="An alpine based maven image with Gaugekit installed for running BDD style gauge-java test suites." \
       vcs-ref=$VCS_REF \
-      vcs-url="https://github.com/sitture/docker-gauge-java" \
+      vcs-url="https://github.com/jbadeau/gaugekit.git" \
       version=$VERSION \
-      schema-version="1.0"
-
-ENV LANG C.UTF-8
-
-# OS updates & install dependencies
-RUN set -ex && \
-    # install/update packages
-    apk update --no-cache && \
-    apk add --no-cache --update \
-        krb5 \
-        gcc musl-dev linux-headers \
-        ca-certificates \
-        bash \
-        wget \
-        curl \
-        openjdk11 \
-        unzip \
-        maven \
-        tar && \
-    rm -rf /var/cache/apk/*
-
-# Configure maven
-COPY entrypoint.sh /usr/local/bin/entrypoint.sh
-COPY settings-docker.xml /usr/share/maven/ref/
-
-RUN chmod +x /usr/local/bin/entrypoint.sh
-ENV MAVEN_CONFIG "/root/.m2"
+      schema-version="0.1.0"
 
 # Install gauge
 ARG GAUGE_VERSION=1.4.1
-ARG GAUGE_REPORTPORTAL_VERSION=1.12.0
-ENV GAUGE_REPORTPORTAL_VERSION $GAUGE_REPORTPORTAL_VERSION
-ENV GAUGE_REPORTPORTAL_ARCHIVE reportportal-$GAUGE_REPORTPORTAL_VERSION-linux-musl-x64.zip
 ENV GAUGE_VERSION $GAUGE_VERSION
 ENV GAUGE_ARCHIVE gauge-$GAUGE_VERSION-linux.x86_64.zip
 ENV GAUGE_TELEMETRY_ENABLED false
@@ -62,6 +32,7 @@ RUN set -ex && \
     gauge install reportportal && \
     gauge install xray-report
 
-WORKDIR /usr/src/app
-ENTRYPOINT ["/usr/local/bin/entrypoint.sh"]
-CMD ["/bin/sh"]
+COPY entrypoint.sh /entrypoint.sh
+RUN chmod +x entrypoint.sh
+
+ENTRYPOINT ["/entrypoint.sh"]
