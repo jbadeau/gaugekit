@@ -20,4 +20,6 @@ jobs:
             ${{ runner.os }}-maven-
       - run: curl -SsL https://downloads.gauge.org/stable | sh -s -- --location-[custom path]
       - run: gauge install java
+      - run: gauge install screenshot
+      - run: gauge install html-report
       - run: mvn --batch-mode --update-snapshots verify
