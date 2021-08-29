@@ -2,31 +2,34 @@
 Gaugekit is a collection of packages to make writing acceptance tests with gauge easier.
 
 ## Modules
-The following domain modules are currently provided
+The following domain packages are currently provided
 
-- [beam](./beam)
-- [browser](./browser)
-- [compare](./compare)
-- [http](./http)
-- [sauron](./sauron)
-- [screenplay](./screenplay)
-- [sql](./sql)
-- [table](./table)
-- [template](./template)
-
-## Plugins
-The following plugin modules are currently provided
-
-- [plugin-xray-report](./plugin/xray-report)
+- [beam](./packages/beam)
+- [browser](./packages/browser)
+- [compare](./packages/compare)
+- [http](./packages/http)
+- [sauron](./packages/sauron)
+- [sql](./packages/sql)
+- [template](./packages/template)
 
 ## Examples
-The following example modules can be used to bootstrap a new Gauge project or as a blueprint to add Gauge to an existing project.
+The following example packages can be used to bootstrap a new Gauge project or as a blueprint to add Gauge to an existing project.
 
-- [example-beam](./example/example-beam)
-- [example-browser](./example/example-browser)
-- [example-http-graphql](./example/example-http-graphql)
-- [example-http-rest](./example/example-http-rest)
-- [example-sql](./example/example-sql)
+- [example-beam](./examples/example-beam)
+- [example-browser](./examples/example-browser)
+- [example-http-graphql](./examples/example-http-graphql)
+- [example-http-rest](./examples/example-http-rest)
+- [example-sql](./examples/example-sql)
+
+## Plugins
+The following plugin packages are currently provided
+
+- [plugin-xray-report](./plugins/xray-report)
+
+## Tools
+The following tool packages are currently provided
+
+- [github-action](./tools/github-action)
 
 ## Contributing
 Contributions are welcome and appreciated. Coding is definitely not the only way you can contribute. 
