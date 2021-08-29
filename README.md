@@ -45,6 +45,7 @@ Please read this document to understand the process for contributing.
 * Pick up any pending feature or bug, big or small, then send us a pull request. Even fixing broken links is helpful.
 
 ## Credits 
+* [Gauge](https://github.com/getgauge/gauge)
 * [Cucumber](https://github.com/cucumber)
-* [serenity](https://github.com/serenity-bdd)
-* [shakespeare](https://github.com/mkutz/shakespeare)
+* [Serenity](https://github.com/serenity-bdd)
+* [Shakespeare](https://github.com/mkutz/shakespeare)
