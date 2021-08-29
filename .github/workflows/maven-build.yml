@@ -22,4 +22,4 @@ jobs:
           key: ${{ runner.os }}-maven-${{ hashFiles('**/pom.xml') }}
           restore-keys: |
             ${{ runner.os }}-maven-
-      - run: mvn --batch-mode --update-snapshots verify
+      - run: mvn --batch-mode verify
