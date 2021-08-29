@@ -40,7 +40,7 @@ Please read this document to understand the process for contributing.
 ### Different ways to contribute
 * You can report an issue you found
 * Help us test Gaugekit by adding to our existing automated tests
-* Help someone get started with Gauge on our discussion forum
+* Help someone get started with Gaugekit on our discussion forum
 * Contribute to our blog
 * Add to our set of examples to help someone new to Gauge get started easily
 * Help us improve our documentation
