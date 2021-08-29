@@ -23,7 +23,7 @@ public class TemplateAbility implements Ability {
         return this.renderer;
     }
 
-    public Path getLastRenderedFile() {
+    public Path lastRenderedTemplate() {
         return lastRenderedFile;
     }
 

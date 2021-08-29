@@ -3,7 +3,7 @@ package org.gaugekit.example.sql;
 import com.thoughtworks.gauge.AfterScenario;
 import com.thoughtworks.gauge.BeforeScenario;
 import com.thoughtworks.gauge.datastore.ScenarioDataStore;
-import org.gaugekit.example.sql.common.CommonMemories;
+import org.gaugekit.example.sql.common.memory.CommonMemories;
 import org.gaugekit.core.screenplay.Cast;
 import org.gaugekit.core.screenplay.Director;
 import org.gaugekit.sql.screenplay.SqlAbility;

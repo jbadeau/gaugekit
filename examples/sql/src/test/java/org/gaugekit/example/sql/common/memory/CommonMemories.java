@@ -1,4 +1,4 @@
-package org.gaugekit.example.sql.common;
+package org.gaugekit.example.sql.common.memory;
 
 public interface CommonMemories {
 

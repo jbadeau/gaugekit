@@ -11,7 +11,7 @@ import static org.gaugekit.example.browser.wikipedia.WikipediaTasks.searchFor;
 
 public class WikipediaSteps implements BrowserTasks, BrowserQuestions {
 
-    @Step("And <actor> opens <app>")
+    @Step("Given <actor> opens <app>")
     public void open(Actor actor, String app) {
         actor.attemptsTo(open(baseUrl()));
     }

@@ -10,7 +10,7 @@ import java.util.Map;
 public interface TemplateTasks {
 
 
-    default Task renderTemplateToFile(String template, Map<String, Object> values) {
+    default Task renderTemplate(String template, Map<String, Object> values) {
         return new Task() {
             @Override
             public void performAs(Actor actor) {

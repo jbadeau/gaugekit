@@ -7,12 +7,12 @@ import java.nio.file.Path;
 
 public interface TemplateQuestions {
 
-    default Question<Path> getLastRenderedTemplate() {
+    default Question<Path> lastRenderedTemplate() {
         return new Question<Path>() {
             @Override
             public Path answerAs(Actor actor) {
                 TemplateAbility ability = actor.uses(TemplateAbility.class);
-                return ability.getLastRenderedFile();
+                return ability.lastRenderedTemplate();
             }
         };
     }

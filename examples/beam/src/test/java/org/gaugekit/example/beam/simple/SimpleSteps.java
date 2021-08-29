@@ -5,6 +5,7 @@ import com.thoughtworks.gauge.Table;
 import org.apache.beam.sdk.options.PipelineOptionsFactory;
 import org.apache.commons.io.FilenameUtils;
 import org.gaugekit.core.screenplay.Actor;
+import org.gaugekit.core.table.TableQuestions;
 import org.gaugekit.core.table.TableReader;
 import org.gaugekit.template.screenplay.TemplateQuestions;
 import org.gaugekit.template.screenplay.TemplateTasks;
@@ -15,12 +16,12 @@ import java.util.Collections;
 
 import static org.gaugekit.core.table.assertion.TableAssert.assertThat;
 
-public class SimpleSteps implements TemplateTasks, TemplateQuestions, SimpleMemories {
+public class SimpleSteps implements TemplateTasks, TemplateQuestions, TableQuestions, SimpleMemories {
 
     @Step("When <actor> provides templated input <template>")
     public void source(Actor actor, String template) {
-        actor.attemptsTo(renderTemplateToFile(template, Collections.EMPTY_MAP));
-        actor.memorizes(INPUT, getLastRenderedTemplate());
+        actor.attemptsTo(renderTemplate(template, Collections.EMPTY_MAP));
+        actor.memorizes(INPUT, lastRenderedTemplate());
     }
 
     @Step("And <he> runs <pipeline> pipeline")
@@ -42,8 +43,8 @@ public class SimpleSteps implements TemplateTasks, TemplateQuestions, SimpleMemo
     @Step("Then <actor> ensures output matches snapshot <snapshot>")
     public void verify(Actor actor, Path snapshot) throws IOException {
         Path output = actor.recites(OUTPUT);
-        Table sourceTable = TableReader.tableFromCsv(snapshot);
-        Table outputTable = TableReader.tableFromCsv(output);
+        Table sourceTable = actor.asksFor(tableFromCsv(snapshot));
+        Table outputTable = actor.asksFor(tableFromCsv(output));
         assertThat(sourceTable).hasTheSameRowsAs(outputTable);
     }
 

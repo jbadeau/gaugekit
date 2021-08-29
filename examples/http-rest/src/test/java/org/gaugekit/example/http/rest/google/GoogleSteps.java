@@ -13,7 +13,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 
 public class GoogleSteps implements GoogleMemories {
 
-    @Step("And <actor> opens <app>")
+    @Step("Given <actor> opens <app>")
     public void open(Actor actor, String app) {
     }
 
