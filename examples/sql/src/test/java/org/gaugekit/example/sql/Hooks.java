@@ -25,7 +25,9 @@ public class Hooks implements CommonMemories {
         ScenarioDataStore.put(JDBC_CONTAINER, container);
 
         Cast cast = new Cast();
-        cast.actorNamed("John", SqlAbility.sql(container.createConnection("?")), TableAbility.table());
+        cast.actorNamed("John",
+                TableAbility.table(),
+                SqlAbility.sql(container.createConnection("?")));
         Director.setStage(cast);
     }
 
