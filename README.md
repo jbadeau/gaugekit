@@ -1,7 +1,7 @@
 :warning: THIS REPO IS UNDER ACTIVE DEVLOPMENT AND EXPERIMENTATION. API WILL CHANGE UNTIL 0.1.0 RELEAE.
 
 # gaugekit
-Gaugekit is a collection of packages to make writing acceptance tests with gauge easier.
+Gaugekit is a collection of modules to make writing acceptance tests with gauge easier.
 
 ## Modules
 The following domain packages are currently provided
