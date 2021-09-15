@@ -23,7 +23,6 @@ jobs:
       - run: gauge install java
       - run: gauge install screenshot
       - run: gauge install html-report
-      - name: Cache local Maven repository
 
       ##################################################################################################################
       # Restore Cache
