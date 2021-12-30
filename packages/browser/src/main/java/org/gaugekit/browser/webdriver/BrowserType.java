@@ -1,6 +1,5 @@
-package org.gaugekit.browser;
+package org.gaugekit.browser.webdriver;
 
-import org.gaugekit.browser.webdriver.WebDriverProvider;
 import org.openqa.selenium.Capabilities;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
@@ -13,7 +12,7 @@ import org.openqa.selenium.safari.SafariOptions;
 import static java.util.Arrays.stream;
 
 /**
- * {@link Enum} of all browser types which are supported by {@link WebDriverProvider}.
+ * {@link Enum} of all browser types which are supported by {@link WebDriverSupplier}.
  */
 public enum BrowserType {
 

@@ -1,9 +1,11 @@
 package org.gaugekit.browser.supplier;
 
-import org.gaugekit.browser.BrowserType;
-import org.gaugekit.browser.webdriver.LocalWebDriverProvider;
+import org.gaugekit.browser.webdriver.BrowserType;
+import org.gaugekit.browser.webdriver.LocalWebDriverSupplier;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.condition.EnabledOnOs;
+import org.junit.jupiter.api.condition.OS;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.EnumSource;
 import org.openqa.selenium.Capabilities;
@@ -16,8 +18,8 @@ import java.util.Map;
 
 import static org.assertj.core.api.Assertions.*;
 import static org.assertj.core.api.Assumptions.assumeThat;
-import static org.gaugekit.browser.BrowserType.CHROME;
-import static org.gaugekit.browser.BrowserType.FIREFOX;
+import static org.gaugekit.browser.webdriver.BrowserType.CHROME;
+import static org.gaugekit.browser.webdriver.BrowserType.FIREFOX;
 
 
 class LocalWebDriverSupplierTest {
@@ -30,13 +32,14 @@ class LocalWebDriverSupplierTest {
             CHROME, new ChromeOptions().setHeadless(true),
             FIREFOX, new FirefoxOptions().setHeadless(true));
 
-    @ParameterizedTest(name = "get returns a {0}")
+    @EnabledOnOs(OS.LINUX)
     @EnumSource(BrowserType.class)
+    @ParameterizedTest(name = "get returns a {0}")
     void getTest1(BrowserType browserType) throws IOException, InterruptedException {
         assumeThat(COMMANDS).containsKey(browserType);
         assumeThat(new ProcessBuilder("which", COMMANDS.get(browserType)).start().waitFor()).isEqualTo(0);
 
-        final var localWebDriverSupplier = new LocalWebDriverProvider(browserType, HEADLESS.get(browserType));
+        final var localWebDriverSupplier = new LocalWebDriverSupplier(browserType, HEADLESS.get(browserType));
 
         assertThat(localWebDriverSupplier.get())
                 .isNotNull()
@@ -46,12 +49,13 @@ class LocalWebDriverSupplierTest {
     }
 
     @Test
+    @EnabledOnOs(OS.LINUX)
     @DisplayName("get caches the WebDriver")
     void getTest2() throws IOException, InterruptedException {
         assumeThat(COMMANDS).containsKey(FIREFOX);
         assumeThat(new ProcessBuilder("which", COMMANDS.get(FIREFOX)).start().waitFor()).isEqualTo(0);
 
-        final var localWebDriverSupplier = new LocalWebDriverProvider(FIREFOX, HEADLESS.get(FIREFOX));
+        final var localWebDriverSupplier = new LocalWebDriverSupplier(FIREFOX, HEADLESS.get(FIREFOX));
 
         final var webDriver = localWebDriverSupplier.get();
         assertThat(webDriver).isSameAs(localWebDriverSupplier.get());
@@ -60,12 +64,13 @@ class LocalWebDriverSupplierTest {
     }
 
     @Test
+    @EnabledOnOs(OS.LINUX)
     @DisplayName("close quits the WebDriver")
     void closeTest1() throws IOException, InterruptedException {
         assumeThat(COMMANDS).containsKey(FIREFOX);
         assumeThat(new ProcessBuilder("which", COMMANDS.get(FIREFOX)).start().waitFor()).isEqualTo(0);
 
-        final var localWebDriverSupplier = new LocalWebDriverProvider(FIREFOX, HEADLESS.get(FIREFOX));
+        final var localWebDriverSupplier = new LocalWebDriverSupplier(FIREFOX, HEADLESS.get(FIREFOX));
 
         final var webDriver = localWebDriverSupplier.get();
 

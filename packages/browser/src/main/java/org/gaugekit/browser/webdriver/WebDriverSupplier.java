@@ -1,6 +1,5 @@
 package org.gaugekit.browser.webdriver;
 
-import org.gaugekit.browser.BrowserType;
 import org.openqa.selenium.Capabilities;
 import org.openqa.selenium.WebDriver;
 
@@ -10,7 +9,7 @@ import java.util.function.Supplier;
  * A {@link Supplier} for {@link WebDriver}, which also takes care of {@link WebDriver#quit() quitting} the
  * {@link WebDriver}.
  */
-public abstract class WebDriverProvider implements Supplier<WebDriver>, AutoCloseable {
+public abstract class WebDriverSupplier implements Supplier<WebDriver>, AutoCloseable {
 
     private final BrowserType browserType;
     private final Capabilities capabilities;
@@ -19,7 +18,7 @@ public abstract class WebDriverProvider implements Supplier<WebDriver>, AutoClos
      * @param browserType            the {@link BrowserType} to be setup
      * @param additionalCapabilities additional {@link Capabilities} for the {@link WebDriver}
      */
-    protected WebDriverProvider(BrowserType browserType, Capabilities additionalCapabilities) {
+    protected WebDriverSupplier(BrowserType browserType, Capabilities additionalCapabilities) {
         this.browserType = browserType;
         this.capabilities = additionalCapabilities == null ?
                 browserType.getBaseCapabilities() :

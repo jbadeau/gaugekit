@@ -10,7 +10,7 @@ public interface BrowserQuestions {
         return new Question<String>() {
             @Override
             public String answerAs(Actor actor) {
-                BrowserAbility ability = actor.uses(BrowserAbility.class);
+                BrowseTheWeb ability = actor.uses(BrowseTheWeb.class);
                 WebDriver driver = ability.getWebDriver();
                 return driver.getTitle();
             }

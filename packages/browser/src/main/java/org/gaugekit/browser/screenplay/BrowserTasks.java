@@ -18,7 +18,7 @@ public interface BrowserTasks {
 
 
     default WebDriver driver(Actor actor) {
-        BrowserAbility ability = actor.uses(BrowserAbility.class);
+        BrowseTheWeb ability = actor.uses(BrowseTheWeb.class);
         return ability.getWebDriver();
     }
 

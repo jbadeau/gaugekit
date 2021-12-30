@@ -1,7 +1,7 @@
 package org.gaugekit.browser.supplier;
 
-import org.gaugekit.browser.BrowserType;
-import org.gaugekit.browser.webdriver.WebDriverProvider;
+import org.gaugekit.browser.webdriver.BrowserType;
+import org.gaugekit.browser.webdriver.WebDriverSupplier;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.EnumSource;
 import org.openqa.selenium.Capabilities;
@@ -35,7 +35,7 @@ class WebDriverSupplierTest {
                 .hasToString(browserType.name());
     }
 
-    private static class MockWebDriverSupplier extends WebDriverProvider {
+    private static class MockWebDriverSupplier extends WebDriverSupplier {
 
         public MockWebDriverSupplier(BrowserType browserType, Capabilities additionalCapabilities) {
             super(browserType, additionalCapabilities);

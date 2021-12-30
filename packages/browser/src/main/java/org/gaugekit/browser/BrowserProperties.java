@@ -1,7 +1,7 @@
 package org.gaugekit.browser;
 
-import org.gaugekit.browser.webdriver.WebDriverProvider;
-import org.gaugekit.browser.webdriver.WebDriverProviderType;
+import org.gaugekit.browser.webdriver.BrowserType;
+import org.gaugekit.browser.webdriver.WebDriverSupplier;
 import org.gaugekit.core.GaugeProperties;
 
 public final class BrowserProperties extends GaugeProperties {
@@ -15,10 +15,6 @@ public final class BrowserProperties extends GaugeProperties {
 
     public static BrowserType browser() {
         return BrowserType.forName(getString(browser));
-    }
-
-    public static WebDriverProvider webdriverSupplier() {
-        return WebDriverProviderType.forName(getString(browser_webdriver_supplier)).getWebDriverSupplier();
     }
 
 }
