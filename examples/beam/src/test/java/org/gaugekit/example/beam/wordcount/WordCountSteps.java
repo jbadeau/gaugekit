@@ -34,7 +34,7 @@ public class WordCountSteps implements TemplateTasks, TemplateQuestions, TableQu
         actor.attemptsTo(RunBeamPipeline.withOptions(options));
     }
 
-    @Step("Then <actor> ensures output <outputFile> isEqualTo snapshot <snapshotFile>")
+    @Step("Then <actor> ensures sink <outputFile> isEqualTo snapshot <snapshotFile>")
     public void verify(Actor actor, Path outputFile, Path snapshotFile) {
         String output = actor.asksFor(FileQuestions.contentsOf(outputFile));
         String snapshot = actor.asksFor(FileQuestions.contentsOf(snapshotFile));
