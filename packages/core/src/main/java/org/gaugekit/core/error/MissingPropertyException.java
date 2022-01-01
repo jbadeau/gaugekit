@@ -1,9 +1,9 @@
-package org.gaugekit.core;
+package org.gaugekit.core.error;
 
 public class MissingPropertyException extends RuntimeException {
 
     public MissingPropertyException(String property) {
-        super(String.format("Property '%s' not resolved", property));
+        super("Property '%s' not resolved".formatted(property));
     }
 
 }

@@ -31,7 +31,7 @@ public class Hooks implements CommonMemories {
                 .respond(response()
                         .withStatusCode(200)
                         .withHeader("Content-Type", "application/json")
-                        .withBody(FileReader.contentsOf("resources.json")));
+                        .withBody(FileReader.read("resources.json")));
 
         Cast cast = new Cast();
         cast.actorNamed("John", SearchApiAbility.searchApi(String.format("http://%s:%s", mockServer.getHost(), mockServer.getServerPort())));

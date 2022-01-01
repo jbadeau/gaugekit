@@ -34,8 +34,8 @@ public class TemplateRenderer {
 
     public Path renderToFile(String template, Map<String, Object> values) {
         try {
-            Path templateFile = FileReader.fileAt(template);
-            String templateContent = render(FileReader.contentsOf(templateFile), values);
+            Path templateFile = org.gaugekit.core.file.FileUtils.resolveProjectFile(template);
+            String templateContent = render(FileReader.read(templateFile), values);
             String fileName = compileInline(templateFile.getFileName().toString()).apply(values);
             Path file = templateFile.getParent().resolve(FilenameUtils.removeExtension(fileName));
             FileUtils.writeStringToFile(file.toFile(), templateContent, StandardCharsets.UTF_8);
@@ -47,7 +47,7 @@ public class TemplateRenderer {
 
     public Template compile(File template) {
         try {
-            return handlebars.compile(FileReader.contentsOf(template));
+            return handlebars.compile(FileReader.read(template));
         } catch (IOException e) {
             throw new RuntimeException(String.format("Failed to compile file template '%s'", template), e);
         }

@@ -11,7 +11,7 @@ public interface JsonQuestions {
             @Override
             public JsonElement answerAs(Actor actor) {
                 JsonAbility ability = actor.uses(JsonAbility.class);
-                return JsonReader.jsonAt(file);
+                return JsonReader.read(file);
             }
         };
     }

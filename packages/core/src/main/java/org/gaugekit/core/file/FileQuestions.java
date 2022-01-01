@@ -13,7 +13,7 @@ public interface FileQuestions {
             @Override
             public Path answerAs(Actor actor) {
                 FileAbility ability = actor.uses(FileAbility.class);
-                return FileReader.fileAt(file);
+                return FileUtils.resolveProjectFile(file);
             }
         };
     }
@@ -23,7 +23,7 @@ public interface FileQuestions {
             @Override
             public String answerAs(Actor actor) {
                 FileAbility ability = actor.uses(FileAbility.class);
-                return FileReader.contentsOf(file);
+                return FileReader.read(file);
             }
         };
     }
@@ -33,7 +33,7 @@ public interface FileQuestions {
             @Override
             public String answerAs(Actor actor) {
                 FileAbility ability = actor.uses(FileAbility.class);
-                return FileReader.contentsOf(file);
+                return FileReader.read(file);
             }
         };
     }
@@ -43,7 +43,7 @@ public interface FileQuestions {
             @Override
             public String answerAs(Actor actor) {
                 FileAbility ability = actor.uses(FileAbility.class);
-                return FileReader.contentsOf(file);
+                return FileReader.read(file);
             }
         };
     }

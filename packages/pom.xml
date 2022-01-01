@@ -23,6 +23,7 @@
         <module>sauron</module>
         <module>sql</module>
         <module>template</module>
+        <module>assert</module>
     </modules>
 
 </project>

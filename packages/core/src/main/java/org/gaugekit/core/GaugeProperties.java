@@ -1,5 +1,7 @@
 package org.gaugekit.core;
 
+import org.gaugekit.core.error.MissingPropertyException;
+
 import java.nio.file.Path;
 import java.util.Arrays;
 import java.util.List;

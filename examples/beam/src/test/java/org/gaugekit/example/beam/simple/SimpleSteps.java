@@ -6,7 +6,6 @@ import org.apache.beam.sdk.options.PipelineOptionsFactory;
 import org.apache.commons.io.FilenameUtils;
 import org.gaugekit.core.screenplay.Actor;
 import org.gaugekit.core.table.TableQuestions;
-import org.gaugekit.core.table.TableReader;
 import org.gaugekit.template.screenplay.TemplateQuestions;
 import org.gaugekit.template.screenplay.TemplateTasks;
 
