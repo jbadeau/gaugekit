@@ -4,6 +4,7 @@ import com.github.jknack.handlebars.Handlebars;
 import com.github.jknack.handlebars.Template;
 import org.gaugekit.core.GaugeProperties;
 import org.gaugekit.core.file.FileReader;
+import org.gaugekit.core.file.PathUtils;
 import org.gaugekit.template.helper.DateTimeHelpers;
 import org.apache.commons.io.FileUtils;
 import org.apache.commons.io.FilenameUtils;
@@ -34,7 +35,7 @@ public class TemplateRenderer {
 
     public Path renderToFile(String template, Map<String, Object> values) {
         try {
-            Path templateFile = org.gaugekit.core.file.FileUtils.resolveProjectFile(template);
+            Path templateFile = PathUtils.resolveProjectPath(template);
             String templateContent = render(FileReader.read(templateFile), values);
             String fileName = compileInline(templateFile.getFileName().toString()).apply(values);
             Path file = templateFile.getParent().resolve(FilenameUtils.removeExtension(fileName));
@@ -47,7 +48,7 @@ public class TemplateRenderer {
 
     public Template compile(File template) {
         try {
-            return handlebars.compile(FileReader.read(template));
+            return handlebars.compile(FileReader.read(template.toPath()));
         } catch (IOException e) {
             throw new RuntimeException(String.format("Failed to compile file template '%s'", template), e);
         }

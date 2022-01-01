@@ -22,3 +22,4 @@ logs
 reports
 snapshot
 tmp
+/examples/beam/data/default/wordcount/output.csv

@@ -9,7 +9,7 @@ import org.apache.poi.ss.usermodel.Row;
 import org.apache.poi.ss.usermodel.Sheet;
 import org.apache.poi.ss.usermodel.Workbook;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
-import org.gaugekit.core.file.FileUtils;
+import org.gaugekit.core.file.PathUtils;
 
 import java.io.FileInputStream;
 import java.io.IOException;
@@ -47,7 +47,7 @@ public final class TableReader {
     }
 
     public static Table tableFromExcel(String path, String sheetName) {
-        return tableFromExcel(FileUtils.resolveProjectFile(path), sheetName);
+        return tableFromExcel(PathUtils.resolveProjectPath(path), sheetName);
     }
 
     public static Table tableFromCsv(Path csvFile) {
@@ -67,7 +67,7 @@ public final class TableReader {
     }
 
     public static Table tableFromCsv(String path) {
-        return tableFromCsv(FileUtils.resolveProjectFile(path));
+        return tableFromCsv(PathUtils.resolveProjectPath(path));
     }
 
     public static Table tableFromResultSet(ResultSet resultSet) {

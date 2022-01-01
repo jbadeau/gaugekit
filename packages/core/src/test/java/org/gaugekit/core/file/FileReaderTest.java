@@ -17,18 +17,8 @@ public class FileReaderTest {
     public void getFileFromDevEnv() throws URISyntaxException {
         try (MockedStatic mocked = Mockito.mockStatic(GaugeProperties.class)) {
             mocked.when(GaugeProperties::gaugeEnvs).thenReturn(Arrays.asList("dev", "default"));
-            mocked.when(GaugeProperties::dataDir).thenReturn(Paths.get(Thread.currentThread().getContextClassLoader().getResource("./data").toURI()));
-            assertThat(FileUtils.resolveProjectFile("employees.csv").endsWith(Paths.get("dev", "employees.csv").toString())).isTrue();
-        }
-    }
-
-    @Test
-    public void getFileFromFallbackEnv() throws URISyntaxException {
-        try (MockedStatic mocked = Mockito.mockStatic(GaugeProperties.class)) {
-            mocked.when(GaugeProperties::gaugeEnvs).thenReturn(Arrays.asList("dev", "default"));
-            mocked.when(GaugeProperties::dataDir).thenReturn(Paths.get(Thread.currentThread().getContextClassLoader().getResource("./data").toURI()));
-
-            assertThat(FileUtils.resolveProjectFile("people.csv").endsWith(Paths.get("default", "people.csv").toString())).isTrue();
+            mocked.when(GaugeProperties::dataDir).thenReturn(Paths.get(Thread.currentThread().getContextClassLoader().getResource("./data/dev").toURI()));
+            assertThat(PathUtils.resolveProjectPath("employees.csv").endsWith(Paths.get("dev", "employees.csv").toString())).isTrue();
         }
     }
 
@@ -36,8 +26,8 @@ public class FileReaderTest {
     public void getFileFromDefaultEnv() throws URISyntaxException {
         try (MockedStatic mocked = Mockito.mockStatic(GaugeProperties.class)) {
             mocked.when(GaugeProperties::gaugeEnvs).thenReturn(Arrays.asList("default"));
-            mocked.when(GaugeProperties::dataDir).thenReturn(Paths.get(Thread.currentThread().getContextClassLoader().getResource("./data").toURI()));
-            assertThat(FileUtils.resolveProjectFile("people.csv").endsWith(Paths.get("default", "people.csv").toString())).isTrue();
+            mocked.when(GaugeProperties::dataDir).thenReturn(Paths.get(Thread.currentThread().getContextClassLoader().getResource("./data/default").toURI()));
+            assertThat(PathUtils.resolveProjectPath("people.csv").endsWith(Paths.get("default", "people.csv").toString())).isTrue();
         }
     }
 
