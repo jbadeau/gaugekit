@@ -3,18 +3,18 @@ package org.gaugekit.sauron.assertion;
 import org.assertj.core.api.AbstractAssert;
 import ru.yandex.qatools.ashot.comparison.ImageDiff;
 
-public class SauronAssert extends AbstractAssert<SauronAssert, ImageDiff> {
+public class IsEmpty extends AbstractAssert<IsEmpty, ImageDiff> {
 
-    public SauronAssert(ImageDiff diff) {
-        super(diff, SauronAssert.class);
+    public IsEmpty(ImageDiff diff) {
+        super(diff, IsEmpty.class);
     }
 
 
-    public static SauronAssert assertThat(ImageDiff diff) {
-        return new SauronAssert(diff);
+    public static IsEmpty assertThat(ImageDiff diff) {
+        return new IsEmpty(diff);
     }
 
-    public SauronAssert isEmpty(ImageDiff diff) {
+    public IsEmpty isEmpty(ImageDiff diff) {
         isNotNull();
         if(diff.hasDiff()) {
             failWithMessage("Expected image diff to be empty but there were diffs");

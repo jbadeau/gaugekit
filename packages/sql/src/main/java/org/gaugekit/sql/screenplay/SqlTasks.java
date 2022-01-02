@@ -8,13 +8,13 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 
-public interface SqlTasks {
+public class SqlTasks {
 
-    default Task query(String query) {
+    public static Task query(String query) {
         return new Task() {
             @Override
             public void performAs(Actor actor) {
-                SqlAbility ability = actor.uses(SqlAbility.class);
+                ExecuteSQLQueries ability = actor.uses(ExecuteSQLQueries.class);
                 try {
                     Connection connection = ability.getConnection();
                     Statement statement = connection.createStatement(ResultSet.TYPE_SCROLL_INSENSITIVE, ResultSet.CONCUR_READ_ONLY);

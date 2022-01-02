@@ -6,13 +6,13 @@ import org.gaugekit.core.screenplay.Question;
 import org.gaugekit.core.table.TableReader;
 
 
-public interface SqlQuestions {
+public class SqlQuestions {
 
-    default Question<Table> tableFromResultSet() {
+    public static Question<Table> tableFromResultSet() {
         return new Question<Table>() {
             @Override
             public Table answerAs(Actor actor) {
-                SqlAbility ability = actor.uses(SqlAbility.class);
+                ExecuteSQLQueries ability = actor.uses(ExecuteSQLQueries.class);
                 return TableReader.tableFromResultSet(ability.getLastResultSet());
             }
         };

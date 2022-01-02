@@ -7,14 +7,13 @@ import org.gaugekit.core.screenplay.Task;
 import java.nio.file.Path;
 import java.util.Map;
 
-public interface TemplateTasks {
+public class TemplateTasks {
 
-
-    default Task renderTemplate(String template, Map<String, Object> values) {
+    public static Task renderTemplate(String template, Map<String, Object> values) {
         return new Task() {
             @Override
             public void performAs(Actor actor) {
-                TemplateAbility ability = actor.uses(TemplateAbility.class);
+                RenderTemplates ability = actor.uses(RenderTemplates.class);
                 Path file = ability.getRenderer().renderToFile(template, values);
                 ability.setLastRenderedFile(file);
             }

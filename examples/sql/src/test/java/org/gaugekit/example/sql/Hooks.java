@@ -6,8 +6,8 @@ import com.thoughtworks.gauge.datastore.ScenarioDataStore;
 import org.gaugekit.example.sql.common.memory.CommonMemories;
 import org.gaugekit.core.screenplay.Cast;
 import org.gaugekit.core.screenplay.Director;
-import org.gaugekit.sql.screenplay.SqlAbility;
-import org.gaugekit.core.table.TableAbility;
+import org.gaugekit.sql.screenplay.ExecuteSQLQueries;
+import org.gaugekit.core.table.ManageTables;
 import org.testcontainers.containers.JdbcDatabaseContainer;
 import org.testcontainers.containers.MySQLContainer;
 
@@ -26,8 +26,8 @@ public class Hooks implements CommonMemories {
 
         Cast cast = new Cast();
         cast.actorNamed("John",
-                TableAbility.table(),
-                SqlAbility.sql(container.createConnection("?")));
+                ManageTables.with(),
+                ExecuteSQLQueries.sql(container.createConnection("?")));
         Director.setStage(cast);
     }
 

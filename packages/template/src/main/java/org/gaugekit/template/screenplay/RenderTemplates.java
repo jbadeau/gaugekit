@@ -5,19 +5,11 @@ import org.gaugekit.template.TemplateRenderer;
 
 import java.nio.file.Path;
 
-public class TemplateAbility implements Ability {
+public class RenderTemplates implements Ability {
 
     private TemplateRenderer renderer;
 
     private Path lastRenderedFile;
-
-    public TemplateAbility() {
-        renderer = new TemplateRenderer();
-    }
-
-    public static Ability template() {
-        return new TemplateAbility();
-    }
 
     public TemplateRenderer getRenderer() {
         return this.renderer;

@@ -1,19 +1,16 @@
-package org.gaugekit.example.beam.wordcount;
+package org.gaugekit.example.beam.passthrough;
 
 import com.thoughtworks.gauge.Step;
-import com.thoughtworks.gauge.Table;
 import org.apache.beam.sdk.options.PipelineOptionsFactory;
 import org.gaugekit.core.file.FileQuestions;
 import org.gaugekit.core.screenplay.Actor;
-import org.gaugekit.core.table.TableQuestions;
-import org.gaugekit.template.screenplay.TemplateQuestions;
-import org.gaugekit.template.screenplay.TemplateTasks;
 
 import java.nio.file.Path;
 
-import static org.assertj.core.api.Assertions.*;
+import static org.assertj.core.api.Assertions.assertThat;
+import static org.gaugekit.example.beam.passthrough.BeamTasks.runBeamPipeline;
 
-public class WordCountSteps implements TemplateTasks, TemplateQuestions, TableQuestions, WordCountMemories {
+public class PassthroughSteps implements PassthroughMemories {
 
     @Step("Given <actor> provides source <sourceFile> and sink <sinkFile>")
     public void source(Actor actor, Path sourceFile, Path sinkFile) {
@@ -26,12 +23,12 @@ public class WordCountSteps implements TemplateTasks, TemplateQuestions, TableQu
         Path source = actor.recites(SOURCE);
         Path sink = actor.recites(SINK);
 
-        PipelineOptionsFactory.register(WordCountOptions.class);
-        WordCountOptions options = PipelineOptionsFactory.create().as(WordCountOptions.class);
+        PipelineOptionsFactory.register(PassthroughOptions.class);
+        PassthroughOptions options = PipelineOptionsFactory.create().as(PassthroughOptions.class);
         options.setSource(source.toString());
         options.setSink(sink.toString());
 
-        actor.attemptsTo(RunBeamPipeline.withOptions(options));
+        actor.attemptsTo(runBeamPipeline(Passthrough.instanceOf(options)));
     }
 
     @Step("Then <actor> ensures sink <outputFile> isEqualTo snapshot <snapshotFile>")

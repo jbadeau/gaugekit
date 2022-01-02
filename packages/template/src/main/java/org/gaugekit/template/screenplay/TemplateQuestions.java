@@ -5,13 +5,13 @@ import org.gaugekit.core.screenplay.Question;
 
 import java.nio.file.Path;
 
-public interface TemplateQuestions {
+public class TemplateQuestions {
 
-    default Question<Path> lastRenderedTemplate() {
+    public static Question<Path> lastRenderedTemplate() {
         return new Question<Path>() {
             @Override
             public Path answerAs(Actor actor) {
-                TemplateAbility ability = actor.uses(TemplateAbility.class);
+                RenderTemplates ability = actor.uses(RenderTemplates.class);
                 return ability.lastRenderedTemplate();
             }
         };

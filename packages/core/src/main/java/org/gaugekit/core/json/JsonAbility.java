@@ -4,7 +4,7 @@ import org.gaugekit.core.screenplay.Ability;
 
 public class JsonAbility implements Ability {
 
-    public static JsonAbility io() {
+    public static JsonAbility with() {
         return new JsonAbility();
     }
 

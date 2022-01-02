@@ -1,24 +1,19 @@
-package org.gaugekit.example.beam.wordcount;
+package org.gaugekit.example.beam.passthrough;
 
 import org.apache.beam.sdk.Pipeline;
 import org.apache.beam.sdk.io.TextIO;
 import org.apache.beam.sdk.options.PipelineOptionsFactory;
-import org.apache.beam.sdk.transforms.*;
-import org.apache.beam.sdk.values.KV;
-import org.apache.beam.sdk.values.TypeDescriptors;
 
-import java.util.Arrays;
-
-public class WordCount {
+public class Passthrough {
 
     public static void main(String[] args) {
-        WordCountOptions options = PipelineOptionsFactory.fromArgs(args)
+        PassthroughOptions options = PipelineOptionsFactory.fromArgs(args)
                 .withValidation()
-                .as(WordCountOptions.class);
+                .as(PassthroughOptions.class);
         instanceOf(options).run();
     }
 
-    public static Pipeline instanceOf(WordCountOptions options) {
+    public static Pipeline instanceOf(PassthroughOptions options) {
         Pipeline p = Pipeline.create(options);
 
         p
@@ -28,7 +23,7 @@ public class WordCount {
         return p;
     }
 
-    public static void run(WordCountOptions options) {
+    public static void run(PassthroughOptions options) {
 
     }
 

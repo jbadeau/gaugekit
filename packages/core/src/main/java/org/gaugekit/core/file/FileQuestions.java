@@ -11,7 +11,7 @@ public class FileQuestions {
         return new Question<Path>() {
             @Override
             public Path answerAs(Actor actor) {
-                FileAbility ability = actor.uses(FileAbility.class);
+                ManageFiles ability = actor.uses(ManageFiles.class);
                 return PathUtils.resolveProjectPath(file);
             }
         };
@@ -21,7 +21,7 @@ public class FileQuestions {
         return new Question<String>() {
             @Override
             public String answerAs(Actor actor) {
-                FileAbility ability = actor.uses(FileAbility.class);
+                ManageFiles ability = actor.uses(ManageFiles.class);
                 return FileReader.read(file);
             }
         };
@@ -31,7 +31,7 @@ public class FileQuestions {
         return new Question<String>() {
             @Override
             public String answerAs(Actor actor) {
-                FileAbility ability = actor.uses(FileAbility.class);
+                ManageFiles ability = actor.uses(ManageFiles.class);
                 return FileReader.read(file);
             }
         };

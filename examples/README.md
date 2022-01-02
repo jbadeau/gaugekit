@@ -1,1 +1,1 @@
-# gaugekit-example
+# gaugekit-examples

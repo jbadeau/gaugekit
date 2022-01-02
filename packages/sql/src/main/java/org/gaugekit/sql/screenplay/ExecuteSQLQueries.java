@@ -6,18 +6,18 @@ import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
-public class SqlAbility implements Ability {
+public class ExecuteSQLQueries implements Ability {
 
     private Connection connection;
 
     private ResultSet lastResultSet;
 
-    public SqlAbility(Connection connection) {
+    public ExecuteSQLQueries(Connection connection) {
             this.connection = connection;
     }
 
     public static Ability sql(Connection connection) {
-        return new SqlAbility(connection);
+        return new ExecuteSQLQueries(connection);
     }
 
     public Connection getConnection() {

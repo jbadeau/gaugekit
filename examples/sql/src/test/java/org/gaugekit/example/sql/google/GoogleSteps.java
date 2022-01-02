@@ -3,15 +3,15 @@ package org.gaugekit.example.sql.google;
 import com.thoughtworks.gauge.Step;
 import com.thoughtworks.gauge.Table;
 import org.gaugekit.core.screenplay.Actor;
-import org.gaugekit.sql.screenplay.SqlQuestions;
-import org.gaugekit.sql.screenplay.SqlTasks;
-import org.gaugekit.core.table.TableQuestions;
+import static org.gaugekit.sql.screenplay.SqlQuestions.*;
+import static org.gaugekit.sql.screenplay.SqlTasks.*;
+import static org.gaugekit.core.table.TableQuestions.*;
 
 import java.nio.file.Path;
 
 import static org.gaugekit.core.table.assertion.TableAssert.assertThat;
 
-public class GoogleSteps implements SqlTasks, SqlQuestions, TableQuestions, GoogleMemories {
+public class GoogleSteps implements GoogleMemories {
 
     @Step("And <actor> opens <app>")
     public void open(Actor actor, String app) {
