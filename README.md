@@ -28,7 +28,7 @@ The following example can be used to bootstrap a new Gauge project or as a bluep
 ## Plugins
 The following plugins are provided.
 
-- [plugin-xray-report](./plugins/kafka-report)
+- [plugin-kafka-report](./plugins/kafka-report)
 - [plugin-xray-report](./plugins/xray-report)
 
 ## Tools
