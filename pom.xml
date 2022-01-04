@@ -84,7 +84,7 @@
         <module>plugins/kafka-report</module>
         <module>plugins/xray-report</module>
         <!-- tools -->
-        <module>tools/github-action</module>
+        <module>tools/gaugekit-maven</module>
     </modules>
 
     <build>

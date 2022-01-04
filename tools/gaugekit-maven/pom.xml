@@ -8,6 +8,6 @@
         <version>0.1.0-SNAPSHOT</version>
         <relativePath>../../pom.xml</relativePath>
     </parent>
-    <artifactId>github-maven-action</artifactId>
-    <name>Tool - GitHub Maven Action</name>
+    <artifactId>gaugekit-maven</artifactId>
+    <name>Tool - GaugeKit Maven GitHub Action</name>
 </project>

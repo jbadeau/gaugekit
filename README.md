@@ -1,11 +1,14 @@
 # GaugeKit
 Gaugekit is a collection of packages to make writing acceptance tests with Gauge easier.
 
-## Packages
-The following packages are currently provided.
+## Libs
+The following lib packages are provided.
 
 - [core](./packages/core)
-- [assert](./packages/assert)
+- [csv](./packages/csv)
+- [excel](./packages/excel)
+- [json](./packages/json)
+- [yaml](./packages/yaml)
 - [beam](./packages/beam)
 - [browser](./packages/browser)
 - [http](./packages/http)
@@ -23,14 +26,15 @@ The following example can be used to bootstrap a new Gauge project or as a bluep
 - [example-sql](./examples/sql)
 
 ## Plugins
-The following plugins are currently provided.
+The following plugins are provided.
 
+- [plugin-xray-report](./plugins/kafka-report)
 - [plugin-xray-report](./plugins/xray-report)
 
 ## Tools
-The following tool are currently provided
+The following tool are provided
 
-- [github-action](./tools/github-action)
+- [gaugekit-maven](./tools/gaugekit-maven)
 
 ## Contributing
 Contributions are welcome and appreciated. Coding is definitely not the only way you can contribute. 
