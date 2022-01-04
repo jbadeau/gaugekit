@@ -5,7 +5,7 @@ Gaugekit is a collection of packages to make writing acceptance tests with Gauge
 The following apps are provided.
 
 - [reporting](./apps/reporting)
-- 
+
 ## Libs
 The following lib packages are provided.
 
