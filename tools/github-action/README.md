@@ -1,4 +1,4 @@
-# gaugekit-tools-github-maven-action
+# github-maven-action
 
 This action prints "Hello World" or "Hello" + the name of a person to greet to the log.
 

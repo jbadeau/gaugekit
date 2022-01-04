@@ -5,13 +5,13 @@
 
     <parent>
         <groupId>org.gaugekit</groupId>
-        <artifactId>gaugekit-plugin</artifactId>
+        <artifactId>gaugekit</artifactId>
         <version>0.1.0-SNAPSHOT</version>
-        <relativePath>../pom.xml</relativePath>
+        <relativePath>../../pom.xml</relativePath>
     </parent>
 
-    <artifactId>gaugekit-plugins-xray-report</artifactId>
-    <name>Gaugekit Plugins - Xray Report</name>
+    <artifactId>xray-report</artifactId>
+    <name>Plugin - XRay Report</name>
 
     <dependencies>
         <dependency>

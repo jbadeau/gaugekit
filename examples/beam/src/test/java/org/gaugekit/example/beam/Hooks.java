@@ -2,10 +2,10 @@ package org.gaugekit.example.beam;
 
 import com.thoughtworks.gauge.BeforeSuite;
 import org.gaugekit.beam.screenplay.RunBeamPipelines;
-import org.gaugekit.core.file.ManageFiles;
+import org.gaugekit.core.io.file.ManageFiles;
 import org.gaugekit.core.screenplay.Cast;
 import org.gaugekit.core.screenplay.Director;
-import org.gaugekit.core.table.ManageTables;
+import org.gaugekit.core.table.screenplay.ManageTables;
 import org.gaugekit.template.screenplay.RenderTemplates;
 
 public class Hooks {

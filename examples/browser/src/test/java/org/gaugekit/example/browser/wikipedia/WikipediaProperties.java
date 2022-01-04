@@ -1,9 +1,9 @@
 package org.gaugekit.example.browser.wikipedia;
 
 
-import org.gaugekit.core.GaugeProperties;
+import org.gaugekit.core.DefaultProperties;
 
-public final class WikipediaProperties extends GaugeProperties {
+public final class WikipediaProperties extends DefaultProperties {
 
     private WikipediaProperties() {
     }

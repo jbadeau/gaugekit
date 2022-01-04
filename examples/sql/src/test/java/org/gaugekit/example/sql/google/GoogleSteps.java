@@ -5,7 +5,7 @@ import com.thoughtworks.gauge.Table;
 import org.gaugekit.core.screenplay.Actor;
 import static org.gaugekit.sql.screenplay.SqlQuestions.*;
 import static org.gaugekit.sql.screenplay.SqlTasks.*;
-import static org.gaugekit.core.table.TableQuestions.*;
+import static org.gaugekit.core.table.screenplay.TableQuestions.*;
 
 import java.nio.file.Path;
 

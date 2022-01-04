@@ -4,12 +4,12 @@
     <modelVersion>4.0.0</modelVersion>
     <parent>
         <groupId>org.gaugekit</groupId>
-        <artifactId>gaugekit-examples</artifactId>
+        <artifactId>gaugekit</artifactId>
         <version>0.1.0-SNAPSHOT</version>
-        <relativePath>../pom.xml</relativePath>
+        <relativePath>../../pom.xml</relativePath>
     </parent>
-    <artifactId>gaugekit-examples-browser</artifactId>
-    <name>Gaugekit Examples - Browser</name>
+    <artifactId>example-browser</artifactId>
+    <name>Example - Browser</name>
     <properties>
         <gauge.browser>chrome</gauge.browser>
     </properties>
