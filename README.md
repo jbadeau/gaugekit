@@ -9,17 +9,17 @@ The following apps are provided.
 ## Libs
 The following lib packages are provided.
 
-- [core](./packages/core)
-- [csv](./packages/csv)
-- [excel](./packages/excel)
-- [json](./packages/json)
-- [yaml](./packages/yaml)
-- [beam](./packages/beam)
-- [browser](./packages/browser)
-- [http](./packages/http)
-- [sql](./packages/sql)
-- [template](./packages/template)
-- [sauron](./packages/sauron)
+- [core](./libs/core)
+- [csv](./libs/csv)
+- [excel](./libs/excel)
+- [json](./libs/json)
+- [yaml](./libs/yaml)
+- [beam](./libs/beam)
+- [browser](./libs/browser)
+- [http](./libs/http)
+- [sql](./libs/sql)
+- [template](./libs/template)
+- [sauron](./libs/sauron)
 
 ## Examples
 The following example can be used to bootstrap a new Gauge project or as a blueprint to add Gauge to an existing project.
