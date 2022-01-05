@@ -4,12 +4,12 @@
     <modelVersion>4.0.0</modelVersion>
     <parent>
         <groupId>org.gaugekit</groupId>
-        <artifactId>gaugekit-examples</artifactId>
+        <artifactId>gaugekit</artifactId>
         <version>0.1.0-SNAPSHOT</version>
-        <relativePath>../pom.xml</relativePath>
+        <relativePath>../../pom.xml</relativePath>
     </parent>
-    <artifactId>gaugekit-examples-http-rest</artifactId>
-    <name>Gaugekit Examples - HTTP REST</name>
+    <artifactId>example-http-rest</artifactId>
+    <name>Example - HTTP REST</name>
     <build>
         <plugins>
             <plugin>

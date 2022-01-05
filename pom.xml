@@ -43,6 +43,10 @@
         <version.netty>4.1.63.Final</version.netty>
         <version.testcontainers>1.16.2</version.testcontainers>
         <version.webdrivermanager>5.0.3</version.webdrivermanager>
+        <version.guice>4.2.1</version.guice>
+        <version.spring>5.3.5</version.spring>
+        <version.owner>1.0.12</version.owner>
+        <owner.version>1.0.12</owner.version>
         <!-- plugins -->
         <version.maven-compiler-plugin>3.8.1</version.maven-compiler-plugin>
         <version.maven-dependency-plugin>3.1.1</version.maven-dependency-plugin>
@@ -55,16 +59,34 @@
         <version.gauge-maven-plugin>1.4.3</version.gauge-maven-plugin>
         <version.openapi-generator-maven-plugin>5.2.0</version.openapi-generator-maven-plugin>
         <version.markdowngenerator>1.3.1.1</version.markdowngenerator>
-        <version.guice>4.2.1</version.guice>
-        <version.spring>5.3.5</version.spring>
-        <version.owner>1.0.12</version.owner>
     </properties>
 
     <modules>
-        <module>tools</module>
-        <module>packages</module>
-        <module>plugins</module>
-        <module>examples</module>
+        <!-- apps -->
+        <module>apps/reporting</module>
+        <!-- examples -->
+        <module>examples/beam</module>
+        <module>examples/browser</module>
+        <module>examples/http-graphql</module>
+        <module>examples/http-rest</module>
+        <module>examples/sql</module>
+        <!-- libs -->
+        <module>libs/beam</module>
+        <module>libs/browser</module>
+        <module>libs/core</module>
+        <module>libs/csv</module>
+        <module>libs/excel</module>
+        <module>libs/http</module>
+        <module>libs/json</module>
+        <module>libs/sauron</module>
+        <module>libs/sql</module>
+        <module>libs/template</module>
+        <module>libs/yaml</module>
+        <!-- plugins -->
+        <module>plugins/kafka-report</module>
+        <module>plugins/xray-report</module>
+        <!-- tools -->
+        <module>tools/gaugekit-maven</module>
     </modules>
 
     <build>
@@ -184,11 +206,6 @@
                 <version>${version.netty}</version>
             </dependency>
             <dependency>
-                <groupId>com.github.carlosmenezes</groupId>
-                <artifactId>mockafka</artifactId>
-                <version>${version.mockafka}</version>
-            </dependency>
-            <dependency>
                 <groupId>org.apache.poi</groupId>
                 <artifactId>poi</artifactId>
                 <version>${version.poi}</version>
@@ -202,6 +219,11 @@
                 <groupId>io.rest-assured</groupId>
                 <artifactId>rest-assured</artifactId>
                 <version>${version.rest-assured}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.aeonbits.owner</groupId>
+                <artifactId>owner-java8</artifactId>
+                <version>${owner.version}</version>
             </dependency>
             <dependency>
                 <groupId>org.testcontainers</groupId>
@@ -274,11 +296,6 @@
                 <version>${version.assertj}</version>
             </dependency>
             <dependency>
-                <groupId>org.javers</groupId>
-                <artifactId>javers-core</artifactId>
-                <version>${version.javers}</version>
-            </dependency>
-            <dependency>
                 <groupId>ch.qos.logback</groupId>
                 <artifactId>logback-classic</artifactId>
                 <version>${version.logback}</version>
@@ -287,16 +304,6 @@
                 <groupId>net.steppschuh.markdowngenerator</groupId>
                 <artifactId>markdowngenerator</artifactId>
                 <version>${version.markdowngenerator}</version>
-            </dependency>
-            <dependency>
-                <groupId>net.javacrumbs.json-unit</groupId>
-                <artifactId>json-unit</artifactId>
-                <version>${version.json-unit}</version>
-            </dependency>
-            <dependency>
-                <groupId>org.xmlunit</groupId>
-                <artifactId>xmlunit-core</artifactId>
-                <version>${version.xmlunit-core}</version>
             </dependency>
             <dependency>
                 <groupId>org.mockito</groupId>

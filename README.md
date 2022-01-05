@@ -1,17 +1,25 @@
 # GaugeKit
 Gaugekit is a collection of packages to make writing acceptance tests with Gauge easier.
 
-## Packages
-The following packages are currently provided.
+## Apps
+The following apps are provided.
 
-- [core](./packages/core)
-- [assert](./packages/assert)
-- [beam](./packages/beam)
-- [browser](./packages/browser)
-- [http](./packages/http)
-- [sql](./packages/sql)
-- [template](./packages/template)
-- [sauron](./packages/sauron)
+- [reporting](./apps/reporting)
+
+## Libs
+The following lib packages are provided.
+
+- [core](./libs/core)
+- [csv](./libs/csv)
+- [excel](./libs/excel)
+- [json](./libs/json)
+- [yaml](./libs/yaml)
+- [beam](./libs/beam)
+- [browser](./libs/browser)
+- [http](./libs/http)
+- [sql](./libs/sql)
+- [template](./libs/template)
+- [sauron](./libs/sauron)
 
 ## Examples
 The following example can be used to bootstrap a new Gauge project or as a blueprint to add Gauge to an existing project.
@@ -23,14 +31,15 @@ The following example can be used to bootstrap a new Gauge project or as a bluep
 - [example-sql](./examples/sql)
 
 ## Plugins
-The following plugins are currently provided.
+The following plugins are provided.
 
+- [plugin-kafka-report](./plugins/kafka-report)
 - [plugin-xray-report](./plugins/xray-report)
 
 ## Tools
-The following tool are currently provided
+The following tool are provided
 
-- [github-action](./tools/github-action)
+- [gaugekit-maven](./tools/gaugekit-maven)
 
 ## Contributing
 Contributions are welcome and appreciated. Coding is definitely not the only way you can contribute. 

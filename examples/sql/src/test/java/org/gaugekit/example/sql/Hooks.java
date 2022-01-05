@@ -7,7 +7,7 @@ import org.gaugekit.example.sql.common.memory.CommonMemories;
 import org.gaugekit.core.screenplay.Cast;
 import org.gaugekit.core.screenplay.Director;
 import org.gaugekit.sql.screenplay.ExecuteSQLQueries;
-import org.gaugekit.core.table.ManageTables;
+import org.gaugekit.core.table.screenplay.ManageTables;
 import org.testcontainers.containers.JdbcDatabaseContainer;
 import org.testcontainers.containers.MySQLContainer;
 

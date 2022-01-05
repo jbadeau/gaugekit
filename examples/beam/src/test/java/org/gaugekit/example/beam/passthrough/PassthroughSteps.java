@@ -2,7 +2,7 @@ package org.gaugekit.example.beam.passthrough;
 
 import com.thoughtworks.gauge.Step;
 import org.apache.beam.sdk.options.PipelineOptionsFactory;
-import org.gaugekit.core.file.FileQuestions;
+import org.gaugekit.core.io.file.FileQuestions;
 import org.gaugekit.core.screenplay.Actor;
 
 import java.nio.file.Path;
