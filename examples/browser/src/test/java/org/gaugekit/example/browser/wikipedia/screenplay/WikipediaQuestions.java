@@ -1,12 +1,14 @@
-package org.gaugekit.browser.screenplay;
+package org.gaugekit.example.browser.wikipedia.screenplay;
 
+import org.gaugekit.browser.screenplay.BrowseTheWeb;
 import org.gaugekit.core.screenplay.Actor;
 import org.gaugekit.core.screenplay.Question;
 import org.openqa.selenium.WebDriver;
 
-public interface BrowserQuestions {
+public class WikipediaQuestions {
 
-    default Question<String> title() {
+
+    public static  Question<String> title() {
         return new Question<String>() {
             @Override
             public String answerAs(Actor actor) {

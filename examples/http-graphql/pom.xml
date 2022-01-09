@@ -70,7 +70,7 @@
     <dependencies>
         <dependency>
             <groupId>org.gaugekit</groupId>
-            <artifactId>gaugekit-http</artifactId>
+            <artifactId>http</artifactId>
             <version>${project.version}</version>
         </dependency>
         <dependency>

@@ -1,4 +1,4 @@
-package org.gaugekit.core.io.file;
+package org.gaugekit.core.io.file.sreenplay;
 
 import org.gaugekit.core.screenplay.Ability;
 

@@ -6,7 +6,7 @@ import org.apache.poi.ss.usermodel.Row;
 import org.apache.poi.ss.usermodel.Sheet;
 import org.apache.poi.ss.usermodel.Workbook;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
-import org.gaugekit.core.io.file.PathUtils;
+import org.gaugekit.core.io.file.FileUtils;
 
 import java.io.FileInputStream;
 import java.io.IOException;
@@ -23,7 +23,7 @@ public final class ExcelReader {
 
 
     public static Table readTable(String path, String sheetName) {
-        return readTable(PathUtils.resolveProjectPath(path), sheetName);
+        return readTable(FileUtils.resolveDataFile(path), sheetName);
     }
 
     public static Table readTable(Path file, String excelFile) {

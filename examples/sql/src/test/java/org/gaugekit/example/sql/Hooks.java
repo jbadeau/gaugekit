@@ -3,11 +3,11 @@ package org.gaugekit.example.sql;
 import com.thoughtworks.gauge.AfterScenario;
 import com.thoughtworks.gauge.BeforeScenario;
 import com.thoughtworks.gauge.datastore.ScenarioDataStore;
-import org.gaugekit.example.sql.common.memory.CommonMemories;
 import org.gaugekit.core.screenplay.Cast;
 import org.gaugekit.core.screenplay.Director;
-import org.gaugekit.sql.screenplay.ExecuteSQLQueries;
 import org.gaugekit.core.table.screenplay.ManageTables;
+import org.gaugekit.example.sql.common.memory.CommonMemories;
+import org.gaugekit.sql.screenplay.ExecuteSQLQueries;
 import org.testcontainers.containers.JdbcDatabaseContainer;
 import org.testcontainers.containers.MySQLContainer;
 

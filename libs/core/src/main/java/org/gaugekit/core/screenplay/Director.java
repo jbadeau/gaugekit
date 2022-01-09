@@ -1,8 +1,11 @@
 package org.gaugekit.core.screenplay;
 
+import org.aeonbits.owner.ConfigCache;
 import org.gaugekit.core.ScreenplayProperties;
 
 public class Director {
+
+    private static final ScreenplayProperties SCREENPLAY_PROPERTIES = ConfigCache.getOrCreate(ScreenplayProperties.class);
 
     private static final ThreadLocal<Stage> STAGE = new ThreadLocal<>();
 
@@ -17,7 +20,7 @@ public class Director {
     }
 
     public static Actor actorCalled(String requiredActor) {
-        if (ScreenplayProperties.pronouns().contains(requiredActor)) {
+        if (SCREENPLAY_PROPERTIES.screenplay_pronouns().contains(requiredActor)) {
             return stage().actorInSpotlight().usingPronoun(requiredActor);
         }
         return stage().shineSpotlightOn(requiredActor);

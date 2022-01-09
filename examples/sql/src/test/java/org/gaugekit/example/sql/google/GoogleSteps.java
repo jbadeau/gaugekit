@@ -3,13 +3,13 @@ package org.gaugekit.example.sql.google;
 import com.thoughtworks.gauge.Step;
 import com.thoughtworks.gauge.Table;
 import org.gaugekit.core.screenplay.Actor;
-import static org.gaugekit.sql.screenplay.SqlQuestions.*;
-import static org.gaugekit.sql.screenplay.SqlTasks.*;
-import static org.gaugekit.core.table.screenplay.TableQuestions.*;
 
 import java.nio.file.Path;
 
+import static org.gaugekit.csv.screenplay.CsvQuestions.*;
 import static org.gaugekit.core.table.assertion.TableAssert.assertThat;
+import static org.gaugekit.sql.screenplay.SqlQuestions.tableFromResultSet;
+import static org.gaugekit.sql.screenplay.SqlTasks.query;
 
 public class GoogleSteps implements GoogleMemories {
 

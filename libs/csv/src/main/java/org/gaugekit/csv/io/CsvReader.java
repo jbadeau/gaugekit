@@ -4,7 +4,7 @@ import com.thoughtworks.gauge.Table;
 import org.apache.commons.csv.CSVFormat;
 import org.apache.commons.csv.CSVParser;
 import org.apache.commons.csv.CSVRecord;
-import org.gaugekit.core.io.file.PathUtils;
+import org.gaugekit.core.io.file.FileUtils;
 
 import java.io.IOException;
 import java.nio.file.Path;
@@ -17,7 +17,7 @@ public final class CsvReader {
     }
 
     public static Table readTable(String path) {
-        return readTable(PathUtils.resolveProjectPath(path));
+        return readTable(FileUtils.resolveDataFile(path));
     }
 
     public static Table readTable(Path path) {

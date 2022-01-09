@@ -2,7 +2,7 @@ package org.gaugekit.example.beam;
 
 import com.thoughtworks.gauge.BeforeSuite;
 import org.gaugekit.beam.screenplay.RunBeamPipelines;
-import org.gaugekit.core.io.file.ManageFiles;
+import org.gaugekit.core.io.file.sreenplay.ManageFiles;
 import org.gaugekit.core.screenplay.Cast;
 import org.gaugekit.core.screenplay.Director;
 import org.gaugekit.core.table.screenplay.ManageTables;
@@ -15,7 +15,7 @@ public class Hooks {
         Cast cast = new Cast();
 
         cast.actorNamed(
-                "John",ManageTables.with(),
+                "John", ManageTables.with(),
                 new ManageFiles(),
                 new RenderTemplates(),
                 new RunBeamPipelines());

@@ -2,9 +2,9 @@ package org.gaugekit.template;
 
 import com.github.jknack.handlebars.Handlebars;
 import com.github.jknack.handlebars.Template;
+import org.aeonbits.owner.ConfigCache;
 import org.gaugekit.core.DefaultProperties;
 import org.gaugekit.core.io.file.FileReader;
-import org.gaugekit.core.io.file.PathUtils;
 import org.gaugekit.template.helper.DateTimeHelpers;
 import org.apache.commons.io.FileUtils;
 import org.apache.commons.io.FilenameUtils;
@@ -16,6 +16,8 @@ import java.nio.file.Path;
 import java.util.Map;
 
 public class TemplateRenderer {
+
+    private static final DefaultProperties DEFAULT_PROPERTIES = ConfigCache.getOrCreate(DefaultProperties.class);
 
     private Handlebars handlebars;
 
@@ -35,7 +37,7 @@ public class TemplateRenderer {
 
     public Path renderToFile(String template, Map<String, Object> values) {
         try {
-            Path templateFile = PathUtils.resolveProjectPath(template);
+            Path templateFile = org.gaugekit.core.io.file.FileUtils.resolveDataFile(template);
             String templateContent = render(FileReader.read(templateFile), values);
             String fileName = compileInline(templateFile.getFileName().toString()).apply(values);
             Path file = templateFile.getParent().resolve(FilenameUtils.removeExtension(fileName));
@@ -67,7 +69,7 @@ public class TemplateRenderer {
     }
 
     private static String parseEnv(Path file) {
-        String dataPath = DefaultProperties.dataDir().toAbsolutePath().toString();
+        String dataPath = DEFAULT_PROPERTIES.gauge_data_dir().toAbsolutePath().toString();
         String env = file.toAbsolutePath().toString().substring(dataPath.length() + 1);
         return new File(env.substring(0, env.indexOf(File.separator))).getName();
     }

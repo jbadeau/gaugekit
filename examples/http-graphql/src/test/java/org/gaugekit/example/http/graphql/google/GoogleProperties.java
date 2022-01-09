@@ -1,15 +1,10 @@
 package org.gaugekit.example.http.graphql.google;
 
+import org.aeonbits.owner.Config;
 
-import org.gaugekit.core.DefaultProperties;
+@Config.Sources({"system:env"})
+public interface GoogleProperties extends Config {
 
-public final class GoogleProperties extends DefaultProperties {
-
-    private GoogleProperties() {
-    }
-
-    public static String google_base_url() {
-        return getString("google_base_url");
-    }
+    String google_base_url();
 
 }

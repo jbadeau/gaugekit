@@ -1,19 +1,13 @@
 package org.gaugekit.browser;
 
-import org.gaugekit.browser.webdriver.BrowserType;
-import org.gaugekit.core.DefaultProperties;
+import org.aeonbits.owner.Config;
 
-public final class BrowserProperties extends DefaultProperties {
+@Config.Sources({"system:env"})
+public interface BrowserProperties extends Config {
 
-    private static final String browser = "browser";
+    String browser();
 
-    private static final String browser_webdriver_supplier = "browser_webdriver_supplier";
+    String browser_webdriver_supplier();
 
-    private BrowserProperties() {
-    }
-
-    public static BrowserType browser() {
-        return BrowserType.forName(getString(browser));
-    }
 
 }

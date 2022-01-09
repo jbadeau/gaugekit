@@ -7,7 +7,7 @@ public interface SqlProperties extends Config {
 
     String sql_database_url();
 
-   String sql_database_driver();
+    String sql_database_driver();
 
     String sql_database_user();
 

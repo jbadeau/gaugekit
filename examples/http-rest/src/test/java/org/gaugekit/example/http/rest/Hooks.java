@@ -4,10 +4,10 @@ import com.thoughtworks.gauge.AfterScenario;
 import com.thoughtworks.gauge.BeforeScenario;
 import com.thoughtworks.gauge.datastore.ScenarioDataStore;
 import org.gaugekit.core.io.file.FileReader;
-import org.gaugekit.example.http.rest.common.ability.SearchApiAbility;
-import org.gaugekit.example.http.rest.common.memory.CommonMemories;
 import org.gaugekit.core.screenplay.Cast;
 import org.gaugekit.core.screenplay.Director;
+import org.gaugekit.example.http.rest.common.ability.SearchApiAbility;
+import org.gaugekit.example.http.rest.common.memory.CommonMemories;
 import org.mockserver.client.MockServerClient;
 import org.testcontainers.containers.MockServerContainer;
 

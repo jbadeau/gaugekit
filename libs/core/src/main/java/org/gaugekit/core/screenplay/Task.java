@@ -1,14 +1,7 @@
 package org.gaugekit.core.screenplay;
 
-/**
- * A {@link Task} can be {@link Actor#attemptsTo performed} by an {@link Actor}.
- */
-public interface Task {
+public interface Task extends Performable {
 
-    /**
-     * Perform this {@link Task} as the given {@link Actor}.
-     *
-     * @param actor the {@link Actor} to perform this.
-     */
     void performAs(Actor actor);
+
 }

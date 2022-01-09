@@ -1,15 +1,10 @@
 package org.gaugekit.example.browser.wikipedia;
 
+import org.aeonbits.owner.Config;
 
-import org.gaugekit.core.DefaultProperties;
+@Config.Sources({"system:env"})
+public interface WikipediaProperties extends Config {
 
-public final class WikipediaProperties extends DefaultProperties {
-
-    private WikipediaProperties() {
-    }
-
-    public static String baseUrl() {
-        return getString("wikipedia_base_url");
-    }
+    String wikipedia_base_url();
 
 }

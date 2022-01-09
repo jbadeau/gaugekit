@@ -11,7 +11,7 @@ public final class FileReader {
 
     public static String read(String path) {
         try {
-            return new String(Files.readAllBytes(PathUtils.resolveProjectPath(path)));
+            return new String(Files.readAllBytes(FileUtils.resolveDataFile(path)));
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
