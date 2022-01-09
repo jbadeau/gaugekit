@@ -40,6 +40,6 @@ jobs:
       # Maven
       ##################################################################################################################
       - name: Maven - deploy
-        run: mvn -B clean deploy --file pom.xml
+        run: mvn -B clean install --file pom.xml
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
