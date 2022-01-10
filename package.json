@@ -23,8 +23,8 @@
   },
   "workspaces": {
     "packages": [
-      "apps/*",
-      "libs/*"
+      "packages/*",
+      "plugins/*"
     ]
   },
   "devDependencies": {
