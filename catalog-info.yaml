@@ -10,7 +10,7 @@ spec:
     displayName: GaugeKit
     email: info@gaugekit.org
     picture: https://example.com/groups/bu-infrastructure.jpeg
-  children: [gaugekit]
+  children: [gaugekit-team]
   members: []
 
 ---
