@@ -63,7 +63,7 @@ scaffolder:
 
 catalog:
   rules:
-    - allow: [Component, System, API, Group, User, Resource, Location, Test]
+    - allow: [Component, System, API, Group, User, Resource, Location, Specification]
   locations:
     # GaugeKit components
     - type: url

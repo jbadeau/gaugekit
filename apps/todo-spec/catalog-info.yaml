@@ -1,5 +1,5 @@
 apiVersion: backstage.io/v1alpha1
-kind: Test
+kind: Specification
 metadata:
   name: todo-clear-completed-button
   description: Todo clear completed button specification
@@ -14,7 +14,7 @@ spec:
 
 ---
 apiVersion: backstage.io/v1alpha1
-kind: Test
+kind: Specification
 metadata:
   name: todo-counter
   description: Todo counter specification
@@ -29,7 +29,7 @@ spec:
 
 ---
 apiVersion: backstage.io/v1alpha1
-kind: Test
+kind: Specification
 metadata:
   name: todo-editing
   description: Todo editing specification
@@ -44,7 +44,7 @@ spec:
 
 ---
 apiVersion: backstage.io/v1alpha1
-kind: Test
+kind: Specification
 metadata:
   name: todo-item
   description: Todo item specification
@@ -59,7 +59,7 @@ spec:
 
 ---
 apiVersion: backstage.io/v1alpha1
-kind: Test
+kind: Specification
 metadata:
   name: todo-mark-all-as-complete
   description: Todo mark all as complete specification
@@ -74,7 +74,7 @@ spec:
 
 ---
 apiVersion: backstage.io/v1alpha1
-kind: Test
+kind: Specification
 metadata:
   name: todo-new-todo
   description: Todo new todo specification
@@ -89,7 +89,7 @@ spec:
 
 ---
 apiVersion: backstage.io/v1alpha1
-kind: Test
+kind: Specification
 metadata:
   name: todo-no-todos
   description: Todo no todos specification
@@ -105,7 +105,7 @@ spec:
 
 ---
 apiVersion: backstage.io/v1alpha1
-kind: Test
+kind: Specification
 metadata:
   name: todo-routing
   description: Todo routing specification
