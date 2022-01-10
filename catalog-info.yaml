@@ -55,7 +55,7 @@ spec:
 apiVersion: backstage.io/v1alpha1
 kind: Location
 metadata:
-  name: gaugekit-location
+  name: gaugekit
 spec:
   targets:
     - ./apps/todo-spec/catalog-info.yaml
