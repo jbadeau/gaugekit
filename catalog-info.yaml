@@ -58,4 +58,4 @@ metadata:
   name: gaugekit
 spec:
   targets:
-    - ./apps/todo-spec/catalog-info.yaml
+    - ./packages/todo-spec/catalog-info.yaml
