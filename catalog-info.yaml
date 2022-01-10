@@ -4,16 +4,14 @@ kind: Group
 metadata:
   name: gaugekit
   description: The GaugeKit organization.
-  links:
-    - url: http://www.gaugekit.org/
-      title: Website
 spec:
   type: organization
   profile:
-    displayName: GuageKit Org
+    displayName: GaugeKit
     email: info@gaugekit.org
-    picture: https://avatars.dicebear.com/api/identicon/info@example.com.svg?background=%23fff&margin=25
-  children: [gaugekit]
+    picture: https://example.com/groups/bu-infrastructure.jpeg
+  children: []
+  members: []
 
 ---
 apiVersion: backstage.io/v1alpha1
