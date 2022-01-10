@@ -1,0 +1,63 @@
+apiVersion: backstage.io/v1alpha1
+kind: Location
+metadata:
+  name: gaugekit
+  description: Gaugekit is a collection of packages to make writing acceptance tests with Gauge easier.
+spec:
+  targets:
+    - ./acme/org.yaml
+
+---
+apiVersion: backstage.io/v1alpha1
+kind: Group
+metadata:
+  name: gaugekit
+  description: The GaugeKit organization.
+  links:
+    - url: http://www.gaugekit.org/
+      title: Website
+spec:
+  type: organization
+  profile:
+    displayName: GuageKit Org
+    email: info@gaugekit.org
+    picture: https://avatars.dicebear.com/api/identicon/info@example.com.svg?background=%23fff&margin=25
+  children: [gaugekit]
+
+---
+apiVersion: backstage.io/v1alpha1
+kind: Group
+metadata:
+  name: gaugekit
+  description: The GaugeKit team.
+spec:
+  type: team
+  profile:
+    displayName: GuageKit team
+    email: gaugekit@gaugekitorg
+    picture: https://avatars.dicebear.com/api/identicon/team-a@example.com.svg?background=%23fff&margin=25
+  children: []
+
+---
+apiVersion: backstage.io/v1alpha1
+kind: User
+metadata:
+  name: jbadeau
+spec:
+  profile:
+    displayName: Jose Badeau
+    email: jose.badeau@gmail.com
+    picture: https://avatars.dicebear.com/api/avataaars/janelle-dawe@example.com.svg?background=%23fff
+  memberOf: [gaugekit]
+
+---
+apiVersion: backstage.io/v1alpha1
+kind: User
+metadata:
+  name: tsatka
+spec:
+  profile:
+    displayName: Tomas Satka
+    email: tomas.satka@gmail.com
+    picture: https://avatars.dicebear.com/api/avataaars/janelle-dawe@example.com.svg?background=%23fff
+  memberOf: [gaugekit]

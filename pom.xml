@@ -64,12 +64,11 @@
     <modules>
         <!-- apps -->
         <module>apps/reporting</module>
-        <!-- examples -->
-        <module>examples/beam</module>
-        <module>examples/browser</module>
-        <module>examples/http-graphql</module>
-        <module>examples/http-rest</module>
-        <module>examples/sql</module>
+        <module>apps/example-beam</module>
+        <module>apps/example-browser</module>
+        <module>apps/example-http-graphql</module>
+        <module>apps/example-http-rest</module>
+        <module>apps/example-sql</module>
         <!-- libs -->
         <module>libs/beam</module>
         <module>libs/browser</module>
@@ -82,11 +81,10 @@
         <module>libs/sql</module>
         <module>libs/template</module>
         <module>libs/yaml</module>
-        <!-- plugins -->
-        <module>plugins/kafka-report</module>
-        <module>plugins/xray-report</module>
         <!-- tools -->
         <module>tools/gaugekit-maven</module>
+        <module>tools/kafka-report</module>
+        <module>tools/xray-report</module>
     </modules>
 
     <build>

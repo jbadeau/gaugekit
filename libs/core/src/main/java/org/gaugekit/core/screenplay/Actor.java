@@ -82,48 +82,6 @@ public final class Actor {
     }
 
     /**
-     * @param question the {@link RetryableQuestion} to be answered by this {@link Actor}
-     * @param <A>      the {@link Class} of the answer
-     * @return the answer to the given Question
-     * @throws TimeoutException if no acceptable answer is given when the question's timeout is reached
-     */
-    public <A> A asksFor(RetryableQuestion<A> question) {
-        final Duration timeout = question.getTimeout();
-        final long intervalMillis = question.getInterval().toMillis();
-        final Instant end = now().plus(timeout);
-
-        Exception lastException;
-        A lastAnswer;
-
-        while (true) {
-            try {
-                lastAnswer = question.answerAs(this);
-                lastException = null;
-
-                if (question.acceptable(lastAnswer)) {
-                    return lastAnswer;
-                }
-            } catch (Exception e) {
-                lastException = e;
-                if (question.getIgnoredExceptions().stream().noneMatch(ignore -> ignore.isInstance(e))) {
-                    throw e;
-                }
-            }
-
-            if (now().isAfter(end)) {
-                throw new TimeoutException(this, question, lastException);
-            }
-
-            try {
-                sleep(intervalMillis);
-            } catch (InterruptedException e) {
-                currentThread().interrupt();
-                throw new RetryInterruptedException(this, question, e);
-            }
-        }
-    }
-
-    /**
      * @param abilities {@link Ability}s the {@link Actor} may {@link #uses}
      * @return this {@link Actor}
      */

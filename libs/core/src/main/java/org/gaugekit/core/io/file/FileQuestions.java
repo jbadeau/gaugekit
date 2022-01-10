@@ -1,6 +1,6 @@
 package org.gaugekit.core.io.file;
 
-import org.gaugekit.core.io.file.sreenplay.ManageFiles;
+import org.gaugekit.core.io.file.screenplay.ManageFiles;
 import org.gaugekit.core.screenplay.Actor;
 import org.gaugekit.core.screenplay.Question;
 

@@ -1,0 +1,2 @@
+{{ $ctx := dict "Root" $ "Values" .Values.pvc }}
+  {{- template "common.persistentvolumeclaim.tpl" $ctx }}
