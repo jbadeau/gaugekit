@@ -8,12 +8,12 @@
         <version>0.1.0-SNAPSHOT</version>
         <relativePath>../../pom.xml</relativePath>
     </parent>
-    <artifactId>gaugekit-browser</artifactId>
+    <artifactId>browser</artifactId>
     <name>Lib - Browser</name>
     <dependencies>
         <dependency>
             <groupId>org.gaugekit</groupId>
-            <artifactId>gaugekit-core</artifactId>
+            <artifactId>core</artifactId>
             <version>${project.version}</version>
         </dependency>
         <dependency>

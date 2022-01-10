@@ -1,0 +1,12 @@
+apiVersion: route.openshift.io/v1
+kind: Route
+metadata:
+  name: {{ template "todo-srv.name" . }}
+spec:
+  host: ""
+  to:
+    kind: Service
+    name: {{ template "todo-srv.name" . }}
+    weight: 100
+status:
+  ingress: []

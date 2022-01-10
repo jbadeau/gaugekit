@@ -1,0 +1,6 @@
+dependencies:
+- name: gthub-common
+  repository: helm-snapshot-virtual
+  version: 0.2.19
+digest: sha256:f7d34667a343beefc462ded2774ef898c6c55c91a392d0732bdd55cf1caae3ea
+generated: "2020-11-03T09:18:31.2738263+01:00"

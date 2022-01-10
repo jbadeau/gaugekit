@@ -1,8 +1,11 @@
 package org.gaugekit.core;
 
 import org.aeonbits.owner.Config;
+import org.gaugekit.core.property.PathConverter;
+import org.gaugekit.core.property.ProjectPathConverter;
 
 import java.nio.file.Path;
+import java.util.List;
 
 /**
  * default.properties is a .properties file that contains key value pairs.
@@ -13,9 +16,23 @@ import java.nio.file.Path;
 @Config.Sources({"system:env"})
 public interface DefaultProperties extends Config {
 
+
+    /**
+     *
+     */
+    @Separator(",")
+    List<String> GAUGE_ENVIRONMENT();
+
+    /**
+     *
+     */
+    @ConverterClass(PathConverter.class)
+    Path GAUGE_PROJECT_ROOT();
+
     /**
      * The path to the gauge reports directory should be either relative to the project directory or an absolute path.
      */
+    @ConverterClass(ProjectPathConverter.class)
     Path gauge_reports_dir();
 
     /**
@@ -32,6 +49,7 @@ public interface DefaultProperties extends Config {
     /**
      * The path to the Gauge logs directory should be either relative to the project directory or an absolute path.
      */
+    @ConverterClass(ProjectPathConverter.class)
     Path logs_directory();
 
     /**
@@ -43,7 +61,8 @@ public interface DefaultProperties extends Config {
     /**
      * The path to the gauge specifications directory. Takes a comma separated list of specification files or directories.
      */
-    Path gauge_specs_dir();
+    @Separator(",")
+    List<Path> gauge_specs_dir();
 
 
     /**
@@ -61,6 +80,7 @@ public interface DefaultProperties extends Config {
     /**
      * The path to the Gauge data directory should be either relative to the project directory or an absolute path.
      */
+    @ConverterClass(ProjectPathConverter.class)
     Path gauge_data_dir();
 
 }

@@ -1,7 +1,9 @@
 package org.gaugekit.sauron;
 
 import com.thoughtworks.gauge.screenshot.CustomScreenshotWriter;
+import org.aeonbits.owner.ConfigCache;
 import org.apache.commons.io.FileUtils;
+import org.gaugekit.core.DefaultProperties;
 
 import java.io.File;
 import java.io.FileFilter;
@@ -10,10 +12,12 @@ import java.util.UUID;
 
 public class SauronScreenshotWriter implements CustomScreenshotWriter {
 
+    private static final SauronProperties SAURON_PROPERTIES = ConfigCache.getOrCreate(SauronProperties.class);
+
     @Override
     public String takeScreenshot() {
-        File targetFile = SauronProperties.snapshotDir().resolve(UUID.randomUUID().toString()).resolve(".png").toFile();
-        File sourceFile = getTheNewestFile(SauronProperties.diffDir().toFile());
+        File targetFile = SAURON_PROPERTIES.sauron_snapshot_dir().resolve(UUID.randomUUID().toString()).resolve(".png").toFile();
+        File sourceFile = getTheNewestFile(SAURON_PROPERTIES.sauron_diff_dir().toFile());
         if (sourceFile == null) {
             return null;
         }

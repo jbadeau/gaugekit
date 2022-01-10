@@ -2,7 +2,8 @@ package org.gaugekit.json.io;
 
 import com.google.gson.Gson;
 import com.google.gson.JsonElement;
-import org.gaugekit.core.io.file.PathUtils;
+import org.gaugekit.core.io.file.FileUtils;
+
 
 import java.io.FileNotFoundException;
 import java.nio.file.Path;
@@ -15,7 +16,7 @@ public final class JsonReader {
     }
 
     public static JsonElement read(String file) {
-            return read(PathUtils.resolveProjectPath(file));
+            return read(FileUtils.resolveDataFile(file));
     }
 
     public static JsonElement read(Path file)  {

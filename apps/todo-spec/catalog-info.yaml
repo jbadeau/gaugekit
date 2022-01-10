@@ -1,0 +1,11 @@
+apiVersion: backstage.io/v1alpha1
+kind: Specification
+metadata:
+  name: todo-clear-completed-button
+  description: Todo clear completed button specification.
+spec:
+  type: gauge
+  lifecycle: production
+  owner: gaugekit-team
+  definition:
+    $text: ./spec/clear-completed-button.spec

@@ -23,3 +23,5 @@ reports
 snapshot
 tmp
 /examples/beam/data/default/wordcount/output.csv
+node_modules
+dist

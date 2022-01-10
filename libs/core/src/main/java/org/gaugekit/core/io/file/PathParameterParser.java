@@ -9,7 +9,7 @@ public class PathParameterParser extends CustomParameterParser<Path> {
 
     @Override
     protected Path customParse(Class clazz, Spec.Parameter parameter) {
-        return PathUtils.resolveProjectPath(parameter.getValue());
+        return FileUtils.resolveDataFile(parameter.getValue());
     }
 
     @Override
