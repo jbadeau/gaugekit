@@ -1,12 +1,3 @@
-apiVersion: backstage.io/v1alpha1
-kind: Location
-metadata:
-  name: gaugekit
-  description: Gaugekit is a collection of packages to make writing acceptance tests with Gauge easier.
-spec:
-  targets:
-    - ./apps/todo-spec/catalog-info.yaml
-
 ---
 apiVersion: backstage.io/v1alpha1
 kind: Group
