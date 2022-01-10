@@ -67,4 +67,4 @@ catalog:
   locations:
     # GaugeKit components
     - type: url
-      target: https://github.com/jbadeau/gaugekit/blob/backstage/catalog-info.yaml
+      target: https://github.com/jbadeau/gaugekit/blob/master/catalog-info.yaml
