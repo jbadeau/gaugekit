@@ -62,11 +62,11 @@ public final class Actor {
     }
 
     /**
-     * @param performables the {@link Performable}s to be performed by this {@link Actor}
+     * @param tasks the {@link Task}s to be performed by this {@link Actor}
      * @return this {@link Actor}
      */
-    public Actor attemptsTo(Performable... performables) {
-        for (Performable performable : performables) {
+    public Actor attemptsTo(Task... tasks) {
+        for (Task performable : tasks) {
             performable.performAs(this);
         }
         return this;

@@ -1,6 +1,6 @@
 package org.gaugekit.core.screenplay;
 
-public interface Task extends Performable {
+public interface Task {
 
     void performAs(Actor actor);
 
