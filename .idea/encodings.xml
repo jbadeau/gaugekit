@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="Encoding">
+    <file url="file://$PROJECT_DIR$/apps/example-beam/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/apps/example-beam/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/apps/example-browser/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/apps/example-browser/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/apps/example-http-graphql/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/apps/example-http-graphql/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/apps/example-http-rest/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/apps/example-http-rest/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/apps/example-sql/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/apps/example-sql/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/apps/reporting/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/libs/beam/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/libs/beam/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/libs/browser/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/libs/browser/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/libs/core/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/libs/core/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/libs/csv/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/libs/csv/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/libs/excel/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/libs/excel/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/libs/http/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/libs/http/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/libs/json/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/libs/json/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/libs/sauron/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/libs/sauron/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/libs/sql/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/libs/sql/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/libs/template/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/libs/template/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/libs/yaml/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/libs/yaml/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/tools/gaugekit-maven/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/tools/gaugekit-maven/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/tools/kafka-report/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/tools/kafka-report/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/tools/xray-report/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/tools/xray-report/src/main/resources" charset="UTF-8" />
+  </component>
+</project>
