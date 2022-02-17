@@ -2,11 +2,11 @@ package org.gaugekit.example.browser.wikipedia.screenplay.interaction;
 
 import org.gaugekit.browser.screenplay.BrowseTheWeb;
 import org.gaugekit.core.screenplay.Actor;
-import org.gaugekit.core.screenplay.Performable;
+import org.gaugekit.core.screenplay.Task;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 
-public class EnterText implements Performable {
+public class EnterText implements Task {
 
     public EnterText() {
     }
@@ -25,18 +25,19 @@ public class EnterText implements Performable {
         return new EnterText(value);
     }
 
-    public Performable into(By by) {
+    public Task into(By by) {
         this.by = by;
         return this;
     }
 
-    public Performable into(WebElement target) {
+    public Task into(WebElement target) {
         this.target = target;
         return this;
     }
 
     @Override
-    public <T extends Actor> void performAs(T actor) {
+    public void performAs(Actor actor) {
         actor.uses(BrowseTheWeb.class).getWebDriver().findElement(by).sendKeys(value);
     }
+
 }

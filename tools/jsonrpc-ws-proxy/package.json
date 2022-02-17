@@ -1,0 +1,38 @@
+{
+  "name": "jsonrpc-ws-proxy",
+  "version": "0.0.5",
+  "author": "Wylie Conlon <wylieconlon@gmail.com>",
+  "description": "Creates a web socket proxy for any number of language server processes",
+  "keywords": [
+    "jsonrpc",
+    "json-rpc",
+    "languageserver",
+    "websocket"
+  ],
+  "homepage": "https://github.com/wylieconlon/jsonrpc-ws-proxy",
+  "repository": "github:wylieconlon/jsonrpc-ws-proxy",
+  "bin": "dist/server.js",
+  "main": "dist/server.js",
+  "scripts": {
+    "prepare": "npm run clean && npm run build",
+    "watch": "node_modules/.bin/tsc -w",
+    "clean": "node_modules/.bin/rimraf dist",
+    "build": "node_modules/.bin/tsc"
+  },
+  "dependencies": {
+    "@sourcegraph/vscode-ws-jsonrpc": "0.0.3-fork",
+    "js-yaml": "^3.14.1",
+    "minimist": "^1.2.5",
+    "ws": "^6.2.2"
+  },
+  "devDependencies": {
+    "@types/node": "^17.0.8",
+    "@types/ws": "^6.0.1",
+    "javascript-typescript-langserver": "^2.11.3",
+    "rimraf": "^2.7.1",
+    "typescript": "^4.5.4",
+    "vscode-css-languageserver-bin": "^1.4.0",
+    "vscode-html-languageserver-bin": "^1.4.0"
+  },
+  "license": "ISC"
+}

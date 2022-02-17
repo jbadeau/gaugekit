@@ -1,0 +1,28 @@
+repositories:
+
+  - name: strimzi
+    url: https://strimzi.io/charts
+
+  - name: skywalking
+    url: https://apache.jfrog.io/artifactory/skywalking-helm
+
+releases:
+  - name: strimzi-kafka-operator
+    namespace: gaugekit
+    createNamespace: true
+    chart: strimzi/strimzi-kafka-operator
+
+  - name: skywalking
+    namespace: gaugekit
+    createNamespace: true
+    chart: skywalking/skywalking
+    values:
+      - oap:
+          image:
+            tag: 8.8.1
+          storageType: elasticsearch
+      - ui:
+          image:
+            tag: 8.8.1
+          elasticsearch:
+            imageTag: 6.8.6

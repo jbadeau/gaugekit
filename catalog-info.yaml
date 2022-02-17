@@ -1,61 +1,13 @@
----
 apiVersion: backstage.io/v1alpha1
-kind: Group
+kind: Component
 metadata:
   name: gaugekit
-  description: The GaugeKit organization.
+  description: An example of a Backstage application.
+  # Example for optional annotations
+  # annotations:
+  #   github.com/project-slug: backstage/backstage
+  #   backstage.io/techdocs-ref: dir:.
 spec:
-  type: root
-  profile:
-    displayName: GaugeKit
-    email: info@gaugekit.org
-    picture: https://example.com/groups/bu-infrastructure.jpeg
-  children: [gaugekit-team]
-  members: []
-
----
-apiVersion: backstage.io/v1alpha1
-kind: Group
-metadata:
-  name: gaugekit-team
-  description: The GaugeKit team.
-spec:
-  type: team
-  profile:
-    displayName: GuageKit team
-    email: gaugekit@gaugekitorg
-    picture: https://avatars.dicebear.com/api/identicon/team-a@example.com.svg?background=%23fff&margin=25
-  children: []
-
----
-apiVersion: backstage.io/v1alpha1
-kind: User
-metadata:
-  name: jbadeau
-spec:
-  profile:
-    displayName: Jose Badeau
-    email: jose.badeau@gmail.com
-    picture: https://avatars.dicebear.com/api/avataaars/janelle-dawe@example.com.svg?background=%23fff
-  memberOf: [gaugekit]
-
----
-apiVersion: backstage.io/v1alpha1
-kind: User
-metadata:
-  name: tomassatka
-spec:
-  profile:
-    displayName: Tomas Satka
-    email: tomas.satka@gmail.com
-    picture: https://avatars.dicebear.com/api/avataaars/janelle-dawe@example.com.svg?background=%23fff
-  memberOf: [gaugekit]
-
----
-apiVersion: backstage.io/v1alpha1
-kind: Location
-metadata:
-  name: gaugekit
-spec:
-  targets:
-    - ./apps/todo-spec/catalog-info.yaml
+  type: website
+  owner: john@example.com
+  lifecycle: experimental
