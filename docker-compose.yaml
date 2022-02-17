@@ -1,0 +1,84 @@
+version: '3.7'
+services:
+  redpanda:
+    command:
+      - redpanda:latest
+      - start
+      - --smp
+      - '1'
+      - --reserve-memory
+      - 0M
+      - --overprovisioned
+      - --node-id
+      - '0'
+      - --kafka-addr
+      - PLAINTEXT://0.0.0.0:29092,OUTSIDE://0.0.0.0:9092
+      - --advertise-kafka-addr
+      - PLAINTEXT://redpanda:29092,OUTSIDE://localhost:9092
+    image: docker.vectorized.io/vectorized/redpanda:latest
+    container_name: redpanda-1
+    ports:
+      - 9092:9092
+      - 29092:29092
+
+  jobmanager:
+    image: flink:latest
+    ports:
+      - "8081:8081"
+    command: standalone-job --job-classname com.job.ClassName [--job-id <job id>] [--fromSavepoint /path/to/savepoint [--allowNonRestoredState]] [job arguments]
+    volumes:
+      - /host/path/to/job/artifacts:/opt/flink/usrlib
+    environment:
+      - |
+        FLINK_PROPERTIES=
+        jobmanager.rpc.address: jobmanager
+        parallelism.default: 2        
+
+  taskmanager:
+    image: flink:latest
+    depends_on:
+      - jobmanager
+    command: taskmanager
+    scale: 1
+    volumes:
+      - /host/path/to/job/artifacts:/opt/flink/usrlib
+    environment:
+      - |
+        FLINK_PROPERTIES=
+        jobmanager.rpc.address: jobmanager
+        taskmanager.numberOfTaskSlots: 2
+        parallelism.default: 2
+
+  postgres:
+    image: postgres:latest
+    restart: always
+    ports:
+      - "5432:5432"
+    environment:
+      POSTGRES_USER: gaugekit
+      # NOT RECOMMENDED for a production environment. Trusts all incomming
+      # connections.
+      POSTGRES_HOST_AUTH_METHOD: trust
+
+  timescaledb:
+    image: timescale/timescaledb:latest-pg14
+    restart: always
+    ports:
+      - "5432:5433"
+    environment:
+      POSTGRES_USER: gaugekit
+      # NOT RECOMMENDED for a production environment. Trusts all incomming
+      # connections.
+      POSTGRES_HOST_AUTH_METHOD: trust
+
+  materialize:
+    image: materialize/materialized:latest
+    restart: always
+    ports:
+      - "6875:6875"
+
+  adminer:
+    image: adminer:latest
+    restart: always
+    ports:
+      - 8080:8080

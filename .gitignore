@@ -1,33 +1,3 @@
-#Eclipse
-.project
-.settings
-.classpath
-
-# Intellij
-*.idea
-*.iml
-*.iws
-
-#VSCode
-.vscode
-
-# Maven
-target
-.flattened-pom.xml
-
-# Gauge
-.gauge
-build
-logs
-reports
-snapshot
-tmp
-/examples/beam/data/default/wordcount/output.csv
-node_modules
-dist
-
-
-
 # macOS
 .DS_Store
 
@@ -43,6 +13,7 @@ lerna-debug.log*
 coverage
 
 # Dependencies
+node_modules/
 
 # Node version directives
 .nvmrc
